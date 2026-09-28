@@ -1,0 +1,14 @@
+{%- assign b = include.t.balance -%}
+<svg class="viz" viewBox="0 0 400 400" role="img" aria-label="{{ b.left }} &amp; {{ b.right }}">
+  <!-- A beam resting level on a fulcrum: ethics and business in balance. -->
+  <line x1="60" y1="330" x2="340" y2="330" stroke="var(--rule-strong)"/>
+  <polygon points="200,238 244,330 156,330" fill="var(--ink)"/>
+  <line x1="40" y1="238" x2="360" y2="238" stroke="var(--ink)" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="112" cy="168" r="66" fill="var(--hl)"/>
+  <circle cx="288" cy="168" r="66" fill="none" stroke="var(--ink)" stroke-width="2"/>
+  <g class="viz-word">
+    <text x="112" y="175" text-anchor="middle">{{ b.left }}</text>
+    <text x="288" y="175" text-anchor="middle">{{ b.right }}</text>
+  </g>
+  <text class="viz-amp" x="200" y="182" text-anchor="middle">&amp;</text>
+</svg>

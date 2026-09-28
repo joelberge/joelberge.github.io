@@ -1,0 +1,135 @@
+# Research output. Newest first within each group.
+#
+# Fields:
+#   status:   article | forthcoming | working | other
+#   featured: true shows the paper as a large card with image and summary
+#   image:    path to an image file, OR viz: name of an illustration in _includes/viz/
+#   link:     DOI or paper URL (optional)
+#   summary:  short plain-language text in both languages (featured papers only)
+#   note:     optional short label, e.g. "Open access"
+
+- title: "Observable Information Acquisition, Social Costs, and Pay Dispersion"
+  authors: Berge, J. W., Traini, S., & Vattø, T.
+  status: working
+  featured: true
+  image: /assets/img/research/pay-dispersion.svg
+  link: https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6747599
+  press:
+    - title: Denne setningen kan ha gitt deg lavere lønn
+      outlet: digi.no
+      link: https://www.digi.no/artikler/denne-setningen-kan-ha-gitt-deg-lavere-lonn/533334?key=9cRb3WGp
+  note:
+    nb: Revise and resubmit, Journal of Accounting Research
+    en: Revise and resubmit, Journal of Accounting Research
+  summary:
+    nb: >-
+      Da Norge gjorde søk i skattelistene synlige for den som blir søkt på, ble det sosialt kostbart å hente
+      lønnsinformasjon om andre. Lønnsforskjellene økte mer, om lag 3–4 prosent, i bedrifter med færre søk etter
+      reformen. Hvor godt åpenhet virker, avhenger altså ikke bare av om informasjonen finnes, men av hva det
+      koster å hente den.
+    en: >-
+      When Norway made searches in public tax records visible to the person searched, looking up others' pay
+      became socially costly. Pay dispersion rose more, by about 3–4 percent, in firms with fewer searches after
+      the reform. How well transparency works depends not only on whether information is available, but on the
+      cost of acquiring it.
+
+- title: "KI-kompasset: Et strategisk verktøy for å navigere KI-implementering"
+  authors: Berge, J. W., & Knudsen, D.-R.
+  venue: Magma, 4/2026, 57–64
+  year: forthcoming
+  status: forthcoming
+  featured: true
+  press:
+    - title: AI-kappløpet – sprint eller orienteringsløp?
+      outlet: Finansavisen
+      link: https://www.finansavisen.no/teknologi/2026/03/05/8332434/ai-kapplopet-sprint-eller-orienteringslop-
+  viz: compass
+  # Photo alternative: image: /assets/img/research/ki-kompasset.webp
+  summary:
+    nb: >-
+      Når KI bygges inn i beslutningssystemer, kan den forsterke gode valg, men også skalere konsekvensene av
+      dårlige. KI-kompasset definerer fire idealtypiske roller for KI i ulike beslutningsprosesser. Ledere må
+      først diagnostisere beslutningstypen, og deretter velge hvilken rolle KI skal ha.
+    en: >-
+      When AI is built into decision systems, it can strengthen good choices, but also scale the consequences
+      of bad ones. The AI Compass defines four ideal-typical roles for AI in different decision processes.
+      Leaders must first diagnose the type of decision, and then choose the role AI should play.
+
+- title: "Mixed Motives for Doing Good: The Effect of Profit Motives in CSR Initiatives on Employee Opportunism"
+  authors: Arshad, F. M., & Berge, J. W.
+  venue: Behavioral Research in Accounting
+  year: 2026
+  status: article
+  featured: true
+  image: /assets/img/research/mixed-motives.svg
+  summary:
+    nb: >-
+      Bedrifter driver ofte samfunnsansvar både for å gjøre godt og for å tjene penger. I et eksperiment
+      undersøker vi om slike blandede motiver påvirker hvor opportunistisk ansatte oppfører seg.
+    en: >-
+      Firms often pursue social responsibility both to do good and to make money. In an experiment,
+      we test whether such mixed motives change how opportunistically employees behave.
+
+- title: "Information Acquisition and Misreporting: A Research Note"
+  authors: Berge, J. W., Berge, L. I. O., & Maas, V. S.
+  venue: Accounting and Business Research
+  year: 2026
+  status: article
+  link: https://doi.org/10.1080/00014788.2026.2634049
+  note: Open access
+
+- title: "Impacts of Effective Altruism on Donor Behaviour: A Randomised Discrete Choice Experiment"
+  authors: Berge, J. W., Berge, L. I. O., Chiu, W., & Kolstad, I.
+  venue: Journal of Development Studies, 62(5)
+  year: 2026
+  status: article
+  link: https://doi.org/10.1080/00220388.2025.2601583
+
+- title: "Mispredictions about Dishonesty after Unfair Treatment"
+  authors: Berge, J. W., & Soto-Mota, P.
+  venue: Economics Letters, 267, 113100
+  year: 2026
+  status: article
+  link: https://doi.org/10.1016/j.econlet.2026.113100
+
+- title: "Strategic Curiosity: An Experimental Study of Curiosity and Dishonesty"
+  authors: Ay, C. F., Berge, J. W., & Nødtvedt, K.
+  venue: Journal of Economic Behavior & Organization, 217, 287–297
+  year: 2024
+  status: article
+  link: https://doi.org/10.1016/j.jebo.2023.10.039
+
+- title: "Misleading with Facts: Effect of Paltering on Moral Perception of a Company"
+  authors: Bashir, H., Berge, J. W., & Kshatriya, A.
+  status: working
+  note:
+    nb: Revise and resubmit, Accounting and Business Research
+    en: Revise and resubmit, Accounting and Business Research
+
+- title: "The DEI Reversal Penalty"
+  authors: Berge, J. W., Berge, L. I. O., & Kolstad, I.
+  status: working
+  link: https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7348300
+
+- title: "When Do Employees Work Harder for Kind Managers? The Role of Reward Discretion and Environmental Favorability"
+  authors: Berge, J. W., Maas, V. S., & Yin, H.
+  status: working
+
+- title: "The Cost of Control in Mission Driven Organizations"
+  authors: Berge, J. W., Maske, M., Sohn, M., & van Pelt, V.
+  status: working
+
+- title: "Ignorance as a Safe Harbor: Information Avoidance, Inaccurate Reporting, and SOX 302 Certification"
+  authors: Bentley, J. W., Berge, J. W., Berge, L. I. O., & Young, S.
+  status: working
+
+- title: "Auditors' Responses to Norway's New Auditing Act and Anti-Money Laundering Regulation"
+  authors: Berge, J. W., Knudsen, D. R., & Laguecir, A.
+  status: working
+
+- title: "Understanding Risk Appetite: What Is It, What Pressures Shape It and How Is It Institutionalized?"
+  authors: Baunan, H. H., & Berge, J. W.
+  venue: SNF Report 09/16
+  year: 2016
+  status: other
+  link: https://snf.no/media/wpjjvm4n/r_0916.pdf

@@ -1,0 +1,75 @@
+# The talks and workshops offered to organisations, shown as a short list.
+# viz: name of the illustration in _includes/viz/ (compass, balance, trust-curve), shown as a small icon.
+# research / opeds: exact titles from publications.yml and media.yml (shown under "Forskningen bak").
+# summary: one or two sentences. Keep it short; details belong in the conversation with the client.
+
+- id: ki-kompasset
+  viz: compass
+  title:
+    nb: KI-kompasset
+    en: The AI Compass
+  question:
+    nb: Hvor skal KI ta beslutningene, og hvor skal mennesker gjøre det?
+    en: Where should AI make the decisions, and where should people?
+  summary:
+    nb: >-
+      Et verktøy for å skille prediksjon fra skjønn. To spørsmål, om målklarhet og separerbarhet,
+      plasserer enhver prosess i én av fire kvadranter.
+    en: >-
+      A tool for separating prediction from judgment. Two questions, about goal clarity and separability,
+      place any process in one of four quadrants.
+  research:
+    - "KI-kompasset: Et strategisk verktøy for å navigere KI-implementering"
+  opeds:
+    - "AI-kappløpet – sprint eller orienteringsløp?"
+
+- id: etikk-og-butikk
+  viz: balance
+  title:
+    nb: Etikk og butikk
+    en: Ethics and Business
+  question:
+    nb: Lønner det seg å gjøre det rette?
+    en: Does doing the right thing pay?
+  summary:
+    nb: >-
+      Når trekker etikk og lønnsomhet i samme retning, og når gjør de ikke det? Bygger på egne eksperimenter
+      om verdier, normer og insentiver.
+    en: >-
+      When do ethics and profitability pull in the same direction, and when do they not? Built on my own
+      experiments on values, norms and incentives.
+  research:
+    - "Mixed Motives for Doing Good: The Effect of Profit Motives in CSR Initiatives on Employee Opportunism"
+    - "Misleading with Facts: Effect of Paltering on Moral Perception of a Company"
+    - "Impacts of Effective Altruism on Donor Behaviour: A Randomised Discrete Choice Experiment"
+    - "The DEI Reversal Penalty"
+    - "Information Acquisition and Misreporting: A Research Note"
+  opeds:
+    - "La oss snakke ærlig om etikk og butikk"
+    - "Handelshøyskoleeffekten"
+
+- id: tillitsfellen
+  viz: trust-curve
+  title:
+    nb: Tillitsfellen
+    en: The Trust Trap
+  question:
+    nb: Må vi velge mellom kontroll og tillit?
+    en: Do we have to choose between control and trust?
+  summary:
+    nb: >-
+      For mye tillit gir rom for misbruk. For mye kontroll kveler motivasjonen. Om hvordan ledere kan
+      styre på en måte som bygger tillit.
+    en: >-
+      Too much trust leaves room for abuse. Too much control stifles motivation. How leaders can manage
+      in a way that builds trust.
+  research:
+    - "The Cost of Control in Mission Driven Organizations"
+    - "When Do Employees Work Harder for Kind Managers? The Role of Reward Discretion and Environmental Favorability"
+    - "Auditors' Responses to Norway's New Auditing Act and Anti-Money Laundering Regulation"
+  opeds:
+    - "Bør vi stole mindre på hverandre?"
+    - "Norge kan tjene penger på å tredoble Økokrims budsjetter"
+    - "Hva skal vi gjøre med for mye tillit?"
+    - "Hva er en kvittering verdt i 2026?"
+

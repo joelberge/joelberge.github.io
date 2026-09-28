@@ -1,0 +1,76 @@
+# Photos of Joel speaking. The first entry is the large photo at the top of the talks section;
+# the rest form the "Fra scenen" gallery under the talk list, in this order (strongest first).
+# Images live in assets/img/action/.
+# position: which part of the photo to keep when it is cropped to 4:3 (CSS object-position).
+
+- image: /assets/img/action/pwc-cfo.webp
+  width: 1600
+  height: 1200
+  position: 70% 60%
+  caption:
+    nb: CFO-nettverket, PwC
+    en: CFO network, PwC
+
+- image: /assets/img/action/apriil.webp
+  width: 1125
+  height: 750
+  position: 45% 40%
+  caption:
+    nb: "Workshop: KI for toppledere, Apriil"
+    en: "Workshop: AI for top managers, Apriil"
+
+- image: /assets/img/action/opp.webp
+  width: 1600
+  height: 1066
+  position: 62% 50%
+  caption:
+    nb: Innovasjonsuken, OPP
+    en: Innovation Week, OPP
+
+- image: /assets/img/action/kongsberg-dn.webp
+  width: 875
+  height: 508
+  position: 25% 40%
+  caption:
+    nb: Kongsberg Agenda, DN-teltet
+    en: Kongsberg Agenda, the DN tent
+
+- image: /assets/img/action/varkonferansen.webp
+  width: 1073
+  height: 729
+  position: 40% 50%
+  caption:
+    nb: Vårkonferansen, NHH
+    en: Spring Conference, NHH
+
+- image: /assets/img/action/mynewsdesk.webp
+  width: 935
+  height: 565
+  position: 0% 50%
+  caption:
+    nb: Ordstyrer for panel, Mynewsdesk
+    en: Moderating a panel, Mynewsdesk
+
+- image: /assets/img/action/tryg.webp
+  width: 1125
+  height: 1474
+  position: 30% 66%
+  caption:
+    nb: "Workshop: Strategi i praksis, Tryg Forsikring"
+    en: "Workshop: Strategy in practice, Tryg"
+
+- image: /assets/img/action/svea-finans.webp
+  width: 1125
+  height: 1500
+  position: 50% 45%
+  caption:
+    nb: "Workshop: Etikk og butikk, Svea Finans"
+    en: "Workshop: Ethics and business, Svea Finans"
+
+- image: /assets/img/action/teaching-award.webp
+  width: 1280
+  height: 720
+  position: 50% 45%
+  caption:
+    nb: Masterstudentenes pris for fremragende undervisning
+    en: Master students' award for excellent teaching

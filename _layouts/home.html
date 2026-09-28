@@ -1,0 +1,340 @@
+{%- assign L = page.lang | default: "nb" -%}
+{%- assign t = site.data.i18n[L] -%}
+{%- assign p = site.data.profile -%}
+{%- if L == "nb" -%}{%- assign other_url = "/en/" | relative_url -%}{%- else -%}{%- assign other_url = "/" | relative_url -%}{%- endif -%}
+{%- capture mailto -%}mailto:{{ p.email }}?subject={{ t.email_subject | uri_escape }}{%- endcapture -%}
+<!doctype html>
+<html lang="{{ t.html_lang }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ p.name }} · {{ p.role[L] }}, NHH</title>
+  <meta name="description" content="{{ t.meta_description | strip }}">
+  <link rel="canonical" href="{{ page.url | absolute_url }}">
+  <link rel="alternate" hreflang="nb" href="{{ '/' | absolute_url }}">
+  <link rel="alternate" hreflang="en" href="{{ '/en/' | absolute_url }}">
+  <link rel="alternate" hreflang="x-default" href="{{ '/' | absolute_url }}">
+  <meta property="og:type" content="profile">
+  <meta property="og:title" content="{{ p.name }} · {{ p.role[L] }}, NHH">
+  <meta property="og:description" content="{{ t.meta_description | strip }}">
+  <meta property="og:image" content="{{ '/assets/img/portrait-og.png' | absolute_url }}">
+  <meta property="og:url" content="{{ page.url | absolute_url }}">
+  <link rel="icon" href="{{ '/assets/img/favicon.svg' | relative_url }}" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;1,9..40,300;1,9..40,400&display=swap">
+  <link rel="stylesheet" href="{{ '/assets/css/site.css' | relative_url }}">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "{{ p.name }}",
+    "jobTitle": "{{ p.role.en }}",
+    "affiliation": { "@type": "CollegeOrUniversity", "name": "NHH Norwegian School of Economics" },
+    "email": "mailto:{{ p.email }}",
+    "image": "{{ '/assets/img/portrait-og.png' | absolute_url }}",
+    "sameAs": [{% for l in p.links %}"{{ l[1] }}"{% unless forloop.last %}, {% endunless %}{% endfor %}]
+  }
+  </script>
+</head>
+<body>
+  <a class="skip" href="#main">{% if L == "nb" %}Hopp til innholdet{% else %}Skip to content{% endif %}</a>
+
+  <header class="topbar">
+    <div class="wrap topbar-inner">
+      <a class="brand" href="#top">{{ p.name }}</a>
+      <nav class="nav" aria-label="{% if L == 'nb' %}Hovedmeny{% else %}Main{% endif %}">
+        <a href="#foredrag">{{ t.nav.talks }}</a>
+        <a href="#podkast">{{ t.nav.podcast }}</a>
+        <a href="#media">{{ t.nav.media }}</a>
+        <a href="#forskning">{{ t.nav.research }}</a>
+        <a href="#cv">{{ t.nav.cv }}</a>
+        <a href="#kontakt">{{ t.nav.contact }}</a>
+      </nav>
+      <a class="lang" href="{{ other_url }}" hreflang="{% if L == 'nb' %}en{% else %}nb{% endif %}" lang="{% if L == 'nb' %}en{% else %}nb{% endif %}" data-keep-hash>
+        <span class="lang-on" aria-hidden="true">{% if L == "nb" %}NO{% else %}EN{% endif %}</span><span class="lang-sep" aria-hidden="true">/</span><span>{{ t.switch_short }}</span>
+        <span class="sr">{{ t.switch_label }}</span>
+      </a>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- ============ HERO ============ -->
+    <section class="hero" id="top">
+      <div class="wrap hero-grid">
+        <div class="hero-text">
+          <p class="eyebrow">{{ p.institution[L] }}</p>
+          <h1>{{ p.name }}</h1>
+          <p class="role"><mark>{{ p.role[L] }}</mark></p>
+          <p class="lede">{{ t.intro }}</p>
+          <p class="lede lede-2">{{ t.intro_2 }}</p>
+          <div class="actions">
+            <a class="btn btn-solid" href="#kontakt">{{ t.cta_book }}</a>
+            <a class="btn" href="#forskning">{{ t.cta_research }}</a>
+          </div>
+        </div>
+        <div class="hero-photo">
+          <img src="{{ '/assets/img/portrait.webp' | relative_url }}" width="834" height="831" alt="{{ p.name }}" fetchpriority="high">
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ TALKS ============ -->
+    <section class="section" id="foredrag">
+      <div class="wrap">
+        <p class="eyebrow">{{ t.talks_label }}</p>
+        <div class="talks-head">
+          <div>
+            <h2>{{ t.talks_title }}</h2>
+            <p class="section-lede">{{ t.talks_lede }}</p>
+            <p class="audiences-label">{{ t.audiences_label }}</p>
+            <ul class="audiences">
+              {%- for a in site.data.audiences %}<li>{{ a }}</li>{% endfor -%}
+            </ul>
+          </div>
+          {%- assign lead = site.data.gallery.first %}
+          <figure class="talks-photo">
+            <img src="{{ lead.image | relative_url }}" width="{{ lead.width }}" height="{{ lead.height }}" style="object-position: {{ lead.position }}" alt="{{ p.name }}: {{ lead.caption[L] }}" loading="lazy">
+            <figcaption>{{ lead.caption[L] }}</figcaption>
+          </figure>
+        </div>
+
+        <ol class="talk-list">
+          {%- for talk in site.data.talks %}
+          <li class="talk" id="{{ talk.id }}">
+            <div class="talk-icon" aria-hidden="true">{% include viz/{{ talk.viz }}.html t=t %}</div>
+            <div class="talk-body">
+              <h3>{{ talk.title[L] }}</h3>
+              <p class="talk-q">{{ talk.question[L] }}</p>
+              <p class="talk-sum">{{ talk.summary[L] }}</p>
+              {%- if talk.research or talk.opeds %}
+              <details class="talk-basis">
+                <summary>{{ t.basis_title }}</summary>
+                <div class="basis-groups">
+                  {%- if talk.research %}
+                  <div>
+                    <p class="label">{{ t.basis_research }}</p>
+                    <ul>
+                      {%- for title in talk.research %}{% assign r = site.data.publications | where: "title", title | first %}
+                      <li><a href="{% if r.link %}{{ r.link }}{% else %}#pub-{{ r.title | slugify }}{% endif %}">{{ r.title }}</a><span class="meta">{% if r.status == "working" %}{% if r.note %}{% if r.note[L] %}{{ r.note[L] }}{% else %}{{ r.note }}{% endif %}{% else %}{{ t.working_label }}{% endif %}{% elsif r.status == "forthcoming" %}{{ r.venue }} · {{ t.forthcoming }}{% else %}{{ r.venue }} · {{ r.year }}{% endif %}</span></li>
+                      {%- endfor %}
+                    </ul>
+                  </div>
+                  {%- endif %}
+                  {%- if talk.opeds or talk.also %}
+                  <div>
+                    <p class="label">{{ t.basis_opeds }}</p>
+                    <ul>
+                      {%- for title in talk.opeds %}{% assign o = site.data.media.opeds | where: "title", title | first %}
+                      <li><a href="{{ o.link }}">{{ o.title }}</a><span class="meta">{{ o.outlet }} · {{ o.year }}</span></li>
+                      {%- endfor %}
+                      {%- for a in talk.also %}
+                      <li>{{ a[L] }}</li>
+                      {%- endfor %}
+                    </ul>
+                  </div>
+                  {%- endif %}
+                </div>
+              </details>
+              {%- endif %}
+            </div>
+            <a class="link-arrow talk-ask" href="mailto:{{ p.email }}?subject={{ t.talk_subject | append: ' ' | append: talk.title[L] | uri_escape }}">{{ t.talk_book }} <span aria-hidden="true">→</span></a>
+          </li>
+          {%- endfor %}
+        </ol>
+
+        <p class="list-title gallery-title">{{ t.gallery_title }}</p>
+        <ul class="gallery">
+          {%- for g in site.data.gallery offset: 1 %}
+          <li>
+            <figure>
+              <img src="{{ g.image | relative_url }}" width="{{ g.width }}" height="{{ g.height }}" style="object-position: {{ g.position }}" alt="{{ p.name }}: {{ g.caption[L] }}" loading="lazy">
+              <figcaption>{{ g.caption[L] }}</figcaption>
+            </figure>
+          </li>
+          {%- endfor %}
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ PODCAST ============ -->
+    {%- assign pod = site.data.podcast -%}
+    <section class="section" id="podkast">
+      <div class="wrap">
+        <p class="eyebrow">{{ t.podcast_label }}</p>
+        {%- if pod.show.photo %}
+        <figure class="pod-photo">
+          <img src="{{ pod.show.photo | relative_url }}" width="{{ pod.show.photo_width }}" height="{{ pod.show.photo_height }}" alt="{{ pod.show.photo_caption[L] }}" loading="lazy">
+          <figcaption>{{ pod.show.photo_caption[L] }}</figcaption>
+        </figure>
+        {%- endif %}
+        <div class="pod-grid">
+        <div>
+          {%- if pod.show.cover %}
+          <img class="pod-cover" src="{{ pod.show.cover | relative_url }}" width="600" height="600" alt="{{ pod.show.name }}" loading="lazy">
+          {%- endif %}
+          <h2 class="pod-name"><mark>{{ pod.show.name }}</mark></h2>
+          <p class="pod-sub">{{ pod.show.subtitle[L] }}</p>
+          <p class="section-lede">{{ pod.show.body[L] }}</p>
+          <p class="pod-links"><span class="label">{{ t.podcast_listen }}</span>
+            {%- for l in pod.show.links %}<a class="btn" href="{{ l.url }}">{{ l.label }}</a>{% endfor -%}
+          </p>
+        </div>
+        <div>
+          {%- if pod.episodes and pod.episodes.size > 0 %}
+          <h3 class="list-title">{{ t.podcast_recent }}</h3>
+          <ul class="episodes">
+            {%- for e in pod.episodes %}
+            <li><a href="{{ e.link }}">{% if e.image %}<img src="{{ e.image | relative_url }}" width="400" height="400" alt="" loading="lazy">{% endif %}<span>{{ e.title }}</span></a></li>
+            {%- endfor %}
+          </ul>
+          {%- endif %}
+          <h3 class="list-title">{{ t.podcast_guest }}</h3>
+          <ul class="media-list">
+            {%- for e in pod.guest %}
+            <li><a href="{{ e.link }}">{{ e.title }}</a><span class="meta">{{ e.show }}{% if e.year %} · {{ e.year }}{% endif %}</span></li>
+            {%- endfor %}
+          </ul>
+        </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ MEDIA ============ -->
+    <section class="section" id="media">
+      <div class="wrap">
+        <p class="eyebrow">{{ t.media_label }}</p>
+        <h2>{{ t.media_title }}</h2>
+        <div class="media-grid">
+          <div>
+            <h3 class="list-title">{{ t.opeds_title }}</h3>
+            <ul class="media-list">
+              {%- for m in site.data.media.opeds %}
+              <li><a href="{{ m.link }}">{{ m.title }}</a><span class="meta">{{ m.outlet }} · {{ m.year }}{% if m.with %} · {{ t.with }} {{ m.with }}{% endif %}</span></li>
+              {%- endfor %}
+            </ul>
+          </div>
+          <div>
+            <h3 class="list-title">{{ t.coverage_title }}</h3>
+            <ul class="media-list">
+              {%- for m in site.data.media.coverage %}
+              <li><a href="{{ m.link }}">{{ m.title }}</a><span class="meta">{{ m.outlet }} · {{ m.year }}</span></li>
+              {%- endfor %}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ RESEARCH ============ -->
+    <section class="section" id="forskning">
+      <div class="wrap">
+        <p class="eyebrow">{{ t.research_label }}</p>
+        <h2>{{ t.research_title }}</h2>
+
+        <div class="featured">
+          {%- assign featured = site.data.publications | where: "featured", true -%}
+          {%- for pub in featured -%}
+          <article class="feature">
+            <div class="feature-img">
+              {%- if pub.viz -%}{% include viz/{{ pub.viz }}.html t=t %}
+              {%- elsif pub.image -%}<img src="{{ pub.image | relative_url }}" width="{{ pub.image_width | default: 400 }}" height="{{ pub.image_height | default: 400 }}" alt="">{%- endif -%}
+            </div>
+            <div class="feature-body">
+              <p class="meta">{% if pub.status == "working" %}<mark>{% if pub.note[L] %}{{ pub.note[L] }}{% else %}{{ pub.note }}{% endif %}</mark>{% else %}{{ pub.venue }} · {% if pub.status == "forthcoming" %}<mark>{{ t.forthcoming }}</mark>{% else %}{{ pub.year }}{% endif %}{% endif %}</p>
+              <h3>{{ pub.title }}</h3>
+              <p class="authors">{{ pub.authors }}</p>
+              <p>{{ pub.summary[L] }}</p>
+              {%- if pub.press %}
+              <p class="press"><span class="label">{{ t.press_label }}</span>
+                {%- for m in pub.press %} <a href="{{ m.link }}">{{ m.outlet }}: «{{ m.title }}»</a>{% unless forloop.last %},{% endunless %}{% endfor %}
+              </p>
+              {%- endif %}
+              {%- if pub.link %}<a class="link-arrow" href="{{ pub.link }}">{{ t.read_paper }} <span aria-hidden="true">→</span></a>{% endif %}
+            </div>
+          </article>
+          {%- endfor -%}
+        </div>
+
+        {%- assign groups = "article,working,other" | split: "," -%}
+        <div class="pubs">
+          {%- for g in groups -%}
+          {%- assign list = site.data.publications | where: "status", g -%}
+          {%- if g == "article" -%}{%- assign fc = site.data.publications | where: "status", "forthcoming" -%}{%- assign list = fc | concat: list -%}{%- endif -%}
+          {%- if g == "article" -%}{%- assign heading = t.articles_title -%}{%- elsif g == "working" -%}{%- assign heading = t.working_title -%}{%- else -%}{%- assign heading = t.other_title -%}{%- endif -%}
+          {%- if list.size > 0 %}
+          <div class="pub-group">
+            <h3 class="list-title">{{ heading }}</h3>
+            <ol class="pub-list">
+              {%- for pub in list %}
+              <li id="pub-{{ pub.title | slugify }}">
+                <span class="year">{% if pub.status == "forthcoming" %}{{ t.forthcoming }}{% else %}{{ pub.year }}{% endif %}</span>
+                <span class="pub-text">
+                  {%- if pub.link -%}<a href="{{ pub.link }}">{{ pub.title }}</a>{%- else -%}<span class="pub-title">{{ pub.title }}</span>{%- endif -%}
+                  <span class="authors">{{ pub.authors }}{% if pub.venue %} · <em>{{ pub.venue }}</em>{% endif %}{% if pub.note %} · {% if pub.note[L] %}{{ pub.note[L] }}{% else %}{{ pub.note }}{% endif %}{% endif %}</span>
+                </span>
+              </li>
+              {%- endfor %}
+            </ol>
+          </div>
+          {%- endif -%}
+          {%- endfor %}
+        </div>
+        <p><a class="link-arrow" href="{{ p.links.scholar }}">{{ t.scholar_link }} <span aria-hidden="true">→</span></a></p>
+      </div>
+    </section>
+
+    <!-- ============ CV ============ -->
+    <section class="section" id="cv">
+      <div class="wrap">
+        <p class="eyebrow">{{ t.cv_label }}</p>
+        <h2>{{ t.cv_title }}</h2>
+        <div class="cv-grid">
+          {%- for g in site.data.cv %}
+          <div class="cv-group">
+            <h3 class="list-title">{{ g.heading[L] }}</h3>
+            <dl class="cv-list">
+              {%- for i in g.items %}
+              <div><dt>{% if i.when[L] %}{{ i.when[L] }}{% else %}{{ i.when }}{% endif %}</dt><dd>{{ i.what[L] }}</dd></div>
+              {%- endfor %}
+            </dl>
+          </div>
+          {%- endfor %}
+        </div>
+        {%- if p.cv_pdf %}
+        <p><a class="btn" href="{{ p.cv_pdf | relative_url }}">{{ t.cv_download }}</a></p>
+        {%- endif %}
+      </div>
+    </section>
+
+    <!-- ============ CONTACT ============ -->
+    <section class="section contact" id="kontakt">
+      <div class="wrap">
+        <p class="eyebrow">{{ t.contact_label }}</p>
+        <h2>{{ t.contact_title }}</h2>
+        <p class="section-lede">{{ t.contact_body }}</p>
+        <p class="email-line">
+          <span class="email" id="email">{{ p.email }}</span>
+          <button class="copy" type="button" data-copy="{{ p.email }}" data-done="{{ t.copied }}">{{ t.copy }}</button>
+        </p>
+        <p><a class="btn btn-solid" href="{{ mailto }}">{{ t.contact_button }}</a></p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer-inner">
+      <p>{{ p.name }} · {{ p.department[L] }}, {{ p.institution[L] }}</p>
+      <p class="footer-links">
+        <a href="{{ p.links.scholar }}">Google Scholar</a>
+        <a href="{{ p.links.nhh }}">NHH</a>
+        <a href="{{ p.links.researchgate }}">ResearchGate</a>
+        {%- if p.links.linkedin %}<a href="{{ p.links.linkedin }}">LinkedIn</a>{% endif %}
+      </p>
+    </div>
+  </footer>
+
+  <script src="{{ '/assets/js/site.js' | relative_url }}" defer></script>
+</body>
+</html>

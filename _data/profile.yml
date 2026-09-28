@@ -1,0 +1,22 @@
+# Basic facts shown across the site.
+name: Joel W. Berge
+email: Joel.Berge@nhh.no
+
+role:
+  nb: Førsteamanuensis i bedriftsøkonomi
+  en: Associate Professor of Business Economics
+institution:
+  nb: NHH Norges Handelshøyskole
+  en: NHH Norwegian School of Economics
+department:
+  nb: Institutt for regnskap, revisjon og rettsvitenskap
+  en: Department of Accounting, Auditing and Law
+
+links:
+  scholar: https://scholar.google.com/citations?user=sDycbUgAAAAJ
+  nhh: https://www.nhh.no/en/employees/faculty/joel-berge/
+  researchgate: https://www.researchgate.net/profile/Joel-Berge-2
+  # linkedin: add the profile URL here and it appears in the footer
+
+# Set to the path of a PDF (e.g. /assets/cv/joel-berge-cv.pdf) to show a download button.
+cv_pdf:

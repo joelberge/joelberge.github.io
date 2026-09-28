@@ -1,0 +1,19 @@
+{%- assign r = include.t.trust -%}
+<svg class="viz" viewBox="0 0 400 400" role="img" aria-label="{{ r.y }} / {{ r.x }}: {{ r.low }}, {{ r.sweet }}, {{ r.high }}">
+  <!-- Illustrative inverted U: both too little and too much control lower trust and effort.
+       Conceptual sketch for the talk, not plotted data. -->
+  <rect x="160" y="60" width="100" height="270" fill="var(--hl)"/>
+  <line x1="50" y1="330" x2="370" y2="330" stroke="var(--ink)" stroke-width="1.5"/>
+  <line x1="50" y1="330" x2="50" y2="50" stroke="var(--ink)" stroke-width="1.5"/>
+  <path d="M60 300 C 130 33, 270 33, 360 300" fill="none" stroke="var(--ink)" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="210" cy="100" r="7" fill="var(--ink)"/>
+  <g class="viz-axis">
+    <text x="370" y="356" text-anchor="end">{{ r.x }} →</text>
+    <text x="30" y="50" text-anchor="end" transform="rotate(-90 30 50)">{{ r.y }} →</text>
+  </g>
+  <g class="viz-q">
+    <text x="92" y="318" text-anchor="middle">{{ r.low }}</text>
+    <text x="210" y="82" text-anchor="middle">{{ r.sweet }}</text>
+    <text x="330" y="318" text-anchor="middle">{{ r.high }}</text>
+  </g>
+</svg>
