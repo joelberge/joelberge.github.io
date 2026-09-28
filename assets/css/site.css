@@ -198,6 +198,8 @@ h1 {
 .viz-q text, .viz-q { font-size: 15px; font-weight: 400; }
 .viz-num { fill: var(--muted); font-size: 13px; letter-spacing: 0.06em; }
 .viz-axis text { font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; fill: var(--muted); }
+.viz-compass .viz-q text { font-size: 14px; }
+.viz-ends text { font-size: 15px; font-weight: 400; fill: var(--ink); }
 .viz-word text { font-size: 26px; font-weight: 300; }
 .viz-amp { font-size: 40px; font-weight: 300; fill: var(--muted); }
 

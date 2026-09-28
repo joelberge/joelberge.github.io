@@ -1,23 +1,23 @@
 {%- assign c = include.t.compass -%}
 {%- assign q1 = c.q1 | split: " " -%}{%- assign q2 = c.q2 | split: " " -%}{%- assign q3 = c.q3 | split: " " -%}{%- assign q4 = c.q4 | split: " " -%}
-<svg class="viz" viewBox="0 0 400 400" role="img" aria-label="{{ c.goal }} × {{ c.sep }}: I {{ c.q1 }}, II {{ c.q2 }}, III {{ c.q3 }}, IV {{ c.q4 }}">
-  <!-- Quadrants follow the AI Compass: y = goal clarity (up = high), x = separability (right = high).
-       I (top left) augmented judgment, II (top right) automated decisions,
+<svg class="viz viz-compass" viewBox="0 0 400 400" role="img" aria-label="{{ c.goal }} × {{ c.sep }}: I {{ c.q1 }}, II {{ c.q2 }}, III {{ c.q3 }}, IV {{ c.q4 }}">
+  <!-- Joel's AI Compass figure. Vertical axis = goal clarity (up = high), horizontal = separability (right = high).
+       I (top left) augmented judgment, II (top right) automated decision-making,
        III (bottom left) exploratory support, IV (bottom right) strategic autonomy. -->
-  <circle cx="200" cy="200" r="150" fill="none" stroke="var(--rule-strong)" stroke-dasharray="2 6"/>
-  <line x1="200" y1="44" x2="200" y2="356" stroke="var(--rule-strong)"/>
-  <line x1="44" y1="200" x2="356" y2="200" stroke="var(--rule-strong)"/>
-  <polygon points="200,62 211,200 200,338 189,200" fill="var(--ink)"/>
-  <polygon points="62,200 200,190 338,200 200,210" fill="var(--hl)"/>
-  <circle cx="200" cy="200" r="7" fill="var(--bg)" stroke="var(--ink)" stroke-width="2"/>
+  <circle cx="200" cy="200" r="150" fill="none" stroke="#8a8a8a" stroke-width="1.5" stroke-dasharray="7 4 1.5 4"/>
+  <polygon points="58,200 186,186 214,186 342,200 214,214 186,214" fill="#e8771e"/>
+  <polygon points="200,52 213,188 213,212 200,348 187,212 187,188" fill="#111111"/>
+  <circle cx="200" cy="200" r="8" fill="#ffffff" stroke="#111111" stroke-width="1.5"/>
   <g class="viz-q" text-anchor="middle">
-    <text x="112" y="112"><tspan x="112" class="viz-num">I</tspan><tspan x="112" dy="20">{{ q1.first }}</tspan><tspan x="112" dy="18">{{ q1.last }}</tspan></text>
-    <text x="288" y="112"><tspan x="288" class="viz-num">II</tspan><tspan x="288" dy="20">{{ q2.first }}</tspan><tspan x="288" dy="18">{{ q2.last }}</tspan></text>
-    <text x="112" y="262"><tspan x="112" class="viz-num">III</tspan><tspan x="112" dy="20">{{ q3.first }}</tspan><tspan x="112" dy="18">{{ q3.last }}</tspan></text>
-    <text x="288" y="262"><tspan x="288" class="viz-num">IV</tspan><tspan x="288" dy="20">{{ q4.first }}</tspan><tspan x="288" dy="18">{{ q4.last }}</tspan></text>
+    <text x="128" y="110"><tspan x="128">I</tspan><tspan x="128" dy="19">{{ q1.first }}</tspan><tspan x="128" dy="18">{{ q1.last }}</tspan></text>
+    <text x="272" y="110"><tspan x="272">II</tspan><tspan x="272" dy="19">{{ q2.first }}</tspan><tspan x="272" dy="18">{{ q2.last }}</tspan></text>
+    <text x="128" y="262"><tspan x="128">III</tspan><tspan x="128" dy="19">{{ q3.first }}</tspan><tspan x="128" dy="18">{{ q3.last }}</tspan></text>
+    <text x="272" y="262"><tspan x="272">IV</tspan><tspan x="272" dy="19">{{ q4.first }}</tspan><tspan x="272" dy="18">{{ q4.last }}</tspan></text>
   </g>
-  <g class="viz-axis">
-    <text x="200" y="28" text-anchor="middle">↑ {{ c.goal }}</text>
-    <text x="392" y="386" text-anchor="end">{{ c.sep }} →</text>
+  <g class="viz-ends">
+    <text x="200" y="38" text-anchor="middle">{{ c.high }}</text>
+    <text x="200" y="376" text-anchor="middle">{{ c.low }}</text>
+    <text x="44" y="205" text-anchor="end">{{ c.low }}</text>
+    <text x="356" y="205" text-anchor="start">{{ c.high }}</text>
   </g>
 </svg>

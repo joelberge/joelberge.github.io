@@ -43,9 +43,8 @@
     - title: AI-kappløpet – sprint eller orienteringsløp?
       outlet: Finansavisen
       link: https://www.finansavisen.no/teknologi/2026/03/05/8332434/ai-kapplopet-sprint-eller-orienteringslop-
-  image: /assets/img/research/ki-kompasset.webp
-  image_width: 900
-  image_height: 1069
+  viz: compass
+  # Photo alternative: image: /assets/img/research/ki-kompasset.webp
   summary:
     nb: >-
       Når KI bygges inn i beslutningssystemer, kan den forsterke gode valg, men også skalere konsekvensene av

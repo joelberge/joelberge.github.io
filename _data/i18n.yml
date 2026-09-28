@@ -73,7 +73,7 @@ nb:
     high: Høy
     low: Lav
     q1: Forsterket skjønn
-    q2: Automatiserte beslutninger
+    q2: Automatisert beslutning
     q3: Utforskende støtte
     q4: Strategisk autonomi
   balance:
@@ -158,7 +158,7 @@ en:
     high: High
     low: Low
     q1: Augmented judgment
-    q2: Automated decisions
+    q2: Automated decision-making
     q3: Exploratory support
     q4: Strategic autonomy
   balance:
