@@ -6,6 +6,8 @@ show:
     nb: NHHs podkast om ledelse
     en: NHH's podcast on leadership
   cohost: Therese Egeland Sverdrup
+  # Show cover art. Put the image in assets/img/podcast/ and uncomment:
+  # cover: /assets/img/podcast/lederskap.jpg
   body:
     nb: >-
       Sammen med professor Therese Egeland Sverdrup inviterer jeg kloke gjester til samtaler om aktuelle
@@ -20,6 +22,12 @@ show:
       url: https://podcasts.apple.com/no/podcast/lederskap-nhhs-podkast-om-ledelse/id1498796704
     - label: Acast
       url: https://shows.acast.com/lederskap
+
+# Recent Lederskap episodes with their images (optional). Example:
+# - title: Moderne Askeladden, med Martin Schütt
+#   link: https://shows.acast.com/lederskap/episodes/moderne-akseladden-med-martin-schutt
+#   image: /assets/img/podcast/askeladden.jpg
+episodes: []
 
 guest:
   - title: Hva skjer når alle får AI?

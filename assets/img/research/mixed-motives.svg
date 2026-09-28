@@ -3,7 +3,7 @@
     <clipPath id="left"><circle cx="160" cy="200" r="110"/></clipPath>
   </defs>
   <rect width="400" height="400" fill="#ffffff"/>
-  <circle cx="240" cy="200" r="110" fill="#7BA4F4" clip-path="url(#left)"/>
+  <circle cx="240" cy="200" r="110" fill="#DDDEE1" clip-path="url(#left)"/>
   <circle cx="160" cy="200" r="110" fill="none" stroke="#15171c" stroke-width="2"/>
   <circle cx="240" cy="200" r="110" fill="none" stroke="#15171c" stroke-width="2"/>
   <g font-family="DM Sans, Helvetica, Arial, sans-serif" font-size="22" fill="#15171c" text-anchor="middle">

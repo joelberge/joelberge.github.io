@@ -83,9 +83,9 @@
     <!-- ============ TALKS ============ -->
     <section class="section" id="foredrag">
       <div class="wrap">
+        <p class="eyebrow">{{ t.talks_label }}</p>
         <div class="talks-head">
           <div>
-            <p class="eyebrow">{{ t.talks_label }}</p>
             <h2>{{ t.talks_title }}</h2>
             <p class="section-lede">{{ t.talks_lede }}</p>
             <p class="audiences-label">{{ t.audiences_label }}</p>
@@ -98,26 +98,24 @@
           </figure>
         </div>
 
-        <div class="talks">
-          {%- for talk in site.data.talks -%}
-          
-          <article class="talk" id="{{ talk.id }}">
-            <div class="talk-viz">{% include viz/{{ talk.viz }}.html t=t %}</div>
+        <ol class="talk-list">
+          {%- for talk in site.data.talks %}
+          <li class="talk" id="{{ talk.id }}">
+            <div class="talk-icon" aria-hidden="true">{% include viz/{{ talk.viz }}.html t=t %}</div>
             <div class="talk-body">
               <h3>{{ talk.title[L] }}</h3>
               <p class="talk-q">{{ talk.question[L] }}</p>
-              <p>{{ talk.body[L] }}</p>
-              <p class="talk-take"><span class="label">{{ t.talk_takeaway }}</span>{{ talk.takeaway[L] }}</p>
-              <a class="link-arrow" href="mailto:{{ p.email }}?subject={{ t.talk_subject | append: ' ' | append: talk.title[L] | uri_escape }}">{{ t.talk_book }} <span aria-hidden="true">→</span></a>
+              <p class="talk-sum">{{ talk.summary[L] }}</p>
             </div>
-          </article>
-          {%- endfor -%}
-        </div>
+            <a class="link-arrow talk-ask" href="mailto:{{ p.email }}?subject={{ t.talk_subject | append: ' ' | append: talk.title[L] | uri_escape }}">{{ t.talk_book }} <span aria-hidden="true">→</span></a>
+          </li>
+          {%- endfor %}
+        </ol>
       </div>
     </section>
 
     <!-- ============ RESEARCH ============ -->
-    <section class="section section-tint" id="forskning">
+    <section class="section" id="forskning">
       <div class="wrap">
         <p class="eyebrow">{{ t.research_label }}</p>
         <h2>{{ t.research_title }}</h2>
@@ -128,7 +126,7 @@
           <article class="feature">
             <div class="feature-img">
               {%- if pub.viz -%}{% include viz/{{ pub.viz }}.html t=t %}
-              {%- elsif pub.image -%}<img src="{{ pub.image | relative_url }}" width="400" height="400" alt="" loading="lazy">{%- endif -%}
+              {%- elsif pub.image -%}<img src="{{ pub.image | relative_url }}" width="400" height="400" alt="">{%- endif -%}
             </div>
             <div class="feature-body">
               <p class="meta">{{ pub.venue }} · {% if pub.status == "forthcoming" %}<mark>{{ t.forthcoming }}</mark>{% else %}{{ pub.year }}{% endif %}</p>
@@ -196,10 +194,14 @@
 
     <!-- ============ PODCAST ============ -->
     {%- assign pod = site.data.podcast -%}
-    <section class="section section-pod" id="podkast">
-      <div class="wrap pod-grid">
+    <section class="section" id="podkast">
+      <div class="wrap">
+        <p class="eyebrow">{{ t.podcast_label }}</p>
+        <div class="pod-grid">
         <div>
-          <p class="eyebrow">{{ t.podcast_label }}</p>
+          {%- if pod.show.cover %}
+          <img class="pod-cover" src="{{ pod.show.cover | relative_url }}" width="600" height="600" alt="{{ pod.show.name }}" loading="lazy">
+          {%- endif %}
           <h2 class="pod-name"><mark>{{ pod.show.name }}</mark></h2>
           <p class="pod-sub">{{ pod.show.subtitle[L] }}</p>
           <p class="section-lede">{{ pod.show.body[L] }}</p>
@@ -208,12 +210,21 @@
           </p>
         </div>
         <div>
+          {%- if pod.episodes and pod.episodes.size > 0 %}
+          <h3 class="list-title">{{ t.podcast_recent }}</h3>
+          <ul class="episodes">
+            {%- for e in pod.episodes %}
+            <li><a href="{{ e.link }}">{% if e.image %}<img src="{{ e.image | relative_url }}" width="400" height="400" alt="" loading="lazy">{% endif %}<span>{{ e.title }}</span></a></li>
+            {%- endfor %}
+          </ul>
+          {%- endif %}
           <h3 class="list-title">{{ t.podcast_guest }}</h3>
           <ul class="media-list">
             {%- for e in pod.guest %}
             <li><a href="{{ e.link }}">{{ e.title }}</a><span class="meta">{{ e.show }}{% if e.year %} · {{ e.year }}{% endif %}</span></li>
             {%- endfor %}
           </ul>
+        </div>
         </div>
       </div>
     </section>

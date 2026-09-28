@@ -48,6 +48,7 @@ nb:
   podcast_label: Podkast
   podcast_listen: Lytt på
   podcast_guest: Gjest i andre podkaster
+  podcast_recent: Nylige episoder
   cv_label: CV
   cv_title: Kort CV
   cv_download: Last ned full CV (PDF)
@@ -126,6 +127,7 @@ en:
   podcast_label: Podcast
   podcast_listen: Listen on
   podcast_guest: Guest on other podcasts
+  podcast_recent: Recent episodes
   cv_label: CV
   cv_title: Short CV
   cv_download: Download full CV (PDF)

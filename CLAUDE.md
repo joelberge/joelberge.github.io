@@ -14,7 +14,7 @@ All content is data. Change the YAML files, not the layout.
 | "Har snakket for" chips | `_data/audiences.yml` |
 | Publications, forthcoming and working papers | `_data/publications.yml` |
 | Op-eds and news coverage | `_data/media.yml` |
-| Lederskap podcast and guest appearances | `_data/podcast.yml` |
+| Lederskap podcast (cover, recent episodes) and guest appearances | `_data/podcast.yml` (images in `assets/img/podcast/`) |
 | Short CV | `_data/cv.yml` |
 | Interface text in both languages | `_data/i18n.yml` |
 | Talk/paper illustrations (inline SVG) | `_includes/viz/*.html` |
@@ -22,8 +22,10 @@ All content is data. Change the YAML files, not the layout.
 
 ## Design rules (from Joel)
 
-- Font: DM Sans, weights 300 and 400 only. **Never bold.** Emphasis is a blue highlighter: `<mark>…</mark>`.
-- Colours: white, near-black ink `#15171c`, highlighter blue `#7ba4f4` (same blue as the portrait circle). No other accent colours.
+- Font: DM Sans, weights 300 and 400 only. **Never bold.** Emphasis is a light grey highlighter: `<mark>…</mark>`.
+- Colours: white, near-black ink `#15171c`, light grey highlighter `#dddee1` (same grey as the portrait circle). No other accent colours.
+- Each section fills at least one screen and is separated by generous space, so it feels like its own page.
+- Talks are a lean list: title, question, one or two sentences. No long descriptions on the page.
 - Keep it airy, like Joel's lecture slides: lots of white space, large type, few elements.
 
 ## Common updates
@@ -31,7 +33,7 @@ All content is data. Change the YAML files, not the layout.
 **New paper (Joel sends a PDF or link).** Add an entry at the top of the right group in `_data/publications.yml`
 (`status: article | forthcoming | working | other`). To showcase it, set `featured: true`, write a 2–3 sentence
 plain-language `summary` in both `nb` and `en`, and add an image: either a simple SVG in `assets/img/research/`
-(white background, ink + highlighter blue only, 400×400 viewBox) referenced with `image:`, or an illustration
+(white background, ink + highlighter grey only, 400×400 viewBox) referenced with `image:`, or an illustration
 include referenced with `viz:`. Keep at most 2–3 papers featured; un-feature older ones.
 Only state findings that are in the paper's own abstract.
 
