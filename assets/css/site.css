@@ -149,7 +149,13 @@ h1 {
 /* Talks */
 .talks-head { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(32px, 6vw, 80px); align-items: end; margin-bottom: clamp(56px, 8vw, 96px); }
 .talks-photo { margin: 0; }
-.talks-photo img { width: 100%; height: auto; aspect-ratio: 16 / 10; object-fit: cover; object-position: 40% 30%; border-radius: 2px; }
+.talks-photo img { width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 2px; }
+.talks-photo figcaption, .gallery figcaption { font-size: 13px; letter-spacing: 0.04em; color: var(--muted); margin-top: 10px; font-weight: 400; }
+.list-title.gallery-title { margin-top: clamp(64px, 9vw, 104px); }
+.gallery { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px; margin-top: 24px; }
+.gallery figure { margin: 0; }
+.gallery img { width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 2px; }
+@media (max-width: 900px) { .gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 .audiences-label { margin: 32px 0 10px; }
 .audiences { display: flex; flex-wrap: wrap; gap: 8px; }
 .audiences li { border: 1px solid var(--rule-strong); border-radius: 999px; padding: 4px 14px; font-size: 15px; }

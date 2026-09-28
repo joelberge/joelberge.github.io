@@ -1,0 +1,43 @@
+# Photos of Joel speaking. The first entry is the large photo at the top of the talks section;
+# the rest form the gallery under the talk list. Images live in assets/img/action/.
+# position: which part of the photo to keep when it is cropped to fit (CSS object-position).
+
+- image: /assets/img/action/pwc-cfo.webp
+  width: 1600
+  height: 1200
+  position: 70% 60%
+  caption:
+    nb: CFO-nettverket, PwC
+    en: CFO network, PwC
+
+- image: /assets/img/action/opp.webp
+  width: 1600
+  height: 1066
+  position: 62% 50%
+  caption:
+    nb: Innovasjonsuken, OPP
+    en: Innovation Week, OPP
+
+- image: /assets/img/action/kongsberg-dn.webp
+  width: 875
+  height: 508
+  position: 25% 40%
+  caption:
+    nb: Kongsberg Agenda, DN-teltet
+    en: Kongsberg Agenda, the DN tent
+
+- image: /assets/img/action/varkonferansen.webp
+  width: 1073
+  height: 729
+  position: 40% 50%
+  caption:
+    nb: Vårkonferansen, NHH
+    en: Spring Conference, NHH
+
+- image: /assets/img/action/teaching-award.webp
+  width: 1280
+  height: 720
+  position: 50% 45%
+  caption:
+    nb: Masterstudentenes pris for fremragende undervisning
+    en: Master students' award for excellent teaching

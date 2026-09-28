@@ -93,8 +93,10 @@
               {%- for a in site.data.audiences %}<li>{{ a }}</li>{% endfor -%}
             </ul>
           </div>
+          {%- assign lead = site.data.gallery.first %}
           <figure class="talks-photo">
-            <img src="{{ '/assets/img/joel-nhh.webp' | relative_url }}" width="1582" height="994" alt="{{ p.name }}, NHH" loading="lazy">
+            <img src="{{ lead.image | relative_url }}" width="{{ lead.width }}" height="{{ lead.height }}" style="object-position: {{ lead.position }}" alt="{{ p.name }}: {{ lead.caption[L] }}" loading="lazy">
+            <figcaption>{{ lead.caption[L] }}</figcaption>
           </figure>
         </div>
 
@@ -111,6 +113,18 @@
           </li>
           {%- endfor %}
         </ol>
+
+        <p class="list-title gallery-title">{{ t.gallery_title }}</p>
+        <ul class="gallery">
+          {%- for g in site.data.gallery offset: 1 %}
+          <li>
+            <figure>
+              <img src="{{ g.image | relative_url }}" width="{{ g.width }}" height="{{ g.height }}" style="object-position: {{ g.position }}" alt="{{ p.name }}: {{ g.caption[L] }}" loading="lazy">
+              <figcaption>{{ g.caption[L] }}</figcaption>
+            </figure>
+          </li>
+          {%- endfor %}
+        </ul>
       </div>
     </section>
 
