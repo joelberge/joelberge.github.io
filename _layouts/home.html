@@ -211,6 +211,12 @@
     <section class="section" id="podkast">
       <div class="wrap">
         <p class="eyebrow">{{ t.podcast_label }}</p>
+        {%- if pod.show.photo %}
+        <figure class="pod-photo">
+          <img src="{{ pod.show.photo | relative_url }}" width="{{ pod.show.photo_width }}" height="{{ pod.show.photo_height }}" alt="{{ pod.show.photo_caption[L] }}" loading="lazy">
+          <figcaption>{{ pod.show.photo_caption[L] }}</figcaption>
+        </figure>
+        {%- endif %}
         <div class="pod-grid">
         <div>
           {%- if pod.show.cover %}

@@ -6,7 +6,14 @@ show:
     nb: NHHs podkast om ledelse
     en: NHH's podcast on leadership
   cohost: Therese Egeland Sverdrup
-  # Show cover art. Put the image in assets/img/podcast/ and uncomment:
+  # Photo of the hosts, shown wide at the top of the podcast section.
+  photo: /assets/img/podcast/lederskap-hosts.webp
+  photo_width: 1600
+  photo_height: 1097
+  photo_caption:
+    nb: Joel W. Berge og Therese Egeland Sverdrup
+    en: Joel W. Berge and Therese Egeland Sverdrup
+  # Show cover art (optional). Put the image in assets/img/podcast/ and uncomment:
   # cover: /assets/img/podcast/lederskap.jpg
   body:
     nb: >-

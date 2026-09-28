@@ -221,6 +221,10 @@ h1 {
 .media-list .meta { display: block; margin-top: 3px; font-size: 12px; }
 
 /* Podcast */
+.pod-photo { margin: 0 0 clamp(40px, 6vw, 72px); }
+.pod-photo img { width: 100%; height: auto; aspect-ratio: 21 / 9; object-fit: cover; object-position: 50% 30%; border-radius: 2px; }
+.pod-photo figcaption { font-size: 13px; letter-spacing: 0.04em; color: var(--muted); margin-top: 10px; font-weight: 400; }
+@media (max-width: 720px) { .pod-photo img { aspect-ratio: 4 / 3; } }
 .pod-cover { width: 100%; max-width: 280px; height: auto; margin-bottom: 32px; border-radius: 4px; }
 .episodes { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin-bottom: 48px; }
 .episodes a { display: block; text-decoration: none; font-size: 15px; line-height: 1.35; }
