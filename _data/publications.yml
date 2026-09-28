@@ -39,6 +39,10 @@
   year: forthcoming
   status: forthcoming
   featured: true
+  press:
+    - title: AI-kappløpet – sprint eller orienteringsløp?
+      outlet: Finansavisen
+      link: https://www.finansavisen.no/teknologi/2026/03/05/8332434/ai-kapplopet-sprint-eller-orienteringslop-
   image: /assets/img/research/ki-kompasset.webp
   image_width: 900
   image_height: 1069

@@ -1,6 +1,11 @@
 # Op-eds Joel has written, and news stories that cover his work. Newest first.
 
 opeds:
+  - title: AI-kappløpet – sprint eller orienteringsløp?
+    outlet: Finansavisen
+    with: Dan-Richard Knudsen
+    year: 2026
+    link: https://www.finansavisen.no/teknologi/2026/03/05/8332434/ai-kapplopet-sprint-eller-orienteringslop-
   - title: Hva er en kvittering verdt i 2026?
     outlet: Dagens Næringsliv
     year: 2026

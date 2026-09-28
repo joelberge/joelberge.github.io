@@ -33,7 +33,7 @@
 
 - heading: { nb: Verv og forskningsmidler, en: Service and grants }
   items:
-    - when: { nb: I dag, en: Current }
+    - when: 2025–
       what: { nb: "NHHs representant i Nasjonalt fagorgan for etikk i økonomisk-administrative fag (UHR-ØA)", en: "NHH's representative on the National Council for Ethics in Business and Administration (UHR-ØA)" }
     - when: 2022–
       what: { nb: "Styremedlem, Hauge Microfinance", en: "Board member, Hauge Microfinance" }
