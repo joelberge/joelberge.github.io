@@ -64,6 +64,21 @@
   status: article
   link: https://doi.org/10.1016/j.jebo.2023.10.039
 
+- title: "Firms' Responses to De-Anonymizing Norway's Public Tax Records"
+  # TODO: new title from Joel (Scholar entry WF5omc3nYNoC); Perez-Truglia has left the project.
+  authors: Berge, J. W., Traini, S., & Vattø, T.
+  status: working
+  note:
+    nb: Revise and resubmit, Journal of Accounting Research
+    en: Revise and resubmit, Journal of Accounting Research
+
+- title: "Misleading with Facts: Effect of Paltering on Moral Perception of a Company"
+  authors: Bashir, H., Berge, J. W., & Kshatriya, A.
+  status: working
+  note:
+    nb: Revise and resubmit, Accounting and Business Research
+    en: Revise and resubmit, Accounting and Business Research
+
 - title: "Mispredictions about Dishonesty after Unfair Treatment"
   authors: Berge, J. W., & Soto-Mota, P.
   venue: SSRN working paper
@@ -75,32 +90,12 @@
   authors: Berge, J. W., Maas, V. S., & Yin, H.
   status: working
 
-- title: "Deception Without Lies: How Paltering in Sustainability Reports Influences Moral Perceptions of Companies"
-  authors: Bashir, H., Berge, J. W., & Kshatriya, A.
+- title: "The Cost of Control in Mission Driven Organizations"
+  authors: Berge, J. W., Maske, M., Sohn, M., & van Pelt, V.
   status: working
 
-- title: "The Cost of Control in Uncertain Environments: How Managerial Discretion and Narcissism Influence Employee Reactions to Formal Control"
-  authors: Berge, J. W., Maske, M., & Sohn, M.
-  status: working
-
-- title: "Brutally Honest Corporate Communication and Its Effect on Trust: A Field Experiment"
-  authors: Berge, J. W., Berge, L. I. O., Martuza, J. B., & Sjåstad, H.
-  status: working
-
-- title: "Firms' Responses to De-Anonymizing Norway's Public Tax Records"
-  # TODO: new title from Joel (Scholar entry WF5omc3nYNoC); Perez-Truglia has left the project.
-  authors: Berge, J. W., Traini, S., & Vattø, T.
-  status: working
-  note:
-    nb: Revise and resubmit, Journal of Accounting Research
-    en: Revise and resubmit, Journal of Accounting Research
-
-- title: "Code of Ethics, Information Avoidance, Accuracy, and Opportunistic Reporting in Capital Budgeting"
-  authors: Bentley, J., Berge, J. W., & Berge, L. I. O.
-  status: working
-
-- title: "Between Numbers and Judgement: An Experimental Study of Organizational Decision-Making"
-  authors: Berge, J. W., Catasús, B., & Knudsen, D. R.
+- title: "Ignorance as a Safe Harbor: Information Avoidance, Inaccurate Reporting, and SOX 302 Certification"
+  authors: Bentley, J. W., Berge, J. W., Berge, L. I. O., & Young, S.
   status: working
 
 - title: "Auditors' Responses to Norway's New Auditing Act and Anti-Money Laundering Regulation"
