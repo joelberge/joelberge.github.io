@@ -194,7 +194,7 @@ h1 {
   background: var(--bg); border: 1px solid var(--rule); padding: clamp(24px, 4vw, 44px); border-radius: 4px; align-items: center;
 }
 .feature-img { max-width: 300px; width: 100%; }
-.feature-img img { width: 100%; height: auto; }
+.feature-img img { width: 100%; height: auto; aspect-ratio: 1; object-fit: cover; border-radius: 2px; }
 .feature h3 { margin: 8px 0 8px; }
 .feature .authors { color: var(--muted); font-size: 16px; }
 .feature .meta mark { color: var(--ink); text-transform: uppercase; }

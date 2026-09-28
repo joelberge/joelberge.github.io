@@ -140,7 +140,7 @@
           <article class="feature">
             <div class="feature-img">
               {%- if pub.viz -%}{% include viz/{{ pub.viz }}.html t=t %}
-              {%- elsif pub.image -%}<img src="{{ pub.image | relative_url }}" width="400" height="400" alt="">{%- endif -%}
+              {%- elsif pub.image -%}<img src="{{ pub.image | relative_url }}" width="{{ pub.image_width | default: 400 }}" height="{{ pub.image_height | default: 400 }}" alt="">{%- endif -%}
             </div>
             <div class="feature-body">
               <p class="meta">{{ pub.venue }} · {% if pub.status == "forthcoming" %}<mark>{{ t.forthcoming }}</mark>{% else %}{{ pub.year }}{% endif %}</p>
@@ -167,7 +167,7 @@
                 <span class="year">{{ pub.year }}</span>
                 <span class="pub-text">
                   {%- if pub.link -%}<a href="{{ pub.link }}">{{ pub.title }}</a>{%- else -%}<span class="pub-title">{{ pub.title }}</span>{%- endif -%}
-                  <span class="authors">{{ pub.authors }}{% if pub.venue %} · <em>{{ pub.venue }}</em>{% endif %}{% if pub.note %} · {{ pub.note }}{% endif %}</span>
+                  <span class="authors">{{ pub.authors }}{% if pub.venue %} · <em>{{ pub.venue }}</em>{% endif %}{% if pub.note %} · {% if pub.note[L] %}{{ pub.note[L] }}{% else %}{{ pub.note }}{% endif %}{% endif %}</span>
                 </span>
               </li>
               {%- endfor %}

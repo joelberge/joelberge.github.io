@@ -1,13 +1,13 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" role="img" aria-label="Two overlapping circles: doing good and making profit">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" role="img" aria-label="Two overlapping circles, CSR and profit, with the overlap shaded">
   <defs>
-    <clipPath id="left"><circle cx="160" cy="200" r="110"/></clipPath>
+    <clipPath id="left"><circle cx="150" cy="200" r="110"/></clipPath>
   </defs>
   <rect width="400" height="400" fill="#ffffff"/>
-  <circle cx="240" cy="200" r="110" fill="#DDDEE1" clip-path="url(#left)"/>
-  <circle cx="160" cy="200" r="110" fill="none" stroke="#15171c" stroke-width="2"/>
-  <circle cx="240" cy="200" r="110" fill="none" stroke="#15171c" stroke-width="2"/>
-  <g font-family="DM Sans, Helvetica, Arial, sans-serif" font-size="22" fill="#15171c" text-anchor="middle">
-    <text x="112" y="207">CSR</text>
-    <text x="288" y="207">Profit</text>
+  <circle cx="250" cy="200" r="110" fill="#DDDEE1" clip-path="url(#left)"/>
+  <circle cx="150" cy="200" r="110" fill="none" stroke="#15171c" stroke-width="2"/>
+  <circle cx="250" cy="200" r="110" fill="none" stroke="#15171c" stroke-width="2"/>
+  <g font-family="DM Sans, Helvetica, Arial, sans-serif" font-size="20" fill="#15171c" text-anchor="middle">
+    <text x="92" y="207">CSR</text>
+    <text x="308" y="207">Profit</text>
   </g>
 </svg>

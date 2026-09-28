@@ -14,7 +14,9 @@
   year: forthcoming
   status: forthcoming
   featured: true
-  viz: compass
+  image: /assets/img/research/ki-kompasset.webp
+  image_width: 900
+  image_height: 1069
   summary:
     nb: >-
       Et rammeverk for ledere som skal avgjøre hvilken rolle KI skal ha i en beslutningsprosess.
@@ -86,8 +88,12 @@
   status: working
 
 - title: "Firms' Responses to De-Anonymizing Norway's Public Tax Records"
-  authors: Berge, J. W., Perez-Truglia, R., Traini, S., & Vattø, T.
+  # TODO: new title from Joel (Scholar entry WF5omc3nYNoC); Perez-Truglia has left the project.
+  authors: Berge, J. W., Traini, S., & Vattø, T.
   status: working
+  note:
+    nb: Revise and resubmit, Journal of Accounting Research
+    en: Revise and resubmit, Journal of Accounting Research
 
 - title: "Code of Ethics, Information Avoidance, Accuracy, and Opportunistic Reporting in Capital Budgeting"
   authors: Bentley, J., Berge, J. W., & Berge, L. I. O.
