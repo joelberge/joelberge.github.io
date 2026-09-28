@@ -4,8 +4,6 @@
   items:
     - when: 2021–
       what: { nb: "Førsteamanuensis, NHH Norges Handelshøyskole", en: "Associate Professor, NHH Norwegian School of Economics" }
-    - when: { nb: I dag, en: Current }
-      what: { nb: "Profilkoordinator, Økonomisk styring (BUS), NHH", en: "Profile coordinator, Business Analysis and Performance (BUS), NHH" }
     - when: 2023
       what: { nb: "Gjesteforsker, University of Amsterdam", en: "Visiting Researcher, University of Amsterdam" }
     - when: 2019
@@ -24,6 +22,8 @@
 
 - heading: { nb: Undervisning, en: Teaching }
   items:
+    - when: 2025–
+      what: { nb: "Profilkoordinator, Økonomisk styring (BUS), NHH", en: "Profile coordinator, Business Analysis and Performance (BUS), NHH" }
     - when: 2022–
       what: { nb: "Emneansvarlig, Strategic Profitability Analysis (BUS401E)", en: "Course leader, Strategic Profitability Analysis (BUS401E)" }
     - when: 2022–
@@ -34,7 +34,7 @@
 - heading: { nb: Verv og forskningsmidler, en: Service and grants }
   items:
     - when: { nb: I dag, en: Current }
-      what: { nb: "NHHs representant i det nasjonale fagorganet for etikk, UHR-ØA", en: "NHH's representative on the national council for ethics, UHR-ØA" }
+      what: { nb: "NHHs representant i Nasjonalt fagorgan for etikk i økonomisk-administrative fag (UHR-ØA)", en: "NHH's representative on the National Council for Ethics in Business and Administration (UHR-ØA)" }
     - when: 2022–
       what: { nb: "Styremedlem, Hauge Microfinance", en: "Board member, Hauge Microfinance" }
     - when: 2021–2024

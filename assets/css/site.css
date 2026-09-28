@@ -196,6 +196,8 @@ h1 {
 .feature-img { max-width: 300px; width: 100%; }
 .feature-img img { width: 100%; height: auto; aspect-ratio: 1; object-fit: cover; border-radius: 2px; }
 .feature h3 { margin: 8px 0 8px; }
+.press { font-size: 16px; margin: 0 0 20px; }
+.press .label { margin-right: 8px; }
 .feature .authors { color: var(--muted); font-size: 16px; }
 .feature .meta mark { color: var(--ink); text-transform: uppercase; }
 @media (max-width: 720px) { .feature { grid-template-columns: 1fr; } .feature-img { max-width: 220px; } }

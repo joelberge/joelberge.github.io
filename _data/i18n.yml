@@ -37,6 +37,7 @@ nb:
   research_title: Utvalgt forskning
   forthcoming: Kommer
   read_paper: Les artikkelen
+  press_label: Omtalt i
   articles_title: Publiserte artikler
   working_title: Arbeidsnotater
   other_title: Andre publikasjoner
@@ -117,6 +118,7 @@ en:
   research_title: Selected research
   forthcoming: Forthcoming
   read_paper: Read the paper
+  press_label: Covered in
   articles_title: Published articles
   working_title: Working papers
   other_title: Other publications

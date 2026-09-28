@@ -216,6 +216,11 @@
               <h3>{{ pub.title }}</h3>
               <p class="authors">{{ pub.authors }}</p>
               <p>{{ pub.summary[L] }}</p>
+              {%- if pub.press %}
+              <p class="press"><span class="label">{{ t.press_label }}</span>
+                {%- for m in pub.press %} <a href="{{ m.link }}">{{ m.outlet }}: «{{ m.title }}»</a>{% unless forloop.last %},{% endunless %}{% endfor %}
+              </p>
+              {%- endif %}
               {%- if pub.link %}<a class="link-arrow" href="{{ pub.link }}">{{ t.read_paper }} <span aria-hidden="true">→</span></a>{% endif %}
             </div>
           </article>

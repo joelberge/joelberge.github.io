@@ -6,8 +6,9 @@ opeds:
     year: 2026
     link: https://www.dn.no/innlegg/ki/ai/kunstig-intelligens/hva-er-en-kvittering-verdt-i-2026/2-1-1949164
   - title: Hvem ville sagt nei til 450 000 kr i ekstrainntekt?
-    outlet: NHH Bulletin
+    outlet: Finansavisen
     year: 2025
+    # First published in Finansavisen 24 May 2025; link goes to NHH's free reprint.
     link: https://www.nhh.no/nhh-bulletin/artikkelarkiv/2025/mai/hvem-ville-sagt-nei-til-450-000-kr-i-ekstrainntekt/
   - title: Bør vi stole mindre på hverandre?
     outlet: Vårt Land

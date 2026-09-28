@@ -14,6 +14,10 @@
   featured: true
   image: /assets/img/research/pay-dispersion.svg
   link: https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6747599
+  press:
+    - title: Denne setningen kan ha gitt deg lavere lønn
+      outlet: digi.no
+      link: https://www.digi.no/artikler/denne-setningen-kan-ha-gitt-deg-lavere-lonn/533334?key=9cRb3WGp
   note:
     nb: Revise and resubmit, Journal of Accounting Research
     en: Revise and resubmit, Journal of Accounting Research
@@ -29,9 +33,9 @@
       the reform. How well transparency works depends not only on whether information is available, but on the
       cost of acquiring it.
 
-- title: KI-kompasset
-  authors: Berge, J. W.
-  venue: Magma
+- title: "KI-kompasset: Et strategisk verktøy for å navigere KI-implementering"
+  authors: Berge, J. W., & Knudsen, D.-R.
+  venue: Magma, 4/2026, 57–64
   year: forthcoming
   status: forthcoming
   featured: true
@@ -40,13 +44,13 @@
   image_height: 1069
   summary:
     nb: >-
-      Et rammeverk for ledere som skal avgjøre hvilken rolle KI skal ha i en beslutningsprosess.
-      To spørsmål, om målklarhet og separerbarhet, gir fire kvadranter: forsterket skjønn, automatiserte
-      beslutninger, utforskende støtte og strategisk autonomi. Hver kvadrant har sin egen fallgruve.
+      Når KI bygges inn i beslutningssystemer, kan den forsterke gode valg, men også skalere konsekvensene av
+      dårlige. KI-kompasset definerer fire idealtypiske roller for KI i ulike beslutningsprosesser. Ledere må
+      først diagnostisere beslutningstypen, og deretter velge hvilken rolle KI skal ha.
     en: >-
-      A framework for leaders deciding what role AI should play in a decision process. Two questions,
-      about goal clarity and separability, give four quadrants: augmented judgment, automated decision-making,
-      exploratory support and strategic autonomy. Each quadrant has its own pitfall.
+      When AI is built into decision systems, it can strengthen good choices, but also scale the consequences
+      of bad ones. The AI Compass defines four ideal-typical roles for AI in different decision processes.
+      Leaders must first diagnose the type of decision, and then choose the role AI should play.
 
 - title: "Mixed Motives for Doing Good: The Effect of Profit Motives in CSR Initiatives on Employee Opportunism"
   authors: Arshad, F. M., & Berge, J. W.
@@ -99,7 +103,7 @@
     nb: Revise and resubmit, Accounting and Business Research
     en: Revise and resubmit, Accounting and Business Research
 
-- title: "Is It Better to Be Loved or Feared? The Effects of Manager Kindness and Reward Discretion on Employee Effort"
+- title: "When Do Employees Work Harder for Kind Managers? The Role of Reward Discretion and Environmental Favorability"
   authors: Berge, J. W., Maas, V. S., & Yin, H.
   status: working
 
