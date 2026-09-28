@@ -57,6 +57,13 @@
   status: article
   link: https://doi.org/10.1080/00220388.2025.2601583
 
+- title: "Mispredictions about Dishonesty after Unfair Treatment"
+  authors: Berge, J. W., & Soto-Mota, P.
+  venue: Economics Letters, 267, 113100
+  year: 2026
+  status: article
+  link: https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5902362
+
 - title: "Strategic Curiosity: An Experimental Study of Curiosity and Dishonesty"
   authors: Ay, C. F., Berge, J. W., & Nødtvedt, K.
   venue: Journal of Economic Behavior & Organization, 217, 287–297
@@ -64,10 +71,10 @@
   status: article
   link: https://doi.org/10.1016/j.jebo.2023.10.039
 
-- title: "Firms' Responses to De-Anonymizing Norway's Public Tax Records"
-  # TODO: new title from Joel (Scholar entry WF5omc3nYNoC); Perez-Truglia has left the project.
+- title: "Observable Information Acquisition, Social Costs, and Pay Dispersion"
   authors: Berge, J. W., Traini, S., & Vattø, T.
   status: working
+  link: https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6747599
   note:
     nb: Revise and resubmit, Journal of Accounting Research
     en: Revise and resubmit, Journal of Accounting Research
@@ -78,13 +85,6 @@
   note:
     nb: Revise and resubmit, Accounting and Business Research
     en: Revise and resubmit, Accounting and Business Research
-
-- title: "Mispredictions about Dishonesty after Unfair Treatment"
-  authors: Berge, J. W., & Soto-Mota, P.
-  venue: SSRN working paper
-  year: 2025
-  status: working
-  link: https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5902362
 
 - title: "Is It Better to Be Loved or Feared? The Effects of Manager Kindness and Reward Discretion on Employee Effort"
   authors: Berge, J. W., Maas, V. S., & Yin, H.
