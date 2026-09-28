@@ -117,7 +117,7 @@
                     <p class="label">{{ t.basis_research }}</p>
                     <ul>
                       {%- for title in talk.research %}{% assign r = site.data.publications | where: "title", title | first %}
-                      <li>{% if r.link %}<a href="{{ r.link }}">{{ r.title }}</a>{% else %}{{ r.title }}{% endif %}<span class="meta">{% if r.status == "working" %}{% if r.note %}{% if r.note[L] %}{{ r.note[L] }}{% else %}{{ r.note }}{% endif %}{% else %}{{ t.working_label }}{% endif %}{% elsif r.status == "forthcoming" %}{{ r.venue }} · {{ t.forthcoming }}{% else %}{{ r.venue }} · {{ r.year }}{% endif %}</span></li>
+                      <li><a href="{% if r.link %}{{ r.link }}{% else %}#pub-{{ r.title | slugify }}{% endif %}">{{ r.title }}</a><span class="meta">{% if r.status == "working" %}{% if r.note %}{% if r.note[L] %}{{ r.note[L] }}{% else %}{{ r.note }}{% endif %}{% else %}{{ t.working_label }}{% endif %}{% elsif r.status == "forthcoming" %}{{ r.venue }} · {{ t.forthcoming }}{% else %}{{ r.venue }} · {{ r.year }}{% endif %}</span></li>
                       {%- endfor %}
                     </ul>
                   </div>
@@ -268,7 +268,7 @@
             <h3 class="list-title">{{ heading }}</h3>
             <ol class="pub-list">
               {%- for pub in list %}
-              <li>
+              <li id="pub-{{ pub.title | slugify }}">
                 <span class="year">{% if pub.status == "forthcoming" %}{{ t.forthcoming }}{% else %}{{ pub.year }}{% endif %}</span>
                 <span class="pub-text">
                   {%- if pub.link -%}<a href="{{ pub.link }}">{{ pub.title }}</a>{%- else -%}<span class="pub-title">{{ pub.title }}</span>{%- endif -%}
