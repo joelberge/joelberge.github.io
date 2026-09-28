@@ -1,6 +1,14 @@
 # Op-eds Joel has written, and news stories that cover his work. Newest first.
 
 opeds:
+  - title: Hva er en kvittering verdt i 2026?
+    outlet: Dagens Næringsliv
+    year: 2026
+    link: https://www.dn.no/innlegg/ki/ai/kunstig-intelligens/hva-er-en-kvittering-verdt-i-2026/2-1-1949164
+  - title: Hvem ville sagt nei til 450 000 kr i ekstrainntekt?
+    outlet: NHH Bulletin
+    year: 2025
+    link: https://www.nhh.no/nhh-bulletin/artikkelarkiv/2025/mai/hvem-ville-sagt-nei-til-450-000-kr-i-ekstrainntekt/
   - title: Bør vi stole mindre på hverandre?
     outlet: Vårt Land
     year: 2024
@@ -70,3 +78,7 @@ coverage:
     outlet: Kapital
     year: 2022
     link: https://www.kapital.no/reportasjer/naeringsliv/2022/11/17/7954978/hvitvaskingskontroll-kan-bli-en-byrakratisk-ovelse
+  - title: Ærlig og effektiv kommunikasjon i bedrifter
+    outlet: NHH Bulletin
+    year: 2021
+    link: https://www.nhh.no/nhh-bulletin/artikkelarkiv/2021/mars/disp/
