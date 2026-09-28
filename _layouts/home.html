@@ -45,9 +45,9 @@
       <a class="brand" href="#top">{{ p.name }}</a>
       <nav class="nav" aria-label="{% if L == 'nb' %}Hovedmeny{% else %}Main{% endif %}">
         <a href="#foredrag">{{ t.nav.talks }}</a>
-        <a href="#forskning">{{ t.nav.research }}</a>
-        <a href="#media">{{ t.nav.media }}</a>
         <a href="#podkast">{{ t.nav.podcast }}</a>
+        <a href="#media">{{ t.nav.media }}</a>
+        <a href="#forskning">{{ t.nav.research }}</a>
         <a href="#cv">{{ t.nav.cv }}</a>
         <a href="#kontakt">{{ t.nav.contact }}</a>
       </nav>
@@ -128,84 +128,6 @@
       </div>
     </section>
 
-    <!-- ============ RESEARCH ============ -->
-    <section class="section" id="forskning">
-      <div class="wrap">
-        <p class="eyebrow">{{ t.research_label }}</p>
-        <h2>{{ t.research_title }}</h2>
-
-        <div class="featured">
-          {%- assign featured = site.data.publications | where: "featured", true -%}
-          {%- for pub in featured -%}
-          <article class="feature">
-            <div class="feature-img">
-              {%- if pub.viz -%}{% include viz/{{ pub.viz }}.html t=t %}
-              {%- elsif pub.image -%}<img src="{{ pub.image | relative_url }}" width="{{ pub.image_width | default: 400 }}" height="{{ pub.image_height | default: 400 }}" alt="">{%- endif -%}
-            </div>
-            <div class="feature-body">
-              <p class="meta">{{ pub.venue }} · {% if pub.status == "forthcoming" %}<mark>{{ t.forthcoming }}</mark>{% else %}{{ pub.year }}{% endif %}</p>
-              <h3>{{ pub.title }}</h3>
-              <p class="authors">{{ pub.authors }}</p>
-              <p>{{ pub.summary[L] }}</p>
-              {%- if pub.link %}<a class="link-arrow" href="{{ pub.link }}">{{ t.read_paper }} <span aria-hidden="true">→</span></a>{% endif %}
-            </div>
-          </article>
-          {%- endfor -%}
-        </div>
-
-        {%- assign groups = "article,working,other" | split: "," -%}
-        <div class="pubs">
-          {%- for g in groups -%}
-          {%- assign list = site.data.publications | where: "status", g -%}
-          {%- if g == "article" -%}{%- assign heading = t.articles_title -%}{%- elsif g == "working" -%}{%- assign heading = t.working_title -%}{%- else -%}{%- assign heading = t.other_title -%}{%- endif -%}
-          {%- if list.size > 0 %}
-          <div class="pub-group">
-            <h3 class="list-title">{{ heading }}</h3>
-            <ol class="pub-list">
-              {%- for pub in list %}
-              <li>
-                <span class="year">{{ pub.year }}</span>
-                <span class="pub-text">
-                  {%- if pub.link -%}<a href="{{ pub.link }}">{{ pub.title }}</a>{%- else -%}<span class="pub-title">{{ pub.title }}</span>{%- endif -%}
-                  <span class="authors">{{ pub.authors }}{% if pub.venue %} · <em>{{ pub.venue }}</em>{% endif %}{% if pub.note %} · {% if pub.note[L] %}{{ pub.note[L] }}{% else %}{{ pub.note }}{% endif %}{% endif %}</span>
-                </span>
-              </li>
-              {%- endfor %}
-            </ol>
-          </div>
-          {%- endif -%}
-          {%- endfor %}
-        </div>
-        <p><a class="link-arrow" href="{{ p.links.scholar }}">{{ t.scholar_link }} <span aria-hidden="true">→</span></a></p>
-      </div>
-    </section>
-
-    <!-- ============ MEDIA ============ -->
-    <section class="section" id="media">
-      <div class="wrap">
-        <p class="eyebrow">{{ t.media_label }}</p>
-        <h2>{{ t.media_title }}</h2>
-        <div class="media-grid">
-          <div>
-            <h3 class="list-title">{{ t.opeds_title }}</h3>
-            <ul class="media-list">
-              {%- for m in site.data.media.opeds %}
-              <li><a href="{{ m.link }}">{{ m.title }}</a><span class="meta">{{ m.outlet }} · {{ m.year }}{% if m.with %} · {{ t.with }} {{ m.with }}{% endif %}</span></li>
-              {%- endfor %}
-            </ul>
-          </div>
-          <div>
-            <h3 class="list-title">{{ t.coverage_title }}</h3>
-            <ul class="media-list">
-              {%- for m in site.data.media.coverage %}
-              <li><a href="{{ m.link }}">{{ m.title }}</a><span class="meta">{{ m.outlet }} · {{ m.year }}</span></li>
-              {%- endfor %}
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <!-- ============ PODCAST ============ -->
     {%- assign pod = site.data.podcast -%}
     <section class="section" id="podkast">
@@ -249,6 +171,84 @@
       </div>
     </section>
 
+    <!-- ============ MEDIA ============ -->
+    <section class="section" id="media">
+      <div class="wrap">
+        <p class="eyebrow">{{ t.media_label }}</p>
+        <h2>{{ t.media_title }}</h2>
+        <div class="media-grid">
+          <div>
+            <h3 class="list-title">{{ t.opeds_title }}</h3>
+            <ul class="media-list">
+              {%- for m in site.data.media.opeds %}
+              <li><a href="{{ m.link }}">{{ m.title }}</a><span class="meta">{{ m.outlet }} · {{ m.year }}{% if m.with %} · {{ t.with }} {{ m.with }}{% endif %}</span></li>
+              {%- endfor %}
+            </ul>
+          </div>
+          <div>
+            <h3 class="list-title">{{ t.coverage_title }}</h3>
+            <ul class="media-list">
+              {%- for m in site.data.media.coverage %}
+              <li><a href="{{ m.link }}">{{ m.title }}</a><span class="meta">{{ m.outlet }} · {{ m.year }}</span></li>
+              {%- endfor %}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ RESEARCH ============ -->
+    <section class="section" id="forskning">
+      <div class="wrap">
+        <p class="eyebrow">{{ t.research_label }}</p>
+        <h2>{{ t.research_title }}</h2>
+
+        <div class="featured">
+          {%- assign featured = site.data.publications | where: "featured", true -%}
+          {%- for pub in featured -%}
+          <article class="feature">
+            <div class="feature-img">
+              {%- if pub.viz -%}{% include viz/{{ pub.viz }}.html t=t %}
+              {%- elsif pub.image -%}<img src="{{ pub.image | relative_url }}" width="{{ pub.image_width | default: 400 }}" height="{{ pub.image_height | default: 400 }}" alt="">{%- endif -%}
+            </div>
+            <div class="feature-body">
+              <p class="meta">{% if pub.status == "working" %}<mark>{% if pub.note[L] %}{{ pub.note[L] }}{% else %}{{ pub.note }}{% endif %}</mark>{% else %}{{ pub.venue }} · {% if pub.status == "forthcoming" %}<mark>{{ t.forthcoming }}</mark>{% else %}{{ pub.year }}{% endif %}{% endif %}</p>
+              <h3>{{ pub.title }}</h3>
+              <p class="authors">{{ pub.authors }}</p>
+              <p>{{ pub.summary[L] }}</p>
+              {%- if pub.link %}<a class="link-arrow" href="{{ pub.link }}">{{ t.read_paper }} <span aria-hidden="true">→</span></a>{% endif %}
+            </div>
+          </article>
+          {%- endfor -%}
+        </div>
+
+        {%- assign groups = "article,working,other" | split: "," -%}
+        <div class="pubs">
+          {%- for g in groups -%}
+          {%- assign list = site.data.publications | where: "status", g -%}
+          {%- if g == "article" -%}{%- assign heading = t.articles_title -%}{%- elsif g == "working" -%}{%- assign heading = t.working_title -%}{%- else -%}{%- assign heading = t.other_title -%}{%- endif -%}
+          {%- if list.size > 0 %}
+          <div class="pub-group">
+            <h3 class="list-title">{{ heading }}</h3>
+            <ol class="pub-list">
+              {%- for pub in list %}
+              <li>
+                <span class="year">{{ pub.year }}</span>
+                <span class="pub-text">
+                  {%- if pub.link -%}<a href="{{ pub.link }}">{{ pub.title }}</a>{%- else -%}<span class="pub-title">{{ pub.title }}</span>{%- endif -%}
+                  <span class="authors">{{ pub.authors }}{% if pub.venue %} · <em>{{ pub.venue }}</em>{% endif %}{% if pub.note %} · {% if pub.note[L] %}{{ pub.note[L] }}{% else %}{{ pub.note }}{% endif %}{% endif %}</span>
+                </span>
+              </li>
+              {%- endfor %}
+            </ol>
+          </div>
+          {%- endif -%}
+          {%- endfor %}
+        </div>
+        <p><a class="link-arrow" href="{{ p.links.scholar }}">{{ t.scholar_link }} <span aria-hidden="true">→</span></a></p>
+      </div>
+    </section>
+
     <!-- ============ CV ============ -->
     <section class="section" id="cv">
       <div class="wrap">
@@ -260,7 +260,7 @@
             <h3 class="list-title">{{ g.heading[L] }}</h3>
             <dl class="cv-list">
               {%- for i in g.items %}
-              <div><dt>{{ i.when }}</dt><dd>{{ i.what[L] }}</dd></div>
+              <div><dt>{% if i.when[L] %}{{ i.when[L] }}{% else %}{{ i.when }}{% endif %}</dt><dd>{{ i.what[L] }}</dd></div>
               {%- endfor %}
             </dl>
           </div>

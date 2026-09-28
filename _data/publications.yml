@@ -8,6 +8,27 @@
 #   summary:  short plain-language text in both languages (featured papers only)
 #   note:     optional short label, e.g. "Open access"
 
+- title: "Observable Information Acquisition, Social Costs, and Pay Dispersion"
+  authors: Berge, J. W., Traini, S., & Vattø, T.
+  status: working
+  featured: true
+  image: /assets/img/research/pay-dispersion.svg
+  link: https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6747599
+  note:
+    nb: Revise and resubmit, Journal of Accounting Research
+    en: Revise and resubmit, Journal of Accounting Research
+  summary:
+    nb: >-
+      Da Norge gjorde søk i skattelistene synlige for den som blir søkt på, ble det sosialt kostbart å hente
+      lønnsinformasjon om andre. Lønnsforskjellene økte mer, om lag 3–4 prosent, i bedrifter med færre søk etter
+      reformen. Hvor godt åpenhet virker, avhenger altså ikke bare av om informasjonen finnes, men av hva det
+      koster å hente den.
+    en: >-
+      When Norway made searches in public tax records visible to the person searched, looking up others' pay
+      became socially costly. Pay dispersion rose more, by about 3–4 percent, in firms with fewer searches after
+      the reform. How well transparency works depends not only on whether information is available, but on the
+      cost of acquiring it.
+
 - title: KI-kompasset
   authors: Berge, J. W.
   venue: Magma
@@ -62,7 +83,7 @@
   venue: Economics Letters, 267, 113100
   year: 2026
   status: article
-  link: https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5902362
+  link: https://doi.org/10.1016/j.econlet.2026.113100
 
 - title: "Strategic Curiosity: An Experimental Study of Curiosity and Dishonesty"
   authors: Ay, C. F., Berge, J. W., & Nødtvedt, K.
@@ -70,14 +91,6 @@
   year: 2024
   status: article
   link: https://doi.org/10.1016/j.jebo.2023.10.039
-
-- title: "Observable Information Acquisition, Social Costs, and Pay Dispersion"
-  authors: Berge, J. W., Traini, S., & Vattø, T.
-  status: working
-  link: https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6747599
-  note:
-    nb: Revise and resubmit, Journal of Accounting Research
-    en: Revise and resubmit, Journal of Accounting Research
 
 - title: "Misleading with Facts: Effect of Paltering on Moral Perception of a Company"
   authors: Bashir, H., Berge, J. W., & Kshatriya, A.

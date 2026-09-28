@@ -4,6 +4,8 @@
   items:
     - when: 2021–
       what: { nb: "Førsteamanuensis, NHH Norges Handelshøyskole", en: "Associate Professor, NHH Norwegian School of Economics" }
+    - when: { nb: I dag, en: Current }
+      what: { nb: "Profilkoordinator, Økonomisk styring (BUS), NHH", en: "Profile coordinator, Business Analysis and Performance (BUS), NHH" }
     - when: 2023
       what: { nb: "Gjesteforsker, University of Amsterdam", en: "Visiting Researcher, University of Amsterdam" }
     - when: 2019
@@ -31,9 +33,9 @@
 
 - heading: { nb: Verv og forskningsmidler, en: Service and grants }
   items:
+    - when: { nb: I dag, en: Current }
+      what: { nb: "NHHs representant i det nasjonale fagorganet for etikk, UHR-ØA", en: "NHH's representative on the national council for ethics, UHR-ØA" }
     - when: 2022–
       what: { nb: "Styremedlem, Hauge Microfinance", en: "Board member, Hauge Microfinance" }
-    - when: 2021–
+    - when: 2021–2024
       what: { nb: Forskningsmidler fra Statkraft, en: Statkraft research grant }
-    - when: "2018, 2023"
-      what: { nb: Senter for etikk og økonomi, en: Centre for Ethics and Economics }

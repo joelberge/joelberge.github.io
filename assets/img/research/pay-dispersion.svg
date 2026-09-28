@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" role="img" aria-label="Bars of unequal height seen through a magnifying glass: pay dispersion and the cost of looking">
+  <rect width="400" height="400" fill="#ffffff"/>
+  <line x1="50" y1="320" x2="350" y2="320" stroke="#15171c" stroke-width="2"/>
+  <g fill="#DDDEE1" stroke="#15171c" stroke-width="2">
+    <rect x="70"  y="230" width="34" height="90"/>
+    <rect x="118" y="190" width="34" height="130"/>
+    <rect x="166" y="250" width="34" height="70"/>
+    <rect x="214" y="130" width="34" height="190"/>
+    <rect x="262" y="210" width="34" height="110"/>
+    <rect x="310" y="170" width="24" height="150"/>
+  </g>
+  <circle cx="232" cy="118" r="62" fill="none" stroke="#15171c" stroke-width="4"/>
+  <line x1="276" y1="162" x2="320" y2="206" stroke="#15171c" stroke-width="8" stroke-linecap="round"/>
+</svg>
