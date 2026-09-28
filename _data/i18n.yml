@@ -31,6 +31,10 @@ nb:
   audiences_label: Har snakket for blant andre
   talk_takeaway: Dette tar deltakerne med seg
   talk_book: Spør om dette foredraget
+  basis_title: Forskningen bak
+  basis_research: Forskning
+  basis_opeds: Kronikker, innlegg og foredrag
+  working_label: Arbeidsnotat
   gallery_title: Fra scenen
   talk_subject: "Forespørsel om foredrag:"
   research_label: Forskning
@@ -112,6 +116,10 @@ en:
   audiences_label: Previous audiences include
   talk_takeaway: What participants take away
   talk_book: Ask about this talk
+  basis_title: The research behind it
+  basis_research: Research
+  basis_opeds: Op-eds and talks
+  working_label: Working paper
   gallery_title: On stage
   talk_subject: "Talk enquiry:"
   research_label: Research

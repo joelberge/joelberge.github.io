@@ -164,7 +164,7 @@ h1 {
 .talk-list { border-top: 1px solid var(--ink); }
 .talk {
   display: grid; grid-template-columns: 96px minmax(0, 1fr) auto;
-  gap: 16px clamp(24px, 4vw, 48px); align-items: center;
+  gap: 16px clamp(24px, 4vw, 48px); align-items: start;
   padding-block: 32px; border-bottom: 1px solid var(--rule);
 }
 .talk-icon { width: 96px; --hl: #b8bbc2; --rule-strong: #d3d6dc; }
@@ -172,7 +172,21 @@ h1 {
 .talk h3 { font-size: clamp(26px, 3vw, 34px); letter-spacing: -0.02em; font-weight: 300; }
 .talk-q { font-size: 19px; margin: 6px 0 8px; }
 .talk-sum { color: var(--muted); font-size: 17px; max-width: 62ch; margin: 0; }
-.talk-ask { white-space: nowrap; font-size: 16px; }
+.talk-ask { white-space: nowrap; font-size: 16px; margin-top: 12px; }
+.talk-basis { margin-top: 14px; }
+.talk-basis summary { cursor: pointer; font-size: 15px; color: var(--ink); list-style: none; display: inline-flex; align-items: center; gap: 8px; }
+.talk-basis summary::-webkit-details-marker { display: none; }
+.talk-basis summary::after { content: "+"; font-size: 18px; line-height: 1; color: var(--muted); }
+.talk-basis[open] summary::after { content: "–"; }
+.talk-basis summary:hover { text-decoration: underline; text-decoration-color: var(--muted); }
+.basis-groups { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px 40px; margin-top: 16px; padding: 20px 24px; background: var(--hl-soft); border-radius: 3px; }
+.basis-groups .label { margin: 0 0 6px; }
+.basis-groups li { font-size: 15px; line-height: 1.4; padding-block: 7px; border-bottom: 1px solid var(--rule); }
+.basis-groups li:last-child { border-bottom: 0; }
+.basis-groups a { text-decoration: none; font-weight: 400; }
+.basis-groups a:hover { text-decoration: underline; }
+.basis-groups .meta { display: block; font-size: 11px; margin-top: 2px; }
+@media (max-width: 720px) { .basis-groups { grid-template-columns: 1fr; padding: 16px; } }
 @media (max-width: 720px) {
   .talk { grid-template-columns: 64px minmax(0, 1fr); align-items: start; }
   .talk-icon { width: 64px; }

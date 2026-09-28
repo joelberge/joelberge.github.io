@@ -10,7 +10,7 @@ All content is data. Change the YAML files, not the layout.
 | What | File |
 |---|---|
 | Name, title, email, profile links, CV PDF path | `_data/profile.yml` |
-| The three talks | `_data/talks.yml` |
+| The three talks, and the research/op-eds behind each ("Forskningen bak", by exact title) | `_data/talks.yml` |
 | "Har snakket for" chips | `_data/audiences.yml` |
 | Photos of Joel speaking (first = large photo in talks section) | `_data/gallery.yml` (images in `assets/img/action/`) |
 | Publications, forthcoming and working papers | `_data/publications.yml` |

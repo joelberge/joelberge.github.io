@@ -1,5 +1,6 @@
 # The talks and workshops offered to organisations, shown as a short list.
 # viz: name of the illustration in _includes/viz/ (compass, balance, trust-curve), shown as a small icon.
+# research / opeds: exact titles from publications.yml and media.yml (shown under "Forskningen bak").
 # summary: one or two sentences. Keep it short; details belong in the conversation with the client.
 
 - id: ki-kompasset
@@ -17,6 +18,10 @@
     en: >-
       A tool for separating prediction from judgment. Two questions, about goal clarity and separability,
       place any process in one of four quadrants.
+  research:
+    - "KI-kompasset: Et strategisk verktøy for å navigere KI-implementering"
+  opeds:
+    - "AI-kappløpet – sprint eller orienteringsløp?"
 
 - id: etikk-og-butikk
   viz: balance
@@ -33,6 +38,15 @@
     en: >-
       When do ethics and profitability pull in the same direction, and when do they not? Built on my own
       experiments on values, norms and incentives.
+  research:
+    - "Mixed Motives for Doing Good: The Effect of Profit Motives in CSR Initiatives on Employee Opportunism"
+    - "Misleading with Facts: Effect of Paltering on Moral Perception of a Company"
+    - "Impacts of Effective Altruism on Donor Behaviour: A Randomised Discrete Choice Experiment"
+    - "The DEI Reversal Penalty"
+    - "Information Acquisition and Misreporting: A Research Note"
+  opeds:
+    - "La oss snakke ærlig om etikk og butikk"
+    - "Handelshøyskoleeffekten"
 
 - id: tillitsfellen
   viz: trust-curve
@@ -49,3 +63,14 @@
     en: >-
       Too much trust leaves room for abuse. Too much control stifles motivation. How leaders can manage
       in a way that builds trust.
+  research:
+    - "The Cost of Control in Mission Driven Organizations"
+    - "When Do Employees Work Harder for Kind Managers? The Role of Reward Discretion and Environmental Favorability"
+    - "Auditors' Responses to Norway's New Auditing Act and Anti-Money Laundering Regulation"
+  opeds:
+    - "Bør vi stole mindre på hverandre?"
+    - "Norge kan tjene penger på å tredoble Økokrims budsjetter"
+    - "Hva er en kvittering verdt i 2026?"
+  also:
+    - { nb: "Foredrag om tillit, Innovasjonsuken (OPP)", en: "Talk on trust, Innovation Week (OPP)" }
+

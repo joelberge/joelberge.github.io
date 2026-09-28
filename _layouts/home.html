@@ -108,6 +108,36 @@
               <h3>{{ talk.title[L] }}</h3>
               <p class="talk-q">{{ talk.question[L] }}</p>
               <p class="talk-sum">{{ talk.summary[L] }}</p>
+              {%- if talk.research or talk.opeds %}
+              <details class="talk-basis">
+                <summary>{{ t.basis_title }}</summary>
+                <div class="basis-groups">
+                  {%- if talk.research %}
+                  <div>
+                    <p class="label">{{ t.basis_research }}</p>
+                    <ul>
+                      {%- for title in talk.research %}{% assign r = site.data.publications | where: "title", title | first %}
+                      <li>{% if r.link %}<a href="{{ r.link }}">{{ r.title }}</a>{% else %}{{ r.title }}{% endif %}<span class="meta">{% if r.status == "working" %}{% if r.note %}{% if r.note[L] %}{{ r.note[L] }}{% else %}{{ r.note }}{% endif %}{% else %}{{ t.working_label }}{% endif %}{% elsif r.status == "forthcoming" %}{{ r.venue }} · {{ t.forthcoming }}{% else %}{{ r.venue }} · {{ r.year }}{% endif %}</span></li>
+                      {%- endfor %}
+                    </ul>
+                  </div>
+                  {%- endif %}
+                  {%- if talk.opeds or talk.also %}
+                  <div>
+                    <p class="label">{{ t.basis_opeds }}</p>
+                    <ul>
+                      {%- for title in talk.opeds %}{% assign o = site.data.media.opeds | where: "title", title | first %}
+                      <li><a href="{{ o.link }}">{{ o.title }}</a><span class="meta">{{ o.outlet }} · {{ o.year }}</span></li>
+                      {%- endfor %}
+                      {%- for a in talk.also %}
+                      <li>{{ a[L] }}</li>
+                      {%- endfor %}
+                    </ul>
+                  </div>
+                  {%- endif %}
+                </div>
+              </details>
+              {%- endif %}
             </div>
             <a class="link-arrow talk-ask" href="mailto:{{ p.email }}?subject={{ t.talk_subject | append: ' ' | append: talk.title[L] | uri_escape }}">{{ t.talk_book }} <span aria-hidden="true">→</span></a>
           </li>
@@ -231,6 +261,7 @@
         <div class="pubs">
           {%- for g in groups -%}
           {%- assign list = site.data.publications | where: "status", g -%}
+          {%- if g == "article" -%}{%- assign fc = site.data.publications | where: "status", "forthcoming" -%}{%- assign list = fc | concat: list -%}{%- endif -%}
           {%- if g == "article" -%}{%- assign heading = t.articles_title -%}{%- elsif g == "working" -%}{%- assign heading = t.working_title -%}{%- else -%}{%- assign heading = t.other_title -%}{%- endif -%}
           {%- if list.size > 0 %}
           <div class="pub-group">
@@ -238,7 +269,7 @@
             <ol class="pub-list">
               {%- for pub in list %}
               <li>
-                <span class="year">{{ pub.year }}</span>
+                <span class="year">{% if pub.status == "forthcoming" %}{{ t.forthcoming }}{% else %}{{ pub.year }}{% endif %}</span>
                 <span class="pub-text">
                   {%- if pub.link -%}<a href="{{ pub.link }}">{{ pub.title }}</a>{%- else -%}<span class="pub-title">{{ pub.title }}</span>{%- endif -%}
                   <span class="authors">{{ pub.authors }}{% if pub.venue %} · <em>{{ pub.venue }}</em>{% endif %}{% if pub.note %} · {% if pub.note[L] %}{{ pub.note[L] }}{% else %}{{ pub.note }}{% endif %}{% endif %}</span>
