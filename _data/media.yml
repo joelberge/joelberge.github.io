@@ -1,0 +1,72 @@
+# Op-eds Joel has written, and news stories that cover his work. Newest first.
+
+opeds:
+  - title: Bør vi stole mindre på hverandre?
+    outlet: Vårt Land
+    year: 2024
+    link: https://www.vl.no/meninger/verdidebatt/2024/11/09/bor-vi-stole-mindre-pa-hverandre/
+  - title: Norge kan tjene penger på å tredoble Økokrims budsjetter
+    outlet: Dagens Næringsliv
+    with: Halvor Mjøen Berg
+    year: 2024
+    link: https://www.dn.no/innlegg/okonomisk-kriminalitet/okokrim/politiet/norge-kan-tjene-penger-pa-a-tredoble-okokrims-budsjetter/2-1-1674251
+  - title: Hva skal vi gjøre med for mye tillit?
+    outlet: Dagens Perspektiv
+    year: 2024
+    link: https://www.dagensperspektiv.no/synspunkt/synspunkt-joel-berge-hva-skal-vi-gjore-med-for-mye-tillit/1155836
+  - title: Er det rettferdig å belønne flaks med bonus?
+    outlet: Finansavisen
+    year: 2023
+    link: https://www.finansavisen.no/finans/2023/04/13/8000576/er-det-rettferdig-a-belonne-flaks-med-bonus
+  - title: Høyere tittel – lavere lønn
+    outlet: Dagens Næringsliv
+    with: Kenneth Fjell
+    year: 2023
+    link: https://www.dn.no/innlegg/arbeidsliv/lonnsdannelse/ledelse/hoyere-tittel-lavere-lonn/2-1-1404906
+  - title: Handelshøyskoleeffekten
+    outlet: Dagens Næringsliv
+    with: Kenneth Fjell
+    year: 2022
+    link: https://www.dn.no/innlegg/etikk/norges-handelshoyskole/handelshoyskolen-bi/handelshoyskoleeffekten/2-1-1377448
+  - title: La oss snakke ærlig om etikk og butikk
+    outlet: Dagens Næringsliv
+    year: 2022
+    link: https://www.dn.no/innlegg/la-oss-snakke-arlig-om-etikk-og-butikk/2-1-1354627
+  - title: Den skjulte eksamen
+    outlet: Bergens Tidende
+    year: 2018
+    link: https://www.bt.no/btmeninger/debatt/i/e1xvLa/den-skjulte-eksamen
+
+coverage:
+  - title: "Skal forske på Bulders suksess: – Skulle gjerne holdt vår hemmelige oppskrift for oss selv"
+    outlet: BankShift
+    year: 2025
+    link: https://www.bankshift.no/nyheter/skal-forske-pa-bulders-suksess-skulle-gjerne-holdt-var-hemmelige-oppskrift-for-oss-selv/376739
+  - title: Konsulentselskaper ansetter nyutdannede i «særlig uavhengige stillinger»
+    outlet: Dagens Næringsliv
+    year: 2023
+    link: https://www.dn.no/arbeidsliv/konsulentselskaper-ansetter-nyutdannede-i-sarlig-uavhengige-stillinger/2-1-1505726
+  - title: Hemmelige givere har doblet Frps valgkampbudsjett
+    outlet: Filter Nyheter
+    year: 2023
+    link: https://filternyheter.no/hemmelige-givere-har-doblet-frps-valgkampbudsjett-kan-skjule-pavirkning-av-vedtak-i-lokalpolitikken-tror-eksperter/
+  - title: Denne setningen kan ha gitt deg lavere lønn
+    outlet: digi.no
+    year: 2023
+    link: https://www.digi.no/artikler/denne-setningen-kan-ha-gitt-deg-lavere-lonn/533334?key=9cRb3WGp
+  - title: Ledere med én bestemt utdanning gjør som Sheriffen av Nottingham
+    outlet: Khrono
+    year: 2023
+    link: https://khrono.no/ledere-med-en-bestemt-utdanning-tar-fra-ansatte/748048
+  - title: Bedrifter misbruker ledertitler for å unngå å gi de ansatte lønnsøkninger
+    outlet: Dagens Perspektiv
+    year: 2023
+    link: https://dagensperspektiv.no/ledelse/2023/bedrifter-misbruker-ledertitler-unnga-gi-de-ansatte-lonnsokninger
+  - title: Ledere med handelshøyskoleutdanning betaler ansatte mindre – og seg selv mer
+    outlet: Dagens Perspektiv
+    year: 2023
+    link: https://dagensperspektiv.no/ledelse/2023/handelshoyskoleeffekten-ledere-betaler-ansatte-mindre-og-oker-sin-egen-lonn
+  - title: Hvitvaskingskontroll kan bli en byråkratisk øvelse
+    outlet: Kapital
+    year: 2022
+    link: https://www.kapital.no/reportasjer/naeringsliv/2022/11/17/7954978/hvitvaskingskontroll-kan-bli-en-byrakratisk-ovelse

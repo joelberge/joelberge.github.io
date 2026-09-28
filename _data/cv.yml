@@ -1,0 +1,39 @@
+# Short CV. Each group has a heading and dated entries. Newest first.
+
+- heading: { nb: Stillinger, en: Positions }
+  items:
+    - when: 2021–
+      what: { nb: "Førsteamanuensis, NHH Norges Handelshøyskole", en: "Associate Professor, NHH Norwegian School of Economics" }
+    - when: 2023
+      what: { nb: "Gjesteforsker, University of Amsterdam", en: "Visiting Researcher, University of Amsterdam" }
+    - when: 2019
+      what: { nb: "Gjesteforsker, Tilburg University", en: "Visiting Research Scholar, Tilburg University" }
+
+- heading: { nb: Utdanning, en: Education }
+  items:
+    - when: 2021
+      what: { nb: "Ph.d. i økonomisk styring, NHH", en: "Ph.D. in Management Accounting, NHH" }
+    - when: 2016
+      what: { nb: "Master i økonomi og administrasjon (BUS), NHH", en: "M.Sc. in Economics and Business Administration (BUS), NHH" }
+    - when: 2015
+      what: { nb: "Utvekslingsstudent, University of California, Berkeley", en: "Exchange student, University of California, Berkeley" }
+    - when: 2014
+      what: { nb: "Bachelor i økonomi og administrasjon, NHH", en: "Bachelor in Economics and Business Administration, NHH" }
+
+- heading: { nb: Undervisning, en: Teaching }
+  items:
+    - when: 2022–
+      what: { nb: "Emneansvarlig, Strategic Profitability Analysis (BUS401E)", en: "Course leader, Strategic Profitability Analysis (BUS401E)" }
+    - when: 2022–
+      what: { nb: "Etter- og videreutdanning ved NHH: strategisk ledelse, økonomistyring, sjømatledelse", en: "Executive education at NHH: strategic management, management control, seafood management" }
+    - when: 2024–
+      what: { nb: "Engage Faculty Bridge Program, modul 2", en: "Engage Faculty Bridge Program, module 2" }
+
+- heading: { nb: Verv og forskningsmidler, en: Service and grants }
+  items:
+    - when: 2022–
+      what: { nb: "Styremedlem, Hauge Microfinance", en: "Board member, Hauge Microfinance" }
+    - when: 2021–
+      what: { nb: Forskningsmidler fra Statkraft, en: Statkraft research grant }
+    - when: "2018, 2023"
+      what: { nb: Senter for etikk og økonomi, en: Centre for Ethics and Economics }

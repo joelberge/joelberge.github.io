@@ -1,0 +1,42 @@
+# Lederskap, the podcast Joel co-hosts, plus guest appearances on other shows.
+
+show:
+  name: Lederskap
+  subtitle:
+    nb: NHHs podkast om ledelse
+    en: NHH's podcast on leadership
+  cohost: Therese Egeland Sverdrup
+  body:
+    nb: >-
+      Sammen med professor Therese Egeland Sverdrup inviterer jeg kloke gjester til samtaler om aktuelle
+      ledelsestemaer og relevant forskning. Nye episoder kommer to ganger i måneden.
+    en: >-
+      Together with Professor Therese Egeland Sverdrup, I invite thoughtful guests to discuss current leadership
+      topics and relevant research. New episodes come out twice a month. The podcast is in Norwegian.
+  links:
+    - label: Spotify
+      url: https://open.spotify.com/show/5AytOLZNUn4RUUyBAFMbx4
+    - label: Apple Podcasts
+      url: https://podcasts.apple.com/no/podcast/lederskap-nhhs-podkast-om-ledelse/id1498796704
+    - label: Acast
+      url: https://shows.acast.com/lederskap
+
+guest:
+  - title: Hva skjer når alle får AI?
+    show: Økonomiamatørene, episode 267
+    link: https://open.spotify.com/episode/7ccXXY4tWfXqvDGQp1EydL
+  - title: Verdien av Økokrim og tillit i samfunnet
+    show: Bærekraftseventyr, episode 153
+    year: 2024
+    link: https://shows.acast.com/5fd3665dfe167d3247293ca2/66d40443d4bfadabd6ab1761
+  - title: Snill vs. etisk kompetanse
+    show: Tro i arbeid
+    year: 2024
+    link: https://poddtoppen.se/podcast/1583221980/tro-i-arbeid/joel-berge-snill-vs-etisk-kompetanse-og-gud-kan-bruke-alle
+  - title: Etikk og butikk
+    show: Lederskap, episode 57
+    link: https://shows.acast.com/6230990688da9b0013f124ce/649187e58d0a840011b71472
+  - title: Etikk og økonomi
+    show: Bærekraftseventyr, episode 77
+    year: 2023
+    link: https://podcasts.apple.com/no/podcast/jp077-etikk-og-%C3%B8konomi-med-joel-berge/id1545918010?i=1000598171071

@@ -1,0 +1,102 @@
+# Research output. Newest first within each group.
+#
+# Fields:
+#   status:   article | forthcoming | working | other
+#   featured: true shows the paper as a large card with image and summary
+#   image:    path to an image file, OR viz: name of an illustration in _includes/viz/
+#   link:     DOI or paper URL (optional)
+#   summary:  short plain-language text in both languages (featured papers only)
+#   note:     optional short label, e.g. "Open access"
+
+- title: KI-kompasset
+  authors: Berge, J. W.
+  venue: Magma
+  year: forthcoming
+  status: forthcoming
+  featured: true
+  viz: compass
+  summary:
+    nb: >-
+      Et rammeverk for ledere som skal avgjøre hvilken rolle KI skal ha i en beslutningsprosess.
+      To spørsmål, om målklarhet og separerbarhet, gir fire kvadranter: forsterket skjønn, automatiserte
+      beslutninger, utforskende støtte og strategisk autonomi. Hver kvadrant har sin egen fallgruve.
+    en: >-
+      A framework for leaders deciding what role AI should play in a decision process. Two questions,
+      about goal clarity and separability, give four quadrants: augmented judgment, automated decision-making,
+      exploratory support and strategic autonomy. Each quadrant has its own pitfall.
+
+- title: "Mixed Motives for Doing Good: The Effect of Profit Motives in CSR Initiatives on Employee Opportunism"
+  authors: Arshad, F. M., & Berge, J. W.
+  venue: Behavioral Research in Accounting
+  year: 2026
+  status: article
+  featured: true
+  image: /assets/img/research/mixed-motives.svg
+  summary:
+    nb: >-
+      Bedrifter driver ofte samfunnsansvar både for å gjøre godt og for å tjene penger. I et eksperiment
+      undersøker vi om slike blandede motiver påvirker hvor opportunistisk ansatte oppfører seg.
+    en: >-
+      Firms often pursue social responsibility both to do good and to make money. In an experiment,
+      we test whether such mixed motives change how opportunistically employees behave.
+
+- title: "Information Acquisition and Misreporting: A Research Note"
+  authors: Berge, J. W., Berge, L. I. O., & Maas, V. S.
+  venue: Accounting and Business Research
+  year: 2026
+  status: article
+  link: https://doi.org/10.1080/00014788.2026.2634049
+  note: Open access
+
+- title: "Impacts of Effective Altruism on Donor Behaviour: A Randomised Discrete Choice Experiment"
+  authors: Berge, J. W., Berge, L. I. O., Chiu, W., & Kolstad, I.
+  venue: Journal of Development Studies, 62(5)
+  year: 2026
+  status: article
+  link: https://doi.org/10.1080/00220388.2025.2601583
+
+- title: "Strategic Curiosity: An Experimental Study of Curiosity and Dishonesty"
+  authors: Ay, C. F., Berge, J. W., & Nødtvedt, K.
+  venue: Journal of Economic Behavior & Organization, 217, 287–297
+  year: 2024
+  status: article
+  link: https://doi.org/10.1016/j.jebo.2023.10.039
+
+- title: "Is It Better to Be Loved or Feared? The Effects of Manager Kindness and Reward Discretion on Employee Effort"
+  authors: Berge, J. W., Maas, V. S., & Yin, H.
+  status: working
+
+- title: "Deception Without Lies: How Paltering in Sustainability Reports Influences Moral Perceptions of Companies"
+  authors: Bashir, H., Berge, J. W., & Kshatriya, A.
+  status: working
+
+- title: "The Cost of Control in Uncertain Environments: How Managerial Discretion and Narcissism Influence Employee Reactions to Formal Control"
+  authors: Berge, J. W., Maske, M., & Sohn, M.
+  status: working
+
+- title: "Brutally Honest Corporate Communication and Its Effect on Trust: A Field Experiment"
+  authors: Berge, J. W., Berge, L. I. O., Martuza, J. B., & Sjåstad, H.
+  status: working
+
+- title: "Firms' Responses to De-Anonymizing Norway's Public Tax Records"
+  authors: Berge, J. W., Perez-Truglia, R., Traini, S., & Vattø, T.
+  status: working
+
+- title: "Code of Ethics, Information Avoidance, Accuracy, and Opportunistic Reporting in Capital Budgeting"
+  authors: Bentley, J., Berge, J. W., & Berge, L. I. O.
+  status: working
+
+- title: "Between Numbers and Judgement: An Experimental Study of Organizational Decision-Making"
+  authors: Berge, J. W., Catasús, B., & Knudsen, D. R.
+  status: working
+
+- title: "Auditors' Responses to Norway's New Auditing Act and Anti-Money Laundering Regulation"
+  authors: Berge, J. W., Knudsen, D. R., & Laguecir, A.
+  status: working
+
+- title: "Understanding Risk Appetite: What Is It, What Pressures Shape It and How Is It Institutionalized?"
+  authors: Baunan, H. H., & Berge, J. W.
+  venue: SNF Report 09/16
+  year: 2016
+  status: other
+  link: https://snf.no/media/wpjjvm4n/r_0916.pdf

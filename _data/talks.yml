@@ -1,0 +1,67 @@
+# The talks and workshops offered to organisations.
+# viz: name of the illustration in _includes/viz/ (compass, balance, trust-curve).
+
+- id: ki-kompasset
+  viz: compass
+  title:
+    nb: KI-kompasset
+    en: The AI Compass
+  question:
+    nb: Hvor skal KI ta beslutningene, og hvor skal mennesker gjøre det?
+    en: Where should AI make the decisions, and where should people?
+  body:
+    nb: >-
+      KI gjør prediksjon billigere. Men en beslutning er mer enn en prediksjon: den krever også skjønn.
+      KI-kompasset stiller to spørsmål. Kan målet formuleres som en regel på tvers av situasjoner?
+      Og kan prediksjonen skilles fra menneskelig skjønn? Svarene plasserer en prosess i én av fire kvadranter,
+      fra automatiserte beslutninger til forsterket skjønn.
+    en: >-
+      AI makes prediction cheaper. But a decision is more than a prediction: it also takes judgment.
+      The AI Compass asks two questions. Can the goal be stated as a rule across situations?
+      And can the prediction be separated from human judgment? The answers place a process in one of four quadrants,
+      from automated decision-making to augmented judgment.
+  takeaway:
+    nb: Deltakerne kartlegger egne prosesser og får et felles språk for hvor KI skaper verdi, og hvor den svekker ansvar og tillit.
+    en: Participants map their own processes and leave with a shared language for where AI creates value, and where it erodes accountability and trust.
+
+- id: etikk-og-butikk
+  viz: balance
+  title:
+    nb: Etikk og butikk
+    en: Ethics and Business
+  question:
+    nb: Lønner det seg å gjøre det rette?
+    en: Does doing the right thing pay?
+  body:
+    nb: >-
+      Etikk og lønnsomhet blir ofte framstilt som motpoler. Med utgangspunkt i egne eksperimenter viser jeg
+      når de trekker i samme retning, og når de ikke gjør det. Hvordan påvirker verdier, normer og insentiver
+      det folk faktisk gjør? Og hva skjer med de ansattes atferd når samfunnsansvar også skal lønne seg?
+    en: >-
+      Ethics and profitability are often presented as opposites. Drawing on my own experiments, I show when
+      they pull in the same direction and when they do not. How do values, norms and incentives shape what
+      people actually do? And what happens to employee behaviour when social responsibility is also meant to pay?
+  takeaway:
+    nb: Ledere får et ærligere språk for avveiningene mellom etikk og lønnsomhet, og konkrete spørsmål å ta med tilbake til egen virksomhet.
+    en: Leaders get a more honest language for the trade-offs between ethics and profit, and concrete questions to take back to their own organisation.
+
+- id: tillitsfellen
+  viz: trust-curve
+  title:
+    nb: Tillitsfellen
+    en: The Trust Trap
+  question:
+    nb: Må vi velge mellom kontroll og tillit?
+    en: Do we have to choose between control and trust?
+  body:
+    nb: >-
+      Norge er et høytillitssamfunn, og det er en styrke. Men for mye tillit gir rom for misbruk, og for mye
+      kontroll kan kvele motivasjonen den skal beskytte. Foredraget bygger på forskning om kontroll, skjønn
+      og ærlighet i organisasjoner, og viser hvordan ledere kan utforme styring som bygger tillit i stedet for å tære på den.
+    en: >-
+      Norway is a high-trust society, and that is a strength. But too much trust leaves room for abuse, and too
+      much control can stifle the motivation it is meant to protect. The talk draws on research on control,
+      discretion and honesty in organisations, and shows how leaders can design management systems that build trust instead of wearing it down.
+  takeaway:
+    nb: Deltakerne får et rammeverk for å vurdere når kontroll styrker tilliten, og når den undergraver den.
+    en: Participants get a framework for judging when control strengthens trust, and when it undermines it.

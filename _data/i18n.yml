@@ -1,0 +1,158 @@
+# Interface text in both languages. Content lives in the other _data files.
+
+nb:
+  html_lang: nb
+  switch_label: English
+  switch_short: "EN"
+  meta_description: >-
+    Joel W. Berge er førsteamanuensis i bedriftsøkonomi ved NHH. Han forsker på etikk og lønnsomhet,
+    holder foredrag om KI, tillit og etikk, og er programleder for podkasten Lederskap.
+  nav:
+    about: Om
+    talks: Foredrag
+    research: Forskning
+    media: Media
+    podcast: Podkast
+    cv: CV
+    contact: Kontakt
+  intro: >-
+    Jeg forsker på skjæringspunktet mellom <mark>etikk og lønnsomhet</mark>. Med eksperimenter studerer jeg
+    hvordan mennesker og organisasjoner håndterer etiske avveininger, og hvordan verdier, normer og regulering
+    påvirker beslutninger.
+  intro_2: >-
+    Jeg holder også foredrag og workshops for næringslivet, og er programleder for Lederskap, NHHs podkast om ledelse.
+  cta_book: Book et foredrag
+  cta_research: Se forskningen
+  talks_label: Foredrag og workshops
+  talks_title: Forskning som kan brukes <mark>på mandag</mark>
+  talks_lede: >-
+    Foredragene bygger på egen forskning og på undervisning for ledere ved NHH. Alle kan holdes som
+    foredrag eller som workshop, og tilpasses målgruppen.
+  audiences_label: Har snakket for blant andre
+  talk_takeaway: Dette tar deltakerne med seg
+  talk_book: Spør om dette foredraget
+  talk_subject: "Forespørsel om foredrag:"
+  research_label: Forskning
+  research_title: Utvalgt forskning
+  forthcoming: Kommer
+  read_paper: Les artikkelen
+  articles_title: Publiserte artikler
+  working_title: Arbeidsnotater
+  other_title: Andre publikasjoner
+  scholar_link: Alle publikasjoner på Google Scholar
+  media_label: I media
+  media_title: Skrevet og omtalt
+  opeds_title: Kronikker og innlegg
+  coverage_title: Omtale
+  with: med
+  podcast_label: Podkast
+  podcast_listen: Lytt på
+  podcast_guest: Gjest i andre podkaster
+  cv_label: CV
+  cv_title: Kort CV
+  cv_download: Last ned full CV (PDF)
+  contact_label: Kontakt
+  contact_title: Vil du booke et <mark>foredrag eller en workshop</mark>?
+  contact_body: >-
+    Send meg en e-post med tema, dato, sted og hvem publikummet er, så svarer jeg så snart jeg kan.
+  contact_button: Skriv en e-post
+  copy: Kopier adressen
+  copied: Kopiert
+  email_subject: Forespørsel om foredrag eller workshop
+  footer_note: Nettsiden oppdateres jevnlig.
+  compass:
+    goal: Målklarhet
+    sep: Separerbarhet
+    high: Høy
+    low: Lav
+    q1: Forsterket skjønn
+    q2: Automatiserte beslutninger
+    q3: Utforskende støtte
+    q4: Strategisk autonomi
+  balance:
+    left: Etikk
+    right: Butikk
+  trust:
+    x: Kontroll
+    y: Tillit og innsats
+    low: For lite
+    high: For mye
+    sweet: Balansen
+
+en:
+  html_lang: en
+  switch_label: Norsk
+  switch_short: "NO"
+  meta_description: >-
+    Joel W. Berge is Associate Professor of Business Economics at NHH Norwegian School of Economics. He studies
+    ethics and profitability, speaks on AI, trust and ethics, and co-hosts the podcast Lederskap.
+  nav:
+    about: About
+    talks: Talks
+    research: Research
+    media: Media
+    podcast: Podcast
+    cv: CV
+    contact: Contact
+  intro: >-
+    My research sits where <mark>ethics and profitability</mark> meet. Using experiments, I study how people
+    and organisations handle ethical trade-offs, and how values, social norms and regulation shape their decisions.
+  intro_2: >-
+    I also give talks and workshops for businesses, and co-host Lederskap, NHH's podcast on leadership.
+  cta_book: Book a talk
+  cta_research: See the research
+  talks_label: Talks and workshops
+  talks_title: Research you can use <mark>on Monday</mark>
+  talks_lede: >-
+    The talks build on my own research and on teaching executives at NHH. Each one works as a talk or as a
+    workshop, and is tailored to the audience. Delivered in Norwegian or English.
+  audiences_label: Previous audiences include
+  talk_takeaway: What participants take away
+  talk_book: Ask about this talk
+  talk_subject: "Talk enquiry:"
+  research_label: Research
+  research_title: Selected research
+  forthcoming: Forthcoming
+  read_paper: Read the paper
+  articles_title: Published articles
+  working_title: Working papers
+  other_title: Other publications
+  scholar_link: All publications on Google Scholar
+  media_label: In the media
+  media_title: Written and covered
+  opeds_title: Op-eds (in Norwegian)
+  coverage_title: Coverage (in Norwegian)
+  with: with
+  podcast_label: Podcast
+  podcast_listen: Listen on
+  podcast_guest: Guest on other podcasts
+  cv_label: CV
+  cv_title: Short CV
+  cv_download: Download full CV (PDF)
+  contact_label: Contact
+  contact_title: Want to book a <mark>talk or a workshop</mark>?
+  contact_body: >-
+    Send me an email with the topic, date, place and who the audience is, and I will reply as soon as I can.
+  contact_button: Write an email
+  copy: Copy address
+  copied: Copied
+  email_subject: Talk or workshop enquiry
+  footer_note: This site is updated regularly.
+  compass:
+    goal: Goal clarity
+    sep: Separability
+    high: High
+    low: Low
+    q1: Augmented judgment
+    q2: Automated decisions
+    q3: Exploratory support
+    q4: Strategic autonomy
+  balance:
+    left: Ethics
+    right: Business
+  trust:
+    x: Control
+    y: Trust and effort
+    low: Too little
+    high: Too much
+    sweet: The balance

@@ -1,0 +1,23 @@
+{%- assign c = include.t.compass -%}
+{%- assign q1 = c.q1 | split: " " -%}{%- assign q2 = c.q2 | split: " " -%}{%- assign q3 = c.q3 | split: " " -%}{%- assign q4 = c.q4 | split: " " -%}
+<svg class="viz" viewBox="0 0 400 400" role="img" aria-label="{{ c.goal }} × {{ c.sep }}: I {{ c.q1 }}, II {{ c.q2 }}, III {{ c.q3 }}, IV {{ c.q4 }}">
+  <!-- Quadrants follow the AI Compass: y = goal clarity (up = high), x = separability (right = high).
+       I (top left) augmented judgment, II (top right) automated decisions,
+       III (bottom left) exploratory support, IV (bottom right) strategic autonomy. -->
+  <circle cx="200" cy="200" r="150" fill="none" stroke="var(--rule-strong)" stroke-dasharray="2 6"/>
+  <line x1="200" y1="44" x2="200" y2="356" stroke="var(--rule-strong)"/>
+  <line x1="44" y1="200" x2="356" y2="200" stroke="var(--rule-strong)"/>
+  <polygon points="200,62 211,200 200,338 189,200" fill="var(--ink)"/>
+  <polygon points="62,200 200,190 338,200 200,210" fill="var(--hl)"/>
+  <circle cx="200" cy="200" r="7" fill="var(--bg)" stroke="var(--ink)" stroke-width="2"/>
+  <g class="viz-q" text-anchor="middle">
+    <text x="112" y="112"><tspan x="112" class="viz-num">I</tspan><tspan x="112" dy="20">{{ q1.first }}</tspan><tspan x="112" dy="18">{{ q1.last }}</tspan></text>
+    <text x="288" y="112"><tspan x="288" class="viz-num">II</tspan><tspan x="288" dy="20">{{ q2.first }}</tspan><tspan x="288" dy="18">{{ q2.last }}</tspan></text>
+    <text x="112" y="262"><tspan x="112" class="viz-num">III</tspan><tspan x="112" dy="20">{{ q3.first }}</tspan><tspan x="112" dy="18">{{ q3.last }}</tspan></text>
+    <text x="288" y="262"><tspan x="288" class="viz-num">IV</tspan><tspan x="288" dy="20">{{ q4.first }}</tspan><tspan x="288" dy="18">{{ q4.last }}</tspan></text>
+  </g>
+  <g class="viz-axis">
+    <text x="200" y="28" text-anchor="middle">↑ {{ c.goal }}</text>
+    <text x="392" y="386" text-anchor="end">{{ c.sep }} →</text>
+  </g>
+</svg>
