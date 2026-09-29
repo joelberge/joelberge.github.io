@@ -1,6 +1,5 @@
 # Short CV. Each group has a heading and dated entries. Newest first.
-# where: institution (shown first); what: role or degree; highlight: true marks the institution in grey
-# (used for the institutions abroad).
+# where: institution (shown first, marked with the grey highlighter); what: role or degree.
 
 - heading: { nb: Stillinger, en: Positions }
   items:
@@ -13,11 +12,9 @@
     - when: 2023
       where: { nb: University of Amsterdam, en: University of Amsterdam }
       what: { nb: "Gjesteforsker, Department of Accounting", en: "Visiting Researcher, Department of Accounting" }
-      highlight: true
     - when: 2019
       where: { nb: Tilburg University, en: Tilburg University }
       what: { nb: "Gjesteforsker, Department of Accountancy", en: "Visiting Research Scholar, Department of Accountancy" }
-      highlight: true
 
 - heading: { nb: Utdanning, en: Education }
   items:
@@ -30,13 +27,14 @@
     - when: 2015
       where: { nb: "University of California, Berkeley", en: "University of California, Berkeley" }
       what: { nb: "Utvekslingsstudent, Department of Economics", en: "Exchange student, Department of Economics" }
-      highlight: true
     - when: 2014
       where: { nb: NHH Norges Handelshøyskole, en: NHH Norwegian School of Economics }
       what: { nb: Bachelor i økonomi og administrasjon, en: Bachelor in Economics and Business Administration }
 
 - heading: { nb: Undervisning, en: Teaching }
   items:
+    - when: 2026
+      what: { nb: "Masterstudentenes pris for fremragende undervisning, NHH", en: "Master students' award for excellent teaching, NHH" }
     - when: 2025–
       what: { nb: "Profilkoordinator, Økonomisk styring (BUS), NHH", en: "Profile coordinator, Business Analysis and Performance (BUS), NHH" }
     - when: 2022–

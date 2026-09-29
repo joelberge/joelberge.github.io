@@ -1,6 +1,7 @@
 # Photos of Joel speaking. The first entry is the large photo at the top of the talks section;
 # the rest form the "Fra scenen" gallery under the talk list, in this order (strongest first).
 # Images live in assets/img/action/.
+# link (optional): the caption links to this page.
 # position: which part of the photo to keep when it is cropped to 4:3 (CSS object-position).
 
 - image: /assets/img/action/pwc-cfo.webp
@@ -74,3 +75,4 @@
   caption:
     nb: Masterstudentenes pris for fremragende undervisning
     en: Master students' award for excellent teaching
+  link: https://www.nhh.no/nhh-bulletin/artikkelarkiv/2026/juni/kastet-masterstudentene-ut-pa-dypt-vann--og-ble-hyllet-i-grieghallen/
