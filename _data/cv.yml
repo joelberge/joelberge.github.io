@@ -1,31 +1,46 @@
 # Short CV. Each group has a heading and dated entries. Newest first.
+# where: institution (shown first); what: role or degree; highlight: true marks the institution in grey
+# (used for the institutions abroad).
 
 - heading: { nb: Stillinger, en: Positions }
   items:
-    - when: 2021–
-      what: { nb: "Førsteamanuensis, NHH Norges Handelshøyskole", en: "Associate Professor, NHH Norwegian School of Economics" }
+    - when: 2025–
+      where: { nb: NHH Norges Handelshøyskole, en: NHH Norwegian School of Economics }
+      what: { nb: Førsteamanuensis, en: Associate Professor }
+    - when: 2021–2025
+      where: { nb: NHH Norges Handelshøyskole, en: NHH Norwegian School of Economics }
+      what: { nb: Postdoktor, en: Postdoctoral Researcher }
     - when: 2023
-      what: { nb: "Gjesteforsker, University of Amsterdam", en: "Visiting Researcher, University of Amsterdam" }
+      where: { nb: University of Amsterdam, en: University of Amsterdam }
+      what: { nb: "Gjesteforsker, Department of Accounting", en: "Visiting Researcher, Department of Accounting" }
+      highlight: true
     - when: 2019
-      what: { nb: "Gjesteforsker, Tilburg University", en: "Visiting Research Scholar, Tilburg University" }
+      where: { nb: Tilburg University, en: Tilburg University }
+      what: { nb: "Gjesteforsker, Department of Accountancy", en: "Visiting Research Scholar, Department of Accountancy" }
+      highlight: true
 
 - heading: { nb: Utdanning, en: Education }
   items:
     - when: 2021
-      what: { nb: "Ph.d. i økonomisk styring, NHH", en: "Ph.D. in Management Accounting, NHH" }
+      where: { nb: NHH Norges Handelshøyskole, en: NHH Norwegian School of Economics }
+      what: { nb: Ph.d. i økonomisk styring, en: Ph.D. in Management Accounting }
     - when: 2016
-      what: { nb: "Master i økonomi og administrasjon (BUS), NHH", en: "M.Sc. in Economics and Business Administration (BUS), NHH" }
+      where: { nb: NHH Norges Handelshøyskole, en: NHH Norwegian School of Economics }
+      what: { nb: "Master i økonomi og administrasjon (BUS)", en: "M.Sc. in Economics and Business Administration (BUS)" }
     - when: 2015
-      what: { nb: "Utvekslingsstudent, University of California, Berkeley", en: "Exchange student, University of California, Berkeley" }
+      where: { nb: "University of California, Berkeley", en: "University of California, Berkeley" }
+      what: { nb: "Utvekslingsstudent, Department of Economics", en: "Exchange student, Department of Economics" }
+      highlight: true
     - when: 2014
-      what: { nb: "Bachelor i økonomi og administrasjon, NHH", en: "Bachelor in Economics and Business Administration, NHH" }
+      where: { nb: NHH Norges Handelshøyskole, en: NHH Norwegian School of Economics }
+      what: { nb: Bachelor i økonomi og administrasjon, en: Bachelor in Economics and Business Administration }
 
 - heading: { nb: Undervisning, en: Teaching }
   items:
     - when: 2025–
       what: { nb: "Profilkoordinator, Økonomisk styring (BUS), NHH", en: "Profile coordinator, Business Analysis and Performance (BUS), NHH" }
     - when: 2022–
-      what: { nb: "Emneansvarlig, Strategic Profitability Analysis (BUS401E)", en: "Course leader, Strategic Profitability Analysis (BUS401E)" }
+      what: { nb: "Emneansvarlig, Strategic Profitability Analysis (BUS401E)", en: "Course responsible, Strategic Profitability Analysis (BUS401E)" }
     - when: 2022–
       what: { nb: "Etter- og videreutdanning ved NHH: strategisk ledelse, økonomistyring, sjømatledelse", en: "Executive education at NHH: strategic management, management control, seafood management" }
     - when: 2024–

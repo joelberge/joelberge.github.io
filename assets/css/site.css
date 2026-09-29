@@ -268,6 +268,8 @@ h1 {
 .cv-list div { display: grid; grid-template-columns: 6.5em 1fr; gap: 16px; padding-block: 12px; border-bottom: 1px solid var(--rule); }
 .cv-list dt { color: var(--muted); font-variant-numeric: tabular-nums; font-size: 16px; padding-top: 1px; }
 .cv-list dd { margin: 0; }
+.cv-where { display: block; }
+.cv-what { display: block; color: var(--muted); font-size: 16px; margin-top: 2px; }
 
 /* Contact */
 .contact h2 { max-width: 18ch; }
