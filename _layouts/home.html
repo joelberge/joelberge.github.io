@@ -296,7 +296,7 @@
             <h3 class="list-title">{{ g.heading[L] }}</h3>
             <dl class="cv-list">
               {%- for i in g.items %}
-              <div><dt>{% if i.when[L] %}{{ i.when[L] }}{% else %}{{ i.when }}{% endif %}</dt><dd>{{ i.what[L] }}</dd></div>
+              <div><dt>{% if i.when[L] %}{{ i.when[L] }}{% else %}{{ i.when }}{% endif %}</dt><dd>{% if i.where %}<span class="cv-where">{% if i.highlight %}<mark>{{ i.where[L] }}</mark>{% else %}{{ i.where[L] }}{% endif %}</span><span class="cv-what">{{ i.what[L] }}</span>{% else %}{{ i.what[L] }}{% endif %}</dd></div>
               {%- endfor %}
             </dl>
           </div>
