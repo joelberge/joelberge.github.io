@@ -139,6 +139,12 @@ h1 {
 }
 .btn:hover { background: var(--hl-soft); }
 .btn-solid { background: var(--ink); color: var(--bg); }
+.btn .icon { flex: none; }
+.btn .icon + span { margin-left: 10px; }
+.btn-icon { width: 46px; padding: 0; }
+.contact-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+.footer-li { display: inline-flex; align-items: center; gap: 6px; }
+.footer-li .icon { width: 15px; height: 15px; }
 .btn-solid:hover { background: var(--hl); color: var(--ink); border-color: var(--hl); }
 .link-arrow { text-decoration: none; font-weight: 400; border-bottom: 1px solid var(--ink); padding-bottom: 2px; }
 .link-arrow:hover { background: var(--hl-soft); }
