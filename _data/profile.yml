@@ -16,7 +16,7 @@ links:
   scholar: https://scholar.google.com/citations?user=sDycbUgAAAAJ
   nhh: https://www.nhh.no/en/employees/faculty/joel-berge/
   researchgate: https://www.researchgate.net/profile/Joel-Berge-2
-  # linkedin: add the profile URL here and it appears in the footer
+  linkedin: https://www.linkedin.com/in/joelwberge/
 
 # Set to the path of a PDF (e.g. /assets/cv/joel-berge-cv.pdf) to show a download button.
 cv_pdf:

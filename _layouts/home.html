@@ -72,6 +72,9 @@
           <div class="actions">
             <a class="btn btn-solid" href="#kontakt">{{ t.cta_book }}</a>
             <a class="btn" href="#forskning">{{ t.cta_research }}</a>
+            {%- if p.links.linkedin %}
+            <a class="btn btn-icon" href="{{ p.links.linkedin }}" aria-label="LinkedIn">{% include icon-linkedin.html %}</a>
+            {%- endif %}
           </div>
         </div>
         <div class="hero-photo">
@@ -318,7 +321,9 @@
           <span class="email" id="email">{{ p.email }}</span>
           <button class="copy" type="button" data-copy="{{ p.email }}" data-done="{{ t.copied }}">{{ t.copy }}</button>
         </p>
-        <p><a class="btn btn-solid" href="{{ mailto }}">{{ t.contact_button }}</a></p>
+        <p class="contact-actions"><a class="btn btn-solid" href="{{ mailto }}">{{ t.contact_button }}</a>
+          {%- if p.links.linkedin %}<a class="btn" href="{{ p.links.linkedin }}">{% include icon-linkedin.html %}<span>LinkedIn</span></a>{% endif %}
+        </p>
       </div>
     </section>
   </main>
@@ -330,7 +335,7 @@
         <a href="{{ p.links.scholar }}">Google Scholar</a>
         <a href="{{ p.links.nhh }}">NHH</a>
         <a href="{{ p.links.researchgate }}">ResearchGate</a>
-        {%- if p.links.linkedin %}<a href="{{ p.links.linkedin }}">LinkedIn</a>{% endif %}
+        {%- if p.links.linkedin %}<a class="footer-li" href="{{ p.links.linkedin }}">{% include icon-linkedin.html %}<span>LinkedIn</span></a>{% endif %}
       </p>
     </div>
   </footer>
