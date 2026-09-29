@@ -52,7 +52,7 @@
         <a href="#kontakt">{{ t.nav.contact }}</a>
       </nav>
       <a class="lang" href="{{ other_url }}" hreflang="{% if L == 'nb' %}en{% else %}nb{% endif %}" lang="{% if L == 'nb' %}en{% else %}nb{% endif %}" data-keep-hash>
-        <span class="lang-on" aria-hidden="true">{% if L == "nb" %}NO{% else %}EN{% endif %}</span><span class="lang-sep" aria-hidden="true">/</span><span>{{ t.switch_short }}</span>
+        <span class="{% if L == 'nb' %}lang-on{% endif %}" aria-hidden="true">NO</span><span class="lang-sep" aria-hidden="true">/</span><span class="{% if L == 'en' %}lang-on{% endif %}" aria-hidden="true">EN</span>
         <span class="sr">{{ t.switch_label }}</span>
       </a>
     </div>

@@ -15,10 +15,11 @@
   --wrap: 1140px;
   --gutter: clamp(16px, 4vw, 40px);
   --section: clamp(112px, 14vw, 184px);
+  --topbar: 64px;
 }
 
 *, *::before, *::after { box-sizing: border-box; }
-html { scroll-behavior: smooth; scroll-padding-top: 60px; -webkit-text-size-adjust: 100%; }
+html { scroll-behavior: smooth; scroll-padding-top: var(--topbar); -webkit-text-size-adjust: 100%; }
 body {
   margin: 0;
   background: var(--bg);
@@ -95,12 +96,14 @@ h3 { font-size: 26px; line-height: 1.2; letter-spacing: -0.01em; }
   border: 1px solid var(--rule-strong); border-radius: 999px; padding: 5px 12px;
   color: var(--muted); white-space: nowrap;
 }
-.lang-on { color: var(--ink); background: var(--hl); border-radius: 3px; padding: 0 4px; }
+.lang > span { padding: 0 4px; border-radius: 3px; }
+.lang-on { color: var(--ink); background: var(--hl); }
 .lang:hover { border-color: var(--ink); color: var(--ink); }
 
 @media (max-width: 860px) {
   .topbar-inner { flex-wrap: wrap; row-gap: 0; padding-block: 8px 0; }
   .lang { margin-left: auto; }
+  :root { --topbar: 96px; }
   .nav { order: 3; width: 100%; margin-left: 0; gap: 18px; padding-bottom: 6px; }
 }
 
@@ -144,6 +147,8 @@ h1 {
 
 /* ---------- Sections ---------- */
 .section { padding-block: var(--section); min-height: 100vh; border-top: 1px solid var(--rule); }
+/* Menu links land on the section heading, not in the empty space above it. */
+.section { scroll-margin-top: calc(28px - var(--section)); }
 .section .wrap > .eyebrow { padding-bottom: 14px; border-bottom: 1px solid var(--ink); margin-bottom: clamp(32px, 5vw, 56px); }
 
 /* Talks */
