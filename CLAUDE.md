@@ -18,6 +18,7 @@ All content is data. Change the YAML files, not the layout.
 | Lederskap podcast (hosts photo, cover, recent episodes) and guest appearances | `_data/podcast.yml` (images in `assets/img/podcast/`) |
 | Short CV | `_data/cv.yml` |
 | Interface text in both languages | `_data/i18n.yml` |
+| Pages listed in the sitemap (for Google Search Console) | `_data/sitemap_pages.yml` |
 | Talk/paper illustrations (inline SVG) | `_includes/viz/*.html` |
 | Images | `assets/img/` (paper images in `assets/img/research/`) |
 
