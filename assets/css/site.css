@@ -163,7 +163,7 @@ h1 {
 .talks-photo img { width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 2px; }
 .talks-photo figcaption, .gallery figcaption { font-size: 13px; letter-spacing: 0.04em; color: var(--muted); margin-top: 10px; font-weight: 400; }
 .list-title.gallery-title { margin-top: clamp(64px, 9vw, 104px); }
-.gallery { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px; margin-top: 24px; }
+.gallery { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; margin-top: 24px; }
 .gallery figure { margin: 0; }
 .gallery figcaption a { text-decoration: underline; text-decoration-color: var(--rule-strong); }
 .gallery img { width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 2px; }

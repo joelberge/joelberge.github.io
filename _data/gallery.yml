@@ -12,6 +12,15 @@
     nb: CFO-nettverket, PwC
     en: CFO network, PwC
 
+- image: /assets/img/action/lederskap-live.webp
+  width: 1600
+  height: 1066
+  position: 55% 50%
+  caption:
+    nb: Live-innspilling av Lederskap med toppsjefene i NBIM og KPMG, NHH
+    en: Live recording of Lederskap with the CEOs of NBIM and KPMG, NHH
+  link: https://www.nhh.no/kalender/2026/september/live-innspilling-av-lederskap/
+
 - image: /assets/img/action/apriil.webp
   width: 1125
   height: 750
