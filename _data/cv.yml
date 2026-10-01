@@ -46,6 +46,8 @@
 
 - heading: { nb: Verv og forskningsmidler, en: Service and grants }
   items:
+    - when: 2026–
+      what: { nb: "Associate Editor, Accounting Forum", en: "Associate Editor, Accounting Forum" }
     - when: 2025–
       what: { nb: "NHHs representant i Nasjonalt fagorgan for etikk i økonomisk-administrative fag (UHR-ØA)", en: "NHH's representative on the National Council for Ethics in Business and Administration (UHR-ØA)" }
     - when: 2022–
