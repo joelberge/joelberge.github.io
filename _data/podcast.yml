@@ -30,6 +30,14 @@ show:
     - label: Acast
       url: https://shows.acast.com/lederskap
 
+# Notable Lederskap events, shown as links under the podcast description. Newest first.
+highlights:
+  - title:
+      nb: Live-innspilling med toppsjefene i NBIM og KPMG
+      en: Live recording with the CEOs of NBIM and KPMG
+    year: 2026
+    link: https://www.nhh.no/kalender/2026/september/live-innspilling-av-lederskap/
+
 # Recent Lederskap episodes with their images (optional). Example:
 # - title: Moderne Askeladden, med Martin Schütt
 #   link: https://shows.acast.com/lederskap/episodes/moderne-akseladden-med-martin-schutt

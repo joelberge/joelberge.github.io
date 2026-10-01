@@ -264,6 +264,8 @@ h1 {
 .pod-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: clamp(32px, 6vw, 80px); align-items: start; }
 .pod-name { font-size: clamp(56px, 9vw, 112px); line-height: 1; letter-spacing: -0.04em; font-weight: 300; margin-bottom: 10px; }
 .pod-sub { font-size: 22px; margin-bottom: 24px; }
+.pod-highlights { margin: 4px 0 8px; display: grid; gap: 10px; }
+.pod-highlights .link-arrow { font-size: 17px; }
 .pod-links { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin-top: 28px; }
 .pod-links .label { width: 100%; }
 @media (max-width: 860px) { .pod-grid { grid-template-columns: 1fr; } }
