@@ -29,6 +29,7 @@
     "@context": "https://schema.org",
     "@type": "Person",
     "name": "{{ p.name }}",
+    "alternateName": [{% for n in p.alternate_names %}"{{ n }}"{% unless forloop.last %}, {% endunless %}{% endfor %}],
     "jobTitle": "{{ p.role.en }}",
     "affiliation": { "@type": "CollegeOrUniversity", "name": "NHH Norwegian School of Economics" },
     "email": "mailto:{{ p.email }}",
@@ -180,6 +181,13 @@
           <h2 class="pod-name"><mark>{{ pod.show.name }}</mark></h2>
           <p class="pod-sub">{{ pod.show.subtitle[L] }}</p>
           <p class="section-lede">{{ pod.show.body[L] }}</p>
+          {%- if pod.highlights %}
+          <ul class="pod-highlights">
+            {%- for h in pod.highlights %}
+            <li><a class="link-arrow" href="{{ h.link }}">{{ h.title[L] }} ({{ h.year }}) <span aria-hidden="true">→</span></a></li>
+            {%- endfor %}
+          </ul>
+          {%- endif %}
           <p class="pod-links"><span class="label">{{ t.podcast_listen }}</span>
             {%- for l in pod.show.links %}<a class="btn" href="{{ l.url }}">{{ l.label }}</a>{% endfor -%}
           </p>

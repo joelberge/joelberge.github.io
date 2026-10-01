@@ -1,5 +1,7 @@
 # Basic facts shown across the site.
 name: Joel W. Berge
+# Other forms of the name people search for (used in the search-engine data).
+alternate_names: [Joel Berge, Joel Wenæs Berge]
 email: Joel.Berge@nhh.no
 
 role:
