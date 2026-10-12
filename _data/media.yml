@@ -1,6 +1,10 @@
 # Op-eds Joel has written, and news stories that cover his work. Newest first.
 
 opeds:
+  - title: Vil jakten på AI-effektivitet tømme selskapene for dømmekraft?
+    outlet: Finansavisen
+    year: 2026
+    link: https://www.finansavisen.no/karriere/2026/10/11/8386780/vil-jakten-pa-ai-effektivitet-tomme-selskapene-for-dommekraft
   - title: AI-kappløpet – sprint eller orienteringsløp?
     outlet: Finansavisen
     with: Dan-Richard Knudsen
