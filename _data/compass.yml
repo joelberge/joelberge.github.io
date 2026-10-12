@@ -307,6 +307,33 @@ questions:
       - { id: implicit, text: { nb: Delvis eller underforstått, en: Partly or implicitly } }
       - { id: none, text: { nb: Nei, en: "No" } }
 
+# Long-term challenge, shown as its own section when separability is high (quadrant II or IV).
+# From Joel's op-ed "Vil jakten på AI-effektivitet tømme selskapene for dømmekraft?" (Finansavisen, 2026).
+long_term:
+  label: { nb: På lang sikt, en: In the long run }
+  title:
+    nb: Hvem skal kontrollere KI om ti år?
+    en: Who will check the AI in ten years?
+  body:
+    nb: >-
+      Når KI tar beslutningene, trenger dere fortsatt folk som ser når den tar feil, og som håndterer unntakene.
+      Den dømmekraften bygges ved å gjøre arbeidet selv, med friksjon og feil. Fjerner dere friksjonen for juniorene,
+      tærer dere på et lager av dømmekraft uten å fylle på.
+    en: >-
+      When AI makes the decisions, you still need people who can see when it is wrong and who handle the exceptions.
+      That judgment is built by doing the work yourself, with friction and mistakes. Remove the friction for juniors,
+      and you draw down a stock of judgment without refilling it.
+  advice:
+    nb: >-
+      Gi juniorer et KI-system som gir hint og motargumenter i stedet for svar, og mål om de utvikler selvstendig
+      problemløsning, ikke bare hvor raskt de leverer. Det koster effektivitet i dag, men er en investering i morgendagens seniorer.
+    en: >-
+      Give juniors an AI system that offers hints and counter-arguments instead of answers, and measure whether they
+      develop independent problem-solving, not just how fast they deliver. It costs efficiency today, but it is an
+      investment in tomorrow's seniors.
+  link_label: { nb: Les kronikken i Finansavisen, en: Read the op-ed (in Norwegian) }
+  link: https://www.finansavisen.no/karriere/2026/10/11/8386780/vil-jakten-pa-ai-effektivitet-tomme-selskapene-for-dommekraft
+
 # The things to watch out for. Which ones appear is decided in assets/js/compass.js (see the rule next to each id).
 findings:
   efficiency_over_accountability:

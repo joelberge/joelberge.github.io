@@ -244,6 +244,7 @@
         "</div>" +
         '<p class="label watch-label">' + esc(T.watch_label) + "</p>" +
         '<ul class="findings">' + items + "</ul>" +
+        (d.s >= 0 && D.long_term ? longTerm() : "") +
         '<div class="actions noprint">' +
           '<a class="btn btn-solid" href="' + esc(mailto) + '">' + esc(T.book) + "</a>" +
           '<button type="button" class="btn" id="save-pdf">' + esc(T.save_pdf) + "</button>" +
@@ -266,6 +267,18 @@
       if (reduceMotion) { needle.style.transform = "rotate(" + angle + "deg)"; }
       else { requestAnimationFrame(function () { requestAnimationFrame(function () { needle.style.transform = "rotate(" + angle + "deg)"; }); }); }
     }
+  }
+
+  // Long-term challenge when separability is high: who builds the judgment needed to check the AI?
+  function longTerm() {
+    var x = D.long_term;
+    return '<section class="long-term">' +
+      '<p class="label watch-label">' + esc(tr(x.label)) + "</p>" +
+      "<h2>" + esc(tr(x.title)) + "</h2>" +
+      "<p>" + esc(tr(x.body)) + "</p>" +
+      "<p>" + esc(tr(x.advice)) + "</p>" +
+      '<a class="link-arrow noprint" href="' + esc(x.link) + '" target="_blank" rel="noopener">' + esc(tr(x.link_label)) + ' <span aria-hidden="true">→</span></a>' +
+    "</section>";
   }
 
   // ---------- the compass drawing ----------
