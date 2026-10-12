@@ -1,0 +1,47 @@
+{%- assign L = page.lang | default: "nb" -%}
+{%- assign t = site.data.i18n[L] -%}
+{%- assign c = site.data.compass.ui[L] -%}
+{%- assign p = site.data.profile -%}
+{%- if L == "nb" -%}{%- assign home_url = "/" | relative_url -%}{%- assign other_url = "/en/ai-compass/" | relative_url -%}{%- else -%}{%- assign home_url = "/en/" | relative_url -%}{%- assign other_url = "/ki-kompasset/" | relative_url -%}{%- endif -%}
+<!doctype html>
+<html lang="{{ t.html_lang }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ c.title }} · {{ p.name }}</title>
+  <meta name="description" content="{{ c.tagline }}">
+  {%- if page.noindex %}
+  <meta name="robots" content="noindex">
+  {%- endif %}
+  <link rel="canonical" href="{{ page.url | absolute_url }}">
+  <link rel="alternate" hreflang="nb" href="{{ '/ki-kompasset/' | absolute_url }}">
+  <link rel="alternate" hreflang="en" href="{{ '/en/ai-compass/' | absolute_url }}">
+  <meta property="og:title" content="{{ c.title }}">
+  <meta property="og:description" content="{{ c.tagline }}">
+  <meta property="og:url" content="{{ page.url | absolute_url }}">
+  <link rel="icon" href="{{ '/assets/img/favicon.svg' | relative_url }}" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;1,9..40,300;1,9..40,400&display=swap">
+  <link rel="stylesheet" href="{{ '/assets/css/site.css' | relative_url }}?v={{ site.time | date: '%s' }}">
+  <link rel="stylesheet" href="{{ '/assets/css/compass.css' | relative_url }}?v={{ site.time | date: '%s' }}">
+</head>
+<body class="compass-page">
+  <a class="skip" href="#app">{% if L == "nb" %}Hopp til innholdet{% else %}Skip to content{% endif %}</a>
+  <header class="topbar">
+    <div class="wrap topbar-inner">
+      <a class="brand" href="{{ home_url }}">{{ p.name }}</a>
+      <a class="lang" href="{{ other_url }}" hreflang="{% if L == 'nb' %}en{% else %}nb{% endif %}" lang="{% if L == 'nb' %}en{% else %}nb{% endif %}">
+        <span class="{% if L == 'nb' %}lang-on{% endif %}" aria-hidden="true">NO</span><span class="lang-sep" aria-hidden="true">/</span><span class="{% if L == 'en' %}lang-on{% endif %}" aria-hidden="true">EN</span>
+        <span class="sr">{{ t.switch_label }}</span>
+      </a>
+    </div>
+  </header>
+  <div class="progress" hidden><div class="progress-bar" id="progress-bar"></div></div>
+  <main class="tool" id="app" aria-live="polite">
+    <noscript><h1>{{ c.title }}</h1><p>{% if L == "nb" %}Verktøyet krever JavaScript.{% else %}This tool needs JavaScript.{% endif %}</p></noscript>
+  </main>
+  <script>window.COMPASS = {{ site.data.compass | jsonify }}; window.COMPASS_EMAIL = {{ p.email | jsonify }};</script>
+  <script src="{{ '/assets/js/compass.js' | relative_url }}?v={{ site.time | date: '%s' }}"></script>
+</body>
+</html>

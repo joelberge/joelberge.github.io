@@ -1,0 +1,396 @@
+# KI-kompasset / The AI Compass: the interactive tool at /ki-kompasset/ and /en/ai-compass/.
+# Based on Berge & Knudsen, "KI-kompasset", Magma (forthcoming).
+#
+# How the scoring works (the logic itself is in assets/js/compass.js):
+#   g  goal clarity, from the questions marked axis: goal. Each option has a score from -2 to +2.
+#      The sum is scaled to -1..+1. Positive = high goal clarity (top half of the compass).
+#   s  separability = the LOWEST of three sources, because any one of them is enough to keep a human in:
+#      technical (axis: tech, scaled to -1..+1), legitimacy (axis: legit, -1..+1) and regulatory (axis: law).
+#      Positive = high separability (right half).
+#   Quadrants: I high g / low s, II high g / high s, III low g / low s, IV low g / high s.
+#   Within 0.2 of an axis counts as borderline.
+# Option ids (like "approve" or "habit") are used by the findings in compass.js. Change the wording freely,
+# but keep the ids and scores unless you also change the logic.
+
+ui:
+  nb:
+    title: KI-kompasset
+    tagline: Finn riktig rolle for KI i én konkret beslutning.
+    input_label: Hvilken beslutning vil du analysere?
+    input_placeholder: F.eks. godkjenning av leverandørfakturaer
+    examples_label: Eller prøv
+    examples:
+      - Godkjenning av leverandørfakturaer
+      - Prising av nye produkter
+      - Første utvelgelse av jobbsøkere
+      - Hvilke saker som får forsiden
+    start: Start
+    meta: Tre minutter · ingenting du skriver lagres
+    too_short: Skriv inn én konkret beslutning, for eksempel «godkjenning av leverandørfakturaer».
+    too_broad: Dette høres ut som mer enn én beslutning. Kompasset virker best når du analyserer én konkret beslutning om gangen.
+    edit: Endre
+    continue_anyway: Fortsett likevel
+    what_is: Hva er KI-kompasset?
+    what_is_body: >-
+      To spørsmål avgjør hvilken rolle KI bør ha i en beslutning: Kan målet skrives som en regel?
+      Og kan prediksjonen skilles fra menneskelig skjønn?
+    steps:
+      decision: Beslutningen
+      strategy: Strategien
+      implementation: Implementeringen
+    back: Tilbake
+    result_label: Kvadrant
+    role_label: Riktig rolle for KI
+    watch_label: Dette bør dere passe på
+    borderline: >-
+      Svarene ligger nær en akse, så diagnosen er usikker. Det er nettopp denne diskusjonen som bør tas i ledergruppen.
+    no_findings_title: Rollen stemmer med diagnosen
+    no_findings_body: >-
+      Slik KI brukes i dag, passer med kvadranten. Følg med når teknologi og regelverk endrer seg, for da kan beslutningen flytte seg.
+    save_pdf: Lagre som PDF
+    book: Book en workshop
+    book_subject: "Workshop: KI-kompasset"
+    book_body: |-
+      Hei Joel,
+
+      Vi har brukt KI-kompasset på beslutningen «{decision}».
+      Resultat: Kvadrant {num}, {name}.
+
+      Vi vil gjerne høre mer om en workshop.
+    again: Analyser en ny beslutning
+    answers_label: Svarene
+    source: "Basert på Berge & Knudsen, «KI-kompasset: Et strategisk verktøy for å navigere KI-implementering», Magma (kommer)."
+    privacy: Svarene dine blir i nettleseren. Ingenting lagres eller sendes.
+    axis_goal: Målklarhet
+    axis_sep: Separerbarhet
+    high: Høy
+    low: Lav
+  en:
+    title: The AI Compass
+    tagline: Find the right role for AI in one specific decision.
+    input_label: Which decision do you want to analyse?
+    input_placeholder: E.g. approving supplier invoices
+    examples_label: Or try
+    examples:
+      - Approving supplier invoices
+      - Pricing new products
+      - First screening of job applicants
+      - Choosing the front-page stories
+    start: Start
+    meta: Three minutes · nothing you type is stored
+    too_short: Enter one specific decision, for example "approving supplier invoices".
+    too_broad: This sounds like more than one decision. The compass works best on one specific decision at a time.
+    edit: Edit
+    continue_anyway: Continue anyway
+    what_is: What is the AI Compass?
+    what_is_body: >-
+      Two questions decide the role AI should play in a decision: Can the goal be written as a rule?
+      And can the prediction be separated from human judgment?
+    steps:
+      decision: The decision
+      strategy: The strategy
+      implementation: The implementation
+    back: Back
+    result_label: Quadrant
+    role_label: The right role for AI
+    watch_label: What to watch out for
+    borderline: >-
+      Your answers sit close to an axis, so the diagnosis is uncertain. That is exactly the discussion to have in the leadership team.
+    no_findings_title: The role matches the diagnosis
+    no_findings_body: >-
+      The way AI is used today fits the quadrant. Keep an eye on technology and regulation, because they can move the decision.
+    save_pdf: Save as PDF
+    book: Book a workshop
+    book_subject: "Workshop: The AI Compass"
+    book_body: |-
+      Hi Joel,
+
+      We used the AI Compass on the decision "{decision}".
+      Result: Quadrant {num}, {name}.
+
+      We would like to hear more about a workshop.
+    again: Analyse another decision
+    answers_label: Your answers
+    source: "Based on Berge & Knudsen, \"The AI Compass: A strategic tool for navigating AI implementation\", Magma (forthcoming)."
+    privacy: Your answers stay in your browser. Nothing is stored or sent.
+    axis_goal: Goal clarity
+    axis_sep: Separability
+    high: High
+    low: Low
+
+# Words that suggest the user typed a whole strategy instead of one decision.
+too_broad_words: [strategi, strategy, implementering, implementation, hele, alle, generelt, general, everything, overall, organisasjon, organisation, organization, digitalisering]
+
+quadrants:
+  I:
+    name: { nb: Forsterket skjønn, en: Augmented judgment }
+    role:
+      nb: KI skal styrke skjønnet ved å flagge avvik, foreslå risikoområder og utfordre antakelser. Et menneske vurderer og står ansvarlig.
+      en: AI should strengthen judgment by flagging anomalies, suggesting risk areas and challenging assumptions. A person assesses and is accountable.
+  II:
+    name: { nb: Automatisert beslutning, en: Automated decision-making }
+    role:
+      nb: KI kan ta beslutningen. Mennesker håndterer unntak og klager.
+      en: AI can make the decision. People handle exceptions and appeals.
+  III:
+    name: { nb: Utforskende støtte, en: Exploratory support }
+    role:
+      nb: KI skal gi innsikt, mønstre og alternativer. Beslutningstakeren vurderer og bestemmer.
+      en: AI should provide insight, patterns and alternatives. The decision maker assesses and decides.
+  IV:
+    name: { nb: Strategisk autonomi, en: Strategic autonomy }
+    role:
+      nb: KI kan handle selvstendig, men bare innenfor mål som ledelsen har definert og skrevet ned.
+      en: AI can act on its own, but only within goals that management has defined and written down.
+
+questions:
+  # ---------- Step 1: the decision (the two axes) ----------
+  - id: disagree
+    step: decision
+    axis: goal
+    text:
+      nb: To erfarne kolleger tar denne beslutningen hver for seg. Hvor ofte ville de vært uenige om hva som er et godt utfall?
+      en: Two experienced colleagues make this decision separately. How often would they disagree about what a good outcome is?
+    options:
+      - { id: rarely, score: 2, text: { nb: Nesten aldri, en: Almost never } }
+      - { id: sometimes, score: 0, text: { nb: Av og til, en: Sometimes } }
+      - { id: often, score: -2, text: { nb: Ofte, en: Often } }
+
+  - id: number
+    step: decision
+    axis: goal
+    text:
+      nb: Kan dere måle om beslutningen ble god, med ett tall?
+      en: Can you tell whether the decision was good from a single number?
+    options:
+      - { id: "yes", score: 2, text: { nb: "Ja, ett tall fanger det", en: "Yes, one number captures it" } }
+      - { id: partly, score: -1, text: { nb: "Delvis, tallet fanger ikke alt som betyr noe", en: "Partly, the number misses some of what matters" } }
+      - { id: "no", score: -2, text: { nb: "Nei, det avgjøres av skjønn og over tid", en: "No, it takes judgment and time to tell" } }
+
+  - id: perfect
+    step: decision
+    axis: goal
+    text:
+      nb: Tenk deg at systemet treffer målet perfekt. Kan beslutningen likevel skade tilliten til dere eller omdømmet deres?
+      en: Imagine the system hits its target perfectly. Could the decision still damage trust in you or your reputation?
+    options:
+      - { id: "no", score: 2, text: { nb: Nei, en: "No" } }
+      - { id: maybe, score: -1, text: { nb: "Kanskje, i enkelte tilfeller", en: "Possibly, in some cases" } }
+      - { id: "yes", score: -2, text: { nb: "Ja, det er en reell risiko", en: "Yes, that is a real risk" } }
+
+  - id: data
+    step: decision
+    axis: tech
+    text:
+      nb: Hvor mye av det som trengs for å ta beslutningen, finnes i data dere har?
+      en: How much of what the decision needs is in data you already have?
+    options:
+      - { id: most, score: 2, text: { nb: Nesten alt, en: Almost all of it } }
+      - { id: much, score: -1, text: { nb: "Mye, men noe avgjørende står ingen steder: samtaler, inntrykk, kontekst", en: "Much, but something crucial is not written down: conversations, impressions, context" } }
+      - { id: little, score: -2, text: { nb: "Lite, det handler mest om å forstå situasjonen", en: "Little, it is mostly about reading the situation" } }
+
+  - id: error
+    step: decision
+    axis: tech
+    text:
+      nb: Hva skjer hvis en feil slipper gjennom?
+      en: What happens if a mistake slips through?
+    options:
+      - { id: cheap, score: 2, text: { nb: Den oppdages og rettes raskt og billig, en: It is caught and fixed quickly and cheaply } }
+      - { id: contained, score: 0, text: { nb: "Den koster, men skaden er avgrenset", en: "It costs, but the damage is contained" } }
+      - { id: spreads, score: -2, text: { nb: Den kan spre seg eller ikke gjøres om, en: It can spread or cannot be undone } }
+
+  - id: accountable
+    step: decision
+    axis: legit
+    text:
+      nb: Ville et godt resultat miste verdi hvis de som berøres, fikk vite at ingen person sto ansvarlig for vurderingen?
+      en: Would a good result lose value if the people affected learned that no person was accountable for the assessment?
+    options:
+      - { id: "no", score: 1, text: { nb: "Nei, de bryr seg bare om resultatet", en: "No, they only care about the result" } }
+      - { id: some, score: -0.5, text: { nb: Noen ville reagert, en: Some would object } }
+      - { id: "yes", score: -1, text: { nb: "Ja, de betaler nettopp for at noen står inne for det", en: "Yes, they pay precisely for someone standing behind it" } }
+
+  - id: people
+    step: decision
+    text:
+      nb: Får beslutningen rettslige eller vesentlige konsekvenser for enkeltpersoner, for eksempel for lån, jobb, forsikring eller offentlige ytelser?
+      en: Does the decision have legal or significant effects on individuals, for example on loans, jobs, insurance or public benefits?
+    options:
+      - { id: "no", text: { nb: Nei, en: "No" } }
+      - { id: "yes", text: { nb: Ja, en: "Yes" } }
+
+  - id: law
+    step: decision
+    axis: law
+    text:
+      nb: Krever lov, tilsyn eller bransjeregler at et menneske tar eller godkjenner beslutningen?
+      en: Do laws, regulators or industry rules require a person to make or approve the decision?
+    options:
+      - { id: "no", score: 1, text: { nb: Nei, en: "No" } }
+      - { id: unsure, score: 0, text: { nb: Usikker, en: Not sure } }
+      - { id: "yes", score: -1, text: { nb: Ja, en: "Yes" } }
+
+  # ---------- Step 2: the strategy ----------
+  - id: value
+    step: strategy
+    text:
+      nb: Hva er det kundene egentlig verdsetter ved denne beslutningen?
+      en: What do customers really value about this decision?
+    options:
+      - { id: cheap, text: { nb: At den er rask og billig, en: That it is fast and cheap } }
+      - { id: outcome, text: { nb: "At den treffer best mulig, uansett hvem som tar den", en: "That it is as accurate as possible, whoever makes it" } }
+      - { id: judgment, text: { nb: At noen med kompetanse står inne for den, en: That someone competent stands behind it } }
+
+  - id: compete
+    step: strategy
+    text:
+      nb: Hva konkurrerer dere på?
+      en: What do you compete on?
+    options:
+      - { id: cost, text: { nb: "Kostnad, skala og fart", en: "Cost, scale and speed" } }
+      - { id: judgment, text: { nb: Kvalitet i vurderingene og tillit, en: Quality of judgment and trust } }
+      - { id: both, text: { nb: Begge deler, en: Both } }
+
+  - id: core
+    step: strategy
+    text:
+      nb: Er denne beslutningen en del av grunnen til at kundene velger dere?
+      en: Is this decision part of the reason customers choose you?
+    options:
+      - { id: core, text: { nb: "Ja, den er en del av kjernen", en: "Yes, it is part of the core" } }
+      - { id: support, text: { nb: "Nei, den er en støtteprosess", en: "No, it is a support process" } }
+
+  # ---------- Step 3: the implementation ----------
+  - id: now
+    step: implementation
+    text:
+      nb: Hvilken rolle har KI i denne beslutningen, i dag eller i planene deres?
+      en: What role does AI play in this decision, today or in your plans?
+    options:
+      - { id: none, level: 0, text: { nb: Ingen, en: None } }
+      - { id: advise, level: 1, text: { nb: "KI gir innsikt og forslag, et menneske bestemmer", en: "AI gives insight and suggestions, a person decides" } }
+      - { id: approve, level: 2, text: { nb: "KI bestemmer, et menneske godkjenner", en: "AI decides, a person approves" } }
+      - { id: alone, level: 3, text: { nb: KI bestemmer alene, en: AI decides on its own } }
+
+  - id: override
+    step: implementation
+    show_if: { now: [approve] }
+    text:
+      nb: Hvor ofte overstyrer mennesket forslaget fra KI?
+      en: How often does the person override the AI's suggestion?
+    options:
+      - { id: rarely, text: { nb: "Sjelden, godkjenningen er en formalitet", en: "Rarely, approval is a formality" } }
+      - { id: sometimes, text: { nb: Av og til, en: Sometimes } }
+      - { id: often, text: { nb: Ofte, en: Often } }
+
+  - id: why
+    step: implementation
+    show_if: { now: [none, advise, approve] }
+    text:
+      nb: Hva er hovedgrunnen til at et menneske fortsatt er med i beslutningen?
+      en: What is the main reason a person is still part of the decision?
+    options:
+      - { id: tech, text: { nb: KI er ikke god nok ennå, en: AI is not good enough yet } }
+      - { id: legit, text: { nb: Noen må stå ansvarlig, en: Someone has to be accountable } }
+      - { id: law, text: { nb: Loven krever det, en: The law requires it } }
+      - { id: habit, text: { nb: "Vane, det har alltid vært slik", en: "Habit, it has always been done this way" } }
+
+  - id: goals
+    step: implementation
+    show_if: { now: [advise, approve, alone] }
+    text:
+      nb: Har ledelsen skrevet ned hva KI skal optimere mot, og hva den ikke skal ofre?
+      en: Has management written down what the AI should optimise for, and what it must not sacrifice?
+    options:
+      - { id: explicit, text: { nb: "Ja, eksplisitt", en: "Yes, explicitly" } }
+      - { id: implicit, text: { nb: Delvis eller underforstått, en: Partly or implicitly } }
+      - { id: none, text: { nb: Nei, en: "No" } }
+
+# The things to watch out for. Which ones appear is decided in assets/js/compass.js (see the rule next to each id).
+findings:
+  efficiency_over_accountability:
+    title: { nb: Effektivitet foran ansvar, en: Efficiency over accountability }
+    body:
+      nb: Beslutningen krever at et menneske står ansvarlig, men KI har i praksis overtatt. Da svekker dere nettopp legitimiteten som er verdien. La KI flagge avvik og utfordre, mens mennesket vurderer.
+      en: The decision needs a person to be accountable, but AI has in practice taken over. That erodes the very legitimacy that is the value. Let AI flag anomalies and challenge, while the person assesses.
+  automating_judgment:
+    title: { nb: Dere automatiserer skjønn, en: You are automating judgment }
+    body:
+      nb: Målet er sammensatt, og KI kan bare optimere det som lar seg måle. Bruk KI til å utforske mønstre og alternativer, og la beslutningstakeren bestemme.
+      en: The goal is composite, and AI can only optimise what can be measured. Use AI to explore patterns and alternatives, and let the decision maker decide.
+  human_bottleneck:
+    title: { nb: Mennesket er flaskehalsen, en: People are the bottleneck }
+    body:
+      nb: Målet er klart, og prediksjonen kan skilles fra skjønnet. Manuell behandling gjør prosessen dyrere og tregere uten å gjøre den bedre. La KI ta standardsakene og mennesker ta unntakene.
+      en: The goal is clear and the prediction can be separated from judgment. Manual handling makes the process slower and more expensive without making it better. Let AI take the standard cases and people the exceptions.
+  wrong_goal:
+    title: { nb: KI kan optimere feil mål, en: AI may optimise the wrong goal }
+    body:
+      nb: Beslutningen kan automatiseres, men målet er vanskelig å skrive ned. Faren er ikke at prediksjonen er feil, men at den treffer et mål som undergraver verdiløftet. Skriv ned hva systemet skal oppnå og hva det ikke skal ofre.
+      en: The decision can be automated, but the goal is hard to write down. The danger is not a wrong prediction, but a prediction that hits a goal which undermines the value proposition. Write down what the system should achieve and what it must not sacrifice.
+  define_goals_first:
+    title: { nb: Definer målet før dere automatiserer, en: Define the goal before you automate }
+    body:
+      nb: Beslutningen kan overlates til KI, men bare innenfor mål som ledelsen har formulert. Det strategiske arbeidet kommer før det tekniske.
+      en: The decision can be handed to AI, but only within goals management has formulated. The strategic work comes before the technical work.
+  rubber_stamp:
+    title: { nb: Godkjenningen er en formalitet, en: Approval is a formality }
+    body:
+      nb: Når mennesket nesten aldri overstyrer KI, er beslutningen i praksis automatisert. Da står noen ansvarlig for vurderinger de ikke lenger gjør.
+      en: When the person almost never overrides the AI, the decision is automated in practice. Someone is then accountable for assessments they no longer make.
+  unstable_position:
+    title: { nb: Posisjonen er ustabil, en: The position is unstable }
+    body:
+      nb: Det eneste som holder mennesket i beslutningen, er at KI ikke er god nok ennå. Det endrer seg raskt. Planlegg for dagen beslutningen kan automatiseres, eller finn verdien mennesket tilfører utover det tekniske.
+      en: The only thing keeping a person in the decision is that AI is not good enough yet. That is changing fast. Plan for the day it can be automated, or find the value the person adds beyond the technical.
+  narrow_goal:
+    title: { nb: Er målet så klart som dere tror?, en: Is the goal as clear as you think? }
+    body:
+      nb: Systemet kan treffe målet og likevel skade tilliten. Da er målet bredere enn tallet systemet optimerer. Uber priset riktig etter etterspørselen, men kundene opplevde det som utnyttelse.
+      en: The system can hit its target and still damage trust. Then the goal is broader than the number the system optimises. Uber priced correctly by demand, but customers saw it as exploitation.
+  judgment_not_valued:
+    title: { nb: Betaler kundene for vurderingen deres?, en: Do customers pay for your judgment? }
+    body:
+      nb: Dere sier kundene verdsetter at noen står inne for beslutningen, men også at de bare bryr seg om resultatet. Begge kan ikke stemme. Bryr de seg bare om resultatet, kan en aktør som automatiserer alt, utkonkurrere dere.
+      en: You say customers value someone standing behind the decision, but also that they only care about the result. Both cannot be true. If they only care about the result, a competitor that automates everything can beat you.
+  efficiency_trap:
+    title: { nb: Jakten på effektivitet kan fjerne verdien, en: Chasing efficiency can remove the value }
+    body:
+      nb: Dere sier kundene vil ha det raskt og billig, men også at resultatet mister verdi uten en ansvarlig person. Pass på at effektiviseringen ikke fjerner det kundene faktisk betaler for.
+      en: You say customers want it fast and cheap, but also that the result loses value without an accountable person. Make sure efficiency does not remove what customers actually pay for.
+  check_gdpr:
+    title: { nb: Sjekk GDPR artikkel 22, en: Check GDPR Article 22 }
+    body:
+      nb: Personer har rett til ikke å bli underlagt avgjørelser som bare bygger på automatisert behandling, når avgjørelsen har rettslig virkning for dem eller påvirker dem vesentlig. Avklar dette før KI får bestemme alene.
+      en: People have the right not to be subject to decisions based solely on automated processing when the decision has legal or similarly significant effects on them. Clarify this before AI decides on its own.
+  clarify_law:
+    title: { nb: Avklar regelverket, en: Clarify the rules }
+    body:
+      nb: Dere er usikre på om regler krever et menneske i beslutningen. Det avgjør hvor beslutningen hører hjemme, så det må avklares før KI får større rolle.
+      en: You are unsure whether rules require a person in the decision. That determines where the decision belongs, so it must be clarified before AI gets a larger role.
+  habit:
+    title: { nb: Vane er ingen begrunnelse, en: Habit is not a reason }
+    body:
+      nb: Mennesket er med fordi det alltid har vært slik. Spør hva mennesket faktisk tilfører, og om kundene ville merket forskjellen.
+      en: The person is involved because it has always been that way. Ask what the person actually adds, and whether customers would notice the difference.
+  ai_underrated:
+    title: { nb: Er KI virkelig for dårlig?, en: Is AI really not good enough? }
+    body:
+      nb: Dere sier KI ikke er god nok, men svarene tyder på at grunnlaget finnes i data og at feil kan rettes. Test det ved å la KI og mennesker ta de samme sakene, og sammenlign.
+      en: You say AI is not good enough, but your answers suggest the information is in the data and mistakes can be fixed. Test it by letting AI and people handle the same cases, and compare.
+  accountability_claim:
+    title: { nb: Hvem krever at noen står ansvarlig?, en: Who requires someone to be accountable? }
+    body:
+      nb: Dere holder et menneske i beslutningen for å ha noen som står ansvarlig, men sier også at de som berøres bare bryr seg om resultatet. Finn ut hvem som faktisk krever ansvaret.
+      en: You keep a person in the decision so someone is accountable, but also say the people affected only care about the result. Find out who actually requires the accountability.
+  core_automation:
+    title: { nb: Automatisering i kjernen, en: Automation at the core }
+    body:
+      nb: Kvadranten krever data, skala og lave kostnader, men dere konkurrerer på vurderinger og tillit. Automatiser gjerne, men sørg for at kundene fortsatt ser vurderingene dere konkurrerer på.
+      en: The quadrant calls for data, scale and low cost, but you compete on judgment and trust. Automate if you like, but make sure customers still see the judgment you compete on.
+  judgment_cost:
+    title: { nb: Skjønn som kostnad, en: Judgment as a cost }
+    body:
+      nb: Beslutningen krever menneskelig skjønn, men dere konkurrerer på kostnad. Enten må skjønnet forsvares som en del av verdien, eller så må beslutningen utformes på nytt.
+      en: The decision needs human judgment, but you compete on cost. Either defend the judgment as part of the value, or redesign the decision.
