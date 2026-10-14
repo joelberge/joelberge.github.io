@@ -185,6 +185,7 @@ h1 {
 .talk-q { font-size: 19px; margin: 6px 0 8px; }
 .talk-sum { color: var(--muted); font-size: 17px; max-width: 62ch; margin: 0; }
 .talk-ask { white-space: nowrap; font-size: 16px; margin-top: 12px; }
+.talk-tool { margin-top: 18px; gap: 8px; }
 .talk-basis { margin-top: 14px; }
 .talk-basis summary { cursor: pointer; font-size: 15px; color: var(--ink); list-style: none; display: inline-flex; align-items: center; gap: 8px; }
 .talk-basis summary::-webkit-details-marker { display: none; }

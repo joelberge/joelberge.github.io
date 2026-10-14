@@ -18,6 +18,10 @@
     en: >-
       A tool for separating prediction from judgment. Two questions, about goal clarity and separability,
       place any process in one of four quadrants.
+  # Interactive tool, shown as a button under the talk.
+  tool:
+    label: { nb: Prøv KI-kompasset, en: Try the AI Compass }
+    url: { nb: /ki-kompasset/, en: /en/ai-compass/ }
   research:
     - "KI-kompasset: Et strategisk verktøy for å navigere KI-implementering"
   opeds:
