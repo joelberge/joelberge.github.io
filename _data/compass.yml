@@ -180,6 +180,13 @@ questions:
     text:
       nb: Tenk deg at systemet treffer målet perfekt. Kan beslutningen likevel skade tilliten til dere eller omdømmet deres?
       en: Imagine the system hits its target perfectly. Could the decision still damage trust in you or your reputation?
+    hint:
+      nb: >-
+        Eksempel: Ubers prisalgoritme satte opp prisen når etterspørselen var høy, og traff betalingsviljen presist.
+        Likevel opplevde kundene det som utnyttelse, og omdømmet tok skade. Målet var bredere enn tallet algoritmen optimerte.
+      en: >-
+        Example: Uber's pricing algorithm raised prices when demand was high and predicted willingness to pay precisely.
+        Customers still felt exploited, and the reputation suffered. The goal was broader than the number the algorithm optimised.
     options:
       - { id: "no", score: 2, text: { nb: Nei, en: "No" } }
       - { id: maybe, score: -1, text: { nb: "Kanskje, i enkelte tilfeller", en: "Possibly, in some cases" } }
@@ -244,6 +251,15 @@ questions:
     text:
       nb: Hva er det kundene egentlig verdsetter ved denne beslutningen?
       en: What do customers really value about this decision?
+    hint:
+      nb: >-
+        Tenk på hva kunden ville savnet hvis beslutningen ble tatt på en annen måte. Bulder Bank-kunder verdsetter at banken
+        holder løftet om lavere rente uten at de selv må følge med, og det kan automatiseres. En revisjonskunde verdsetter at
+        en revisor står inne for regnskapet, og det kan ikke. Er beslutningen intern, tenk på dem som berøres av den.
+      en: >-
+        Think about what customers would miss if the decision were made differently. Bulder Bank's customers value that the bank
+        keeps its promise of a lower rate without them having to keep watch, and that can be automated. An audit client values
+        that an auditor stands behind the accounts, and that cannot. If the decision is internal, think of the people it affects.
     options:
       - { id: cheap, text: { nb: At den er rask og billig, en: That it is fast and cheap } }
       - { id: outcome, text: { nb: "At den treffer best mulig, uansett hvem som tar den", en: "That it is as accurate as possible, whoever makes it" } }
