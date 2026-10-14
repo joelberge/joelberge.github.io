@@ -112,6 +112,9 @@
               <h3>{{ talk.title[L] }}</h3>
               <p class="talk-q">{{ talk.question[L] }}</p>
               <p class="talk-sum">{{ talk.summary[L] }}</p>
+              {%- if talk.tool %}
+              <a class="btn btn-solid talk-tool" href="{{ talk.tool.url[L] | relative_url }}">{{ talk.tool.label[L] }} <span aria-hidden="true">→</span></a>
+              {%- endif %}
               {%- if talk.research or talk.opeds %}
               <details class="talk-basis">
                 <summary>{{ t.basis_title }}</summary>
