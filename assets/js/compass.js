@@ -247,26 +247,10 @@
   }
 
   function mainSection(d) {
-    var Q = D.quadrants[d.quad], RQ = R.quadrants[d.quad];
-    var hi = tr(R.high_word), lo = tr(R.low_word);
-    var out = para(fill(tr(R.main.because), { num: d.quad, name: esc(tr(Q.name)), g: d.g >= 0 ? hi : lo, s: d.s >= 0 ? hi : lo }));
-    // Goal clarity, with the answers behind it.
-    var goalIds = answersOn(["goal"], d.g >= 0 ? 1 : -1).map(answered).filter(Boolean);
-    out += para(esc(tr(d.g >= 0 ? R.main.goal_high : R.main.goal_low)) +
-      (goalIds.length ? " " + fill(tr(R.main.basis), { answers: listJoin(goalIds) }) : ""));
-    // Separability, with the sources and answers behind it.
-    var sepText, sepIds;
-    if (d.s >= 0) {
-      sepText = esc(tr(R.main.sep_high));
-      sepIds = answersOn(["tech", "legit", "law"], 1);
-    } else {
-      sepText = fill(tr(R.main.sep_low), { sources: listJoin(d.low.map(function (k) { return esc(tr(R.main["source_" + k])); })) });
-      sepIds = answersOn(d.low, -1);
-    }
-    sepIds = sepIds.map(answered).filter(Boolean);
-    out += para(sepText + (sepIds.length ? " " + fill(tr(R.main.basis), { answers: listJoin(sepIds) }) : ""));
-    out += para(fill(tr(R.main.diagnostic), { q: "<em>" + esc(tr(RQ.diagnostic)) + "</em>" }));
-    out += para(esc(tr(RQ.example)));
+    var M = R.main, hi = tr(R.high_word), lo = tr(R.low_word);
+    var because = d.s < 0 ? fill(tr(M.because), { sources: listJoin(d.low.map(function (k) { return esc(tr(M["source_" + k])); })) }) : "";
+    var out = para(fill(tr(M.line), { num: d.quad, name: esc(tr(D.quadrants[d.quad].name)), g: d.g >= 0 ? hi : lo, s: d.s >= 0 ? hi : lo, because: because }));
+    out += para(esc(tr(M.implication[d.quad])), "rep-mine");
     return section("main", null, out);
   }
 
@@ -287,56 +271,39 @@
     if (a.core === "support" && (d.quad === "II" || d.quad === "IV")) mine.push(esc(tr(G.support)));
     if (a.core === "core" && a.compete === "judgment" && (d.quad === "I" || d.quad === "III")) mine.push(esc(tr(G.defend)));
     var out = mine.map(function (h) { return para(h, "rep-mine"); }).join("");
-    out += '<ul class="rep-bullets">' + R.quadrants[d.quad].do.map(function (x) { return "<li>" + esc(tr(x)) + "</li>"; }).join("") + "</ul>";
+    out += '<ul class="rep-bullets">' + R.quadrants[d.quad].do.slice(0, 3).map(function (x) { return "<li>" + esc(tr(x)) + "</li>"; }).join("") + "</ul>";
     return section("do", tr(R.given), out);
   }
 
+  // At most three points: the ones triggered by the answers first, then the quadrant's general dangers.
   function carefulSection(d) {
-    var left = d.careful.slice();
-    var out = R.quadrants[d.quad].careful.map(function (x) {
-      var k = left.indexOf(x.same_as);
-      if (x.same_as && k !== -1) {
-        left.splice(k, 1);
-        var f = D.findings[x.same_as];
-        return item(tr(f.title), esc(tr(f.body)), true);
-      }
-      return item(tr(x.title), esc(tr(x.body)), false);
-    }).join("");
-    out += left.map(function (id) { var f = D.findings[id]; return item(tr(f.title), esc(tr(f.body)), true); }).join("");
-    return section("careful", tr(R.careful_intro), '<ul class="rep-list">' + out + "</ul>");
+    var mine = d.careful.map(function (id) { var f = D.findings[id]; return item(tr(f.title), esc(tr(f.body)), true); });
+    var general = R.quadrants[d.quad].careful.filter(function (x) { return !x.same_as || d.careful.indexOf(x.same_as) === -1; })
+      .map(function (x) { return item(tr(x.title), esc(tr(x.body)), false); });
+    return section("careful", tr(R.careful_intro), '<ul class="rep-list">' + mine.concat(general).slice(0, 3).join("") + "</ul>");
   }
 
   function stabilitySection(d) {
     var S = R.stability, a = state.answers, out = "";
     if (d.s >= 0) {
-      out += para(esc(tr(S.high_intro)));
-      var lawBody = esc(tr(S.high_law.body)) + (a.people === "yes" ? " " + esc(tr(S.high_law_people)) : "");
-      out += '<ul class="rep-list">' +
-        item(tr(S.high_law.title), lawBody, a.people === "yes") +
-        item(tr(S.high_legit.title), esc(tr(S.high_legit.body)), false) +
-        item(tr(S.high_tech.title), esc(tr(S.high_tech.body)), false);
+      out += para(esc(tr(S.verdict.high)), "rep-mine");
+      out += para(esc(tr(S.high)) + (a.people === "yes" ? " " + esc(tr(S.high_people)) : ""));
       var LT = D.long_term;
-      if (LT) {
-        out += item(tr(LT.title), esc(tr(LT.body)) + " " + esc(tr(LT.advice)) +
-          ' <a class="noprint" href="' + esc(LT.link) + '" target="_blank" rel="noopener">' + esc(tr(LT.link_label)) + "</a>", false);
-      }
-      out += "</ul>";
+      out += '<ul class="rep-list">' + item(tr(S.long_term.title), esc(tr(S.long_term.body)) +
+        (LT ? ' <a class="noprint" href="' + esc(LT.link) + '" target="_blank" rel="noopener">' + esc(tr(LT.link_label)) + "</a>" : ""), false) + "</ul>";
     } else {
-      out += para(esc(tr(S.low_intro)));
+      out += para(esc(tr(S.verdict[d.low.length === 1 ? d.low[0] : (d.low[0] === "tech" ? "tech" : d.low[0])])), "rep-mine");
       out += '<ul class="rep-list">' + d.low.map(function (k) {
         var body = esc(tr(S[k].body));
         if (k === "legit" && a.value !== "judgment") body += " " + esc(tr(S.legit.weak));
-        if (d.low.length === 1 && k === "tech") body += " " + esc(tr(S.tech.only));
         if (d.low.length === 1 && k === "law") {
           var alt = quadOf(d.g, Math.min(d.t, d.l));
           body += " " + fill(tr(S.law.only), { num: alt, name: esc(tr(D.quadrants[alt].name)) });
         }
         return item(tr(S[k].title), body, true);
       }).join("") + "</ul>";
-      out += para(esc(tr(S.verdict[d.low[0]])), "rep-mine");
     }
     if (a.outcome === "composite") out += para(esc(tr(S.goal_changes)));
-    out += para(esc(tr(S.closing)));
     return section("stability", null, out);
   }
 
@@ -353,18 +320,15 @@
     var auto = d.quad === "II" || d.quad === "IV";
     if (auto && a.value === "judgment" && d.contradictions.indexOf("judgment_not_valued") === -1) lines.push(esc(tr(M.value_auto)));
     if (!auto && a.value === "cheap" && d.contradictions.indexOf("efficiency_trap") === -1) lines.push(esc(tr(M.value_human)));
-    if (lines.length || d.contradictions.length) {
-      out += para(esc(tr(M.intro)));
-      out += '<ul class="rep-list">' + lines.map(function (h) { return "<li><p>" + h + "</p></li>"; }).join("") +
-        d.contradictions.map(function (id) { var f = D.findings[id]; return item(tr(f.title), esc(tr(f.body)), true); }).join("") + "</ul>";
-    } else {
-      out += para(esc(tr(M.none)));
-    }
+    var items = lines.slice(0, 3).map(function (h) { return "<li><p>" + h + "</p></li>"; })
+      .concat(d.contradictions.slice(0, 2).map(function (id) { var f = D.findings[id]; return item(tr(f.title), esc(tr(f.body)), true); }));
+    out += items.length ? para(esc(tr(M.intro))) + '<ul class="rep-list">' + items.join("") + "</ul>" : para(esc(tr(M.none)));
     // The nearest alternative: flip the axis closest to the line.
     var flipGoal = Math.abs(d.g) <= Math.abs(d.s);
     var alt = flipGoal ? quadOf(-d.g || -0.01, d.s) : quadOf(d.g, d.s >= 0 ? -1 : 1);
+    var danger = R.quadrants[alt].careful[0].title;
     out += para(fill(tr(M.alt), { axis: esc(tr(flipGoal ? M.axis_goal : M.axis_sep)), num: alt,
-      name: esc(tr(D.quadrants[alt].name)), role: esc(tr(D.quadrants[alt].role)) }) +
+      name: esc(tr(D.quadrants[alt].name)), danger: esc(tr(danger).toLowerCase()) }) +
       (d.quad === "II" && alt === "IV" ? " " + esc(tr(M.uber)) : ""));
     out += para(esc(tr(M.question)), "rep-question");
     return section("misdiagnosis", null, out);
