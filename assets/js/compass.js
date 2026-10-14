@@ -70,7 +70,7 @@
           '<button type="button" class="btn btn-solid" id="broad-go">' + esc(T.continue_anyway) + "</button></div>" +
         "</div>" +
         '<div class="chips"><span class="chips-label">' + esc(T.examples_label) + "</span>" + chips + "</div>" +
-        '<details class="what"><summary>' + esc(T.what_is) + "</summary><p>" + esc(T.what_is_body) + "</p></details>" +
+        '<details class="what"><summary>' + esc(T.what_is) + "</summary><p>" + esc(T.what_is_body) + '</p><p class="privacy">' + esc(T.privacy) + "</p></details>" +
       "</section>",
       ".start-title"
     );
@@ -254,6 +254,7 @@
         '<div class="print-only"><p class="label">' + esc(T.answers_label) + '</p><ul class="answers">' + answerRows + "</ul>" +
           '<p class="print-contact">Joel W. Berge, NHH · ' + esc(EMAIL) + " · joelberge.github.io</p></div>" +
         '<p class="source">' + esc(T.source) + "</p>" +
+        '<p class="source privacy noprint">' + esc(T.privacy) + "</p>" +
       "</section>",
       ".result-name"
     );
