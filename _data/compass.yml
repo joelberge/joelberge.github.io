@@ -25,7 +25,6 @@ ui:
       - Første utvelgelse av jobbsøkere
       - Hvilke saker som får forsiden
     start: Start
-    meta: Tre minutter · ingenting du skriver lagres
     too_short: Skriv inn én konkret beslutning, for eksempel «godkjenning av leverandørfakturaer».
     too_broad: Dette høres ut som mer enn én beslutning. Kompasset virker best når du analyserer én konkret beslutning om gangen.
     edit: Endre
@@ -78,7 +77,6 @@ ui:
       - First screening of job applicants
       - Choosing the front-page stories
     start: Start
-    meta: Three minutes · nothing you type is stored
     too_short: Enter one specific decision, for example "approving supplier invoices".
     too_broad: This sounds like more than one decision. The compass works best on one specific decision at a time.
     edit: Edit
