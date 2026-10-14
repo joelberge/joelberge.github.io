@@ -106,6 +106,21 @@
 .long-term h2 { margin: 24px 0 12px; font-size: clamp(24px, 3.2vw, 30px); font-weight: 300; line-height: 1.25; text-wrap: balance; }
 .long-term p { margin: 0 0 14px; }
 .long-term .link-arrow { display: inline-block; margin-top: 6px; }
+/* The report */
+.rep { margin-top: 72px; }
+.rep-h { max-width: none; margin: 0 0 22px; padding-bottom: 14px; border-bottom: 1px solid var(--ink); font-size: clamp(26px, 3.4vw, 32px); font-weight: 300; line-height: 1.2; }
+.rep p { margin: 0 0 16px; }
+.rep-intro { color: var(--muted); }
+.rep em { font-style: italic; }
+.rep-mine { font-size: clamp(19px, 2.2vw, 21px); }
+.rep-bullets li { position: relative; padding-left: 26px; margin-bottom: 12px; }
+.rep-bullets li::before { content: "–"; position: absolute; left: 0; color: var(--muted); }
+.rep-list { margin-bottom: 16px; }
+.rep-list li { padding-block: 18px; border-bottom: 1px solid var(--rule); }
+.rep-list li:first-child { border-top: 1px solid var(--rule); }
+.rep-list h3 { margin: 0 0 6px; font-size: 20px; font-weight: 400; line-height: 1.35; }
+.rep-list p { margin: 0; }
+.rep-question { margin-top: 28px; font-size: clamp(21px, 2.6vw, 24px); line-height: 1.4; }
 .actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 16px; margin-top: 44px; }
 .actions .back { margin: 0 0 0 4px; }
 .result-email { margin: 14px 0 0; color: var(--muted); font-size: 15px; user-select: all; }
@@ -143,7 +158,9 @@
   .tool { padding: 0; min-height: 0; max-width: none; }
   .result-name { font-size: 30pt; margin-bottom: 18pt; }
   .result-grid { grid-template-columns: 200px 1fr; margin-bottom: 24pt; break-inside: avoid; }
-  .findings li { padding-block: 10pt; break-inside: avoid; }
+  .findings li, .rep-list li { padding-block: 8pt; break-inside: avoid; }
+  .rep { margin-top: 22pt; }
+  .rep-h { font-size: 17pt; break-after: avoid; }
   .findings h2 { font-size: 14pt; }
   .print-only { display: block; margin-top: 28pt; break-before: auto; }
   .answers li { display: grid; grid-template-columns: 1fr 14em; gap: 12pt; padding-block: 6pt; border-bottom: 1px solid var(--rule); font-size: 10.5pt; break-inside: avoid; }
