@@ -65,6 +65,7 @@
   margin: 0 0 40px; font-weight: 300; font-size: clamp(26px, 4.2vw, 38px); line-height: 1.25;
   letter-spacing: -0.01em; text-wrap: balance;
 }
+.ask-hint { margin: -16px 0 36px; color: var(--muted); font-size: 18px; line-height: 1.55; max-width: 36em; }
 .options { display: grid; gap: 12px; }
 .option {
   display: block; width: 100%; text-align: left; cursor: pointer;
