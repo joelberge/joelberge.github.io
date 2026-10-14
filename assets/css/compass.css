@@ -55,6 +55,8 @@
 .what summary { cursor: pointer; list-style: none; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 0.2em; }
 .what summary::-webkit-details-marker { display: none; }
 .what p { margin: 12px 0 0; color: var(--ink); font-size: 17px; }
+.what .privacy, .source.privacy { color: var(--muted); }
+.source.privacy { margin-top: 6px; }
 
 /* ---------- Questions ---------- */
 .ask-context { display: flex; flex-wrap: wrap; gap: 6px 14px; align-items: baseline; margin: 0 0 22px; }
