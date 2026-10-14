@@ -39,6 +39,7 @@ ui:
       strategy: Strategien
       implementation: Implementeringen
     back: Tilbake
+    hint_label: Vis eksempel
     result_label: Kvadrant
     role_label: Riktig rolle for KI
     watch_label: Dette bør dere passe på
@@ -91,6 +92,7 @@ ui:
       strategy: The strategy
       implementation: The implementation
     back: Back
+    hint_label: Show example
     result_label: Quadrant
     role_label: The right role for AI
     watch_label: What to watch out for
@@ -153,10 +155,10 @@ questions:
       en: How easy is it to say what a good outcome of this decision is?
     hint:
       nb: >-
-        Eksempel: En redaktør som vil selge flest mulig aviser, har et enkelt mål. En redaktør som vil bygge redaksjonen
+        En redaktør som vil selge flest mulig aviser, har et enkelt mål. En redaktør som vil bygge redaksjonen
         som en seriøs og relevant samfunnsaktør, må veie relevans mot omdømme. Det målet er sammensatt.
       en: >-
-        Example: an editor who wants to sell as many papers as possible has a simple goal. An editor who wants to build
+        An editor who wants to sell as many papers as possible has a simple goal. An editor who wants to build
         the newsroom into a serious and relevant voice in society must weigh relevance against reputation. That goal is composite.
     options:
       - { id: simple, score: 2, text: { nb: "Lett, det er ett mål, og det står fast", en: "Easy, there is one goal, and it stays the same" } }
@@ -182,10 +184,10 @@ questions:
       en: Imagine the system hits its target perfectly. Could the decision still damage trust in you or your reputation?
     hint:
       nb: >-
-        Eksempel: Ubers prisalgoritme satte opp prisen når etterspørselen var høy, og traff betalingsviljen presist.
+        Ubers prisalgoritme satte opp prisen når etterspørselen var høy, og traff betalingsviljen presist.
         Likevel opplevde kundene det som utnyttelse, og omdømmet tok skade. Målet var bredere enn tallet algoritmen optimerte.
       en: >-
-        Example: Uber's pricing algorithm raised prices when demand was high and predicted willingness to pay precisely.
+        Uber's pricing algorithm raised prices when demand was high and predicted willingness to pay precisely.
         Customers still felt exploited, and the reputation suffered. The goal was broader than the number the algorithm optimised.
     options:
       - { id: "no", score: 2, text: { nb: Nei, en: "No" } }
@@ -251,6 +253,7 @@ questions:
     text:
       nb: Hva er det kundene egentlig verdsetter ved denne beslutningen?
       en: What do customers really value about this decision?
+    hint_label: { nb: Hva menes med dette?, en: What does this mean? }
     hint:
       nb: >-
         Tenk på hva kunden ville savnet hvis beslutningen ble tatt på en annen måte. Bulder Bank-kunder verdsetter at banken
@@ -300,12 +303,19 @@ questions:
     step: implementation
     show_if: { now: [approve] }
     text:
-      nb: Hvor ofte overstyrer mennesket forslaget fra KI?
-      en: How often does the person override the AI's suggestion?
+      nb: Har den som godkjenner, tid, kompetanse og informasjon til å overprøve KI, nå eller i systemet dere planlegger?
+      en: Does the person approving have the time, expertise and information to overrule the AI, now or in the system you are planning?
+    hint:
+      nb: >-
+        Kommer det hundre forslag om dagen og hver godkjenning tar sekunder, blir godkjenningen i praksis et stempel.
+        Det samme skjer når den som godkjenner, ikke ser grunnlaget KI bygger på.
+      en: >-
+        If a hundred suggestions arrive each day and each approval takes seconds, approval becomes a rubber stamp in practice.
+        The same happens when the approver cannot see what the AI based its suggestion on.
     options:
-      - { id: rarely, text: { nb: "Sjelden, godkjenningen er en formalitet", en: "Rarely, approval is a formality" } }
-      - { id: sometimes, text: { nb: Av og til, en: Sometimes } }
-      - { id: often, text: { nb: Ofte, en: Often } }
+      - { id: rarely, text: { nb: "Nei, i praksis blir det å godta det KI foreslår", en: "No, in practice it means accepting what the AI suggests" } }
+      - { id: sometimes, text: { nb: Delvis, en: Partly } }
+      - { id: often, text: { nb: "Ja, og det forventes at de overprøver når det trengs", en: "Yes, and they are expected to overrule when needed" } }
 
   - id: why
     step: implementation
@@ -387,8 +397,8 @@ findings:
   rubber_stamp:
     title: { nb: Godkjenningen er en formalitet, en: Approval is a formality }
     body:
-      nb: Når mennesket nesten aldri overstyrer KI, er beslutningen i praksis automatisert. Da står noen ansvarlig for vurderinger de ikke lenger gjør.
-      en: When the person almost never overrides the AI, the decision is automated in practice. Someone is then accountable for assessments they no longer make.
+      nb: Når den som godkjenner, mangler tid, kompetanse eller informasjon til å overprøve KI, er beslutningen i praksis automatisert. Da står noen ansvarlig for vurderinger de ikke reelt gjør.
+      en: When the approver lacks the time, expertise or information to overrule the AI, the decision is automated in practice. Someone is then accountable for assessments they do not really make.
   unstable_position:
     title: { nb: Posisjonen er ustabil, en: The position is unstable }
     body:
