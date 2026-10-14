@@ -467,8 +467,8 @@ report:
     misdiagnosis: { nb: Risiko for feildiagnose, en: Risk of misdiagnosis }
   given: { nb: Gitt at diagnosen er riktig., en: Assuming the diagnosis is right. }
   careful_intro:
-    nb: Gitt at diagnosen er riktig. Punkter med grå markering er utløst av svarene deres.
-    en: Assuming the diagnosis is right. Points marked in grey are triggered by your answers.
+    nb: Grå markering betyr at punktet er utløst av svarene deres.
+    en: Grey marking means the point is triggered by your answers.
   high_word: { nb: høy, en: high }
   low_word: { nb: lav, en: low }
   and: { nb: og, en: and }
@@ -493,26 +493,26 @@ report:
     goals: { nb: målene er skrevet ned, en: whether the goals are written down }
 
   main:
-    because:
-      nb: Vi plasserer beslutningen i kvadrant {num}, {name}, fordi målklarheten er {g} og separabiliteten er {s}.
-      en: We place the decision in quadrant {num}, {name}, because goal clarity is {g} and separability is {s}.
-    goal_high:
-      nb: Målet kan formuleres som en regel som holder på tvers av situasjoner.
-      en: The goal can be written as a rule that holds across situations.
-    goal_low:
-      nb: Målet er sammensatt eller vanskelig å skrive ned som en fast regel, og det krever skjønn å vekte hensynene mot hverandre.
-      en: The goal is composite or hard to write down as a fixed rule, and weighing the considerations takes judgment.
-    sep_high:
-      nb: Prediksjonen kan brukes uten menneskelig skjønn. Verken teknikk, legitimitet eller regelverk krever at et menneske er med.
-      en: The prediction can be used without human judgment. Neither technology, legitimacy nor regulation requires a person to be involved.
-    sep_low:
-      nb: Menneskelig skjønn må være med i beslutningen, og det skyldes {sources}.
-      en: Human judgment has to be part of the decision, because of {sources}.
-    source_tech: { nb: tekniske begrensninger, en: technical limitations }
-    source_legit: { nb: krav om at noen står ansvarlig, en: the requirement that someone is accountable }
-    source_law: { nb: regelverk, en: regulation }
-    basis: { nb: "Det bygger på at dere svarte {answers}.", en: "This rests on your answering {answers}." }
-    diagnostic: { nb: "Kontrollspørsmålet fra artikkelen er: {q}", en: "The paper's check question is: {q}" }
+    line:
+      nb: Kvadrant {num}, {name}. Målklarheten er {g}, og separabiliteten er {s}{because}.
+      en: Quadrant {num}, {name}. Goal clarity is {g} and separability is {s}{because}.
+    because: { nb: " fordi {sources}", en: " because {sources}" }
+    source_tech: { nb: KI ikke er god nok ennå, en: AI is not good enough yet }
+    source_legit: { nb: noen må stå ansvarlig, en: someone has to be accountable }
+    source_law: { nb: regelverket krever et menneske, en: the rules require a person }
+    implication:
+      I:
+        nb: For ledelsen betyr det at verdien ligger i at noen står ansvarlig for vurderingen. KI skal gjøre vurderingene bedre, ikke erstatte dem, og effektivisering må aldri gå på bekostning av ansvaret.
+        en: For management, this means the value lies in someone being accountable for the assessment. AI should make the assessments better, not replace them, and efficiency must never come at the expense of accountability.
+      II:
+        nb: For ledelsen betyr det at manuell behandling er en kostnad uten tilsvarende verdi. Gevinsten ligger i å bygge prosessene om rundt KI og flytte menneskene til unntakene.
+        en: For management, this means manual handling is a cost without matching value. The gains come from rebuilding the processes around AI and moving people to the exceptions.
+      III:
+        nb: For ledelsen betyr det at KI skal gjøre beslutningstakeren klokere, ikke ta beslutningen. Det som gjør beslutningen verdifull, som troverdighet og legitimitet, lar seg ikke måle og må vernes.
+        en: For management, this means AI should make the decision maker wiser, not make the decision. What makes the decision valuable, such as credibility and legitimacy, cannot be measured and must be protected.
+      IV:
+        nb: For ledelsen betyr det at automatiseringen er et strategisk valg, ikke et teknisk. Før KI får handle selv, må ledelsen definere målet slik at det underbygger verdiløftet.
+        en: For management, this means automation is a strategic choice, not a technical one. Before AI acts on its own, management must define the goal so that it supports the value proposition.
 
   quadrants:
     I:
@@ -638,106 +638,70 @@ report:
       en: The decision is part of the core, and you compete on judgment and trust. The judgment here is part of what customers pay for. Defend it, and make it visible.
 
   stability:
-    high_intro:
-      nb: "Separabiliteten er høy i dag, men posisjonen kan flytte seg:"
-      en: "Separability is high today, but the position can move:"
-    high_law:
-      title: { nb: Regelverk, en: Regulation }
-      body: { nb: "Nye regler for automatiserte beslutninger kan kreve menneskelig kontroll og flytte beslutningen mot venstre i kompasset.", en: "New rules on automated decisions can require human oversight and move the decision to the left of the compass." }
-    high_law_people:
-      nb: Siden beslutningen har vesentlige konsekvenser for enkeltpersoner, er dette særlig aktuelt for dere.
-      en: Since the decision has significant effects on individuals, this applies to you in particular.
-    high_legit:
-      title: { nb: Legitimitet, en: Legitimacy }
-      body: { nb: "Kundenes forventninger kan endre seg, for eksempel etter en sak der en automatisert beslutning slo feil ut. Da kan kravet om en ansvarlig person komme tilbake.", en: "Customer expectations can change, for example after a case where an automated decision went wrong. The demand for an accountable person can then return." }
-    high_tech:
-      title: { nb: Teknikk, en: Technology }
-      body: { nb: "Dere forutsetter at KI er treffsikker nok til å handle uten tilsyn. Feil og skjevheter skaleres når ingen ser over, særlig når oppgavene henger sammen.", en: "You assume the AI is accurate enough to act without oversight. Mistakes and biases scale when no one checks, especially when tasks depend on each other." }
-    low_intro:
-      nb: "Posisjonen er ikke mer stabil enn det som holder mennesket i beslutningen. For dere er det:"
-      en: "The position is only as stable as what keeps the person in the decision. For you that is:"
+    high:
+      nb: Posisjonen holder så lenge ingen regler krever menneskelig kontroll, kundene ikke begynner å kreve en ansvarlig person, og KI ikke feiler i stor skala. Følg med på alle tre.
+      en: The position holds as long as no rules require human oversight, customers do not start demanding an accountable person, and AI does not fail at scale. Watch all three.
+    high_people:
+      nb: Beslutningen har vesentlige konsekvenser for enkeltpersoner, så følg særlig med på regelverket.
+      en: The decision has significant effects on individuals, so watch the rules in particular.
+    long_term:
+      title: { nb: Hvem skal kontrollere KI om ti år?, en: Who will check the AI in ten years? }
+      body:
+        nb: Når KI tar beslutningene, trenger dere fortsatt folk som ser når den tar feil, og den dømmekraften bygges gjennom friksjon i arbeidet. Gi juniorer KI som gir hint i stedet for svar, og mål om de lærer, ikke bare hvor raskt de leverer.
+        en: When AI makes the decisions, you still need people who can see when it is wrong, and that judgment is built through friction in the work. Give juniors AI that offers hints instead of answers, and measure whether they learn, not just how fast they deliver.
     legit:
       title: { nb: Legitimitet, en: Legitimacy }
       body:
-        nb: >-
-          De som berøres, forventer at et menneske står ansvarlig. Ifølge artikkelen er dette det mest robuste ankeret, fordi det
-          bygger på beslutningens natur og opparbeidet troverdighet, som er vanskelig å kopiere. Men det holder bare så lenge
-          kundene faktisk verdsetter menneskelig dømmekraft. Avklar to ting: Ville kundene merket og brydd seg om mennesket ble borte?
-          Og vil de fortsatt gjøre det om fem år, når konkurrenter som automatiserer alt, tilbyr det samme billigere?
-        en: >-
-          Those affected expect a person to be accountable. According to the paper this is the most robust anchor, because it rests on
-          the nature of the decision and accumulated credibility, which are hard to imitate. But it holds only as long as customers
-          actually value human judgment. Clarify two things: Would customers notice and care if the person were gone? And will they
-          still care in five years, when competitors that automate everything offer the same for less?
+        nb: Det mest robuste ankeret, fordi troverdighet er vanskelig å kopiere. Men det holder bare så lenge kundene faktisk verdsetter menneskelig dømmekraft. Avklar om de gjør det, og om de vil gjøre det når konkurrenter automatiserer alt.
+        en: The most robust anchor, because credibility is hard to imitate. But it holds only as long as customers actually value human judgment. Clarify whether they do, and whether they will when competitors automate everything.
       weak:
-        nb: Merk at dere ikke svarte at kundene verdsetter at noen står inne for beslutningen. Da kan dette ankeret være svakere enn det ser ut.
-        en: Note that you did not answer that customers value someone standing behind the decision. This anchor may then be weaker than it looks.
+        nb: Dere svarte ikke at kundene verdsetter at noen står inne for beslutningen, så ankeret kan være svakere enn det ser ut.
+        en: You did not answer that customers value someone standing behind the decision, so the anchor may be weaker than it looks.
     law:
       title: { nb: Regelverk, en: Regulation }
       body:
-        nb: >-
-          Regler krever at et menneske tar eller godkjenner beslutningen. Posisjonen står så lenge reglene står, men den er påtvunget
-          utenfra og sier ingenting om hvor verdien ligger. Regelverk endres, og en endring kan flytte beslutningen til en annen kvadrant.
-          Spør: Ville vi hatt et menneske her uten regelkravet? Er svaret nei, bør mennesket i det minste gi reell kontroll og ikke bare
-          oppfylle et formkrav.
-        en: >-
-          Rules require a person to make or approve the decision. The position holds as long as the rules do, but it is imposed from
-          outside and says nothing about where the value lies. Rules change, and a change can move the decision to another quadrant.
-          Ask: Would we have a person here without the rule? If not, the person should at least provide real oversight, not just meet
-          a formal requirement.
+        nb: Står så lenge reglene står, men sier ingenting om hvor verdien ligger. Spør om dere ville hatt et menneske her uten regelkravet, og sørg for at kontrollen er reell og ikke bare et formkrav.
+        en: Holds as long as the rules do, but says nothing about where the value lies. Ask whether you would have a person here without the rule, and make sure the oversight is real, not a formality.
       only:
         nb: Uten regelkravet ville beslutningen ligget i kvadrant {num}, {name}.
         en: Without the rule, the decision would sit in quadrant {num}, {name}.
     tech:
       title: { nb: Teknikk, en: Technology }
       body:
-        nb: >-
-          Mennesket er med fordi KI ikke er god nok ennå. Dette er det minst stabile ankeret. Teknologien utvikler seg raskt, og det er
-          stor risiko for at KI etter hvert kan overta hele prosessen. Spør hva som skal til før KI gjør dette like godt som dere,
-          og hva dere gjør da.
-        en: >-
-          The person is involved because AI is not good enough yet. This is the least stable anchor. The technology is developing fast,
-          and there is a high risk that AI will eventually be able to take over the whole process. Ask what it would take for AI to do
-          this as well as you, and what you will do then.
-      only:
-        nb: Siden dette er det eneste som holder mennesket i beslutningen, er posisjonen ustabil. Planlegg for dagen beslutningen kan automatiseres, eller finn verdien mennesket tilfører utover det tekniske.
-        en: Since this is the only thing keeping the person in the decision, the position is unstable. Plan for the day it can be automated, or find the value the person adds beyond the technical.
+        nb: Det minst stabile ankeret. Teknologien utvikler seg raskt, og det er stor risiko for at KI etter hvert overtar hele prosessen. Planlegg for den dagen.
+        en: The least stable anchor. The technology is developing fast, and there is a high risk that AI will eventually take over the whole process. Plan for that day.
     verdict:
-      legit: { nb: "Samlet er posisjonen relativt stabil, så lenge kundene fortsetter å verdsette menneskelig dømmekraft.", en: "Overall the position is fairly stable, as long as customers keep valuing human judgment." }
-      law: { nb: "Samlet er posisjonen like stabil som regelverket.", en: "Overall the position is as stable as the rules." }
-      tech: { nb: "Samlet er posisjonen ustabil.", en: "Overall the position is unstable." }
+      legit: { nb: "Relativt stabil, så lenge kundene fortsetter å verdsette menneskelig dømmekraft.", en: "Fairly stable, as long as customers keep valuing human judgment." }
+      law: { nb: "Like stabil som regelverket.", en: "As stable as the rules." }
+      tech: { nb: "Ustabil. Det eneste som holder mennesket inne, er at KI ikke er god nok ennå.", en: "Unstable. The only thing keeping the person in is that AI is not good enough yet." }
+      high: { nb: "Stabil i dag, men den kan flytte seg.", en: "Stable today, but it can move." }
     goal_changes:
-      nb: Dere sier også at det som teller, endrer seg over tid. Da kan målklarheten flytte seg, og diagnosen bør tas opp igjen jevnlig.
-      en: You also say that what counts changes over time. Goal clarity can then shift, and the diagnosis should be revisited regularly.
-    closing:
-      nb: KI-kompasset er ikke statisk. Vurder diagnosen på nytt når teknologi, regelverk eller konkurranse endrer seg.
-      en: The AI Compass is not static. Revisit the diagnosis when technology, regulation or competition changes.
+      nb: Dere sier at det som teller, endrer seg over tid. Ta opp diagnosen igjen jevnlig.
+      en: You say that what counts changes over time. Revisit the diagnosis regularly.
 
   misdiagnosis:
-    intro:
-      nb: "Feildiagnose kan bli kostbar. Uber behandlet prisingen som en automatisert beslutning med et klart mål, men målet var bredere enn tallet algoritmen optimerte. Disse svarene trekker i en annen retning enn diagnosen:"
-      en: "Misdiagnosis can be costly. Uber treated pricing as an automated decision with a clear goal, but the goal was broader than the number the algorithm optimised. These answers point in a different direction from the diagnosis:"
+    intro: { nb: "Disse svarene trekker i en annen retning enn diagnosen:", en: "These answers point in a different direction from the diagnosis:" }
     against_goal_high: { nb: "Dere svarte {answer}. Det trekker mot lavere målklarhet.", en: "You answered {answer}. That points to lower goal clarity." }
     against_goal_low: { nb: "Dere svarte {answer}. Det trekker mot høyere målklarhet.", en: "You answered {answer}. That points to higher goal clarity." }
     against_sep_high: { nb: "Dere svarte {answer}. Det trekker mot lavere separabilitet.", en: "You answered {answer}. That points to lower separability." }
     against_sep_low: { nb: "Dere svarte {answer}. Det trekker mot høyere separabilitet.", en: "You answered {answer}. That points to higher separability." }
     value_auto:
-      nb: Dere svarte at kundene verdsetter at noen med kompetanse står inne for beslutningen, men diagnosen sier at den kan tas uten menneskelig skjønn. Ett av dem er feil.
-      en: You answered that customers value someone competent standing behind the decision, but the diagnosis says it can be made without human judgment. One of these is wrong.
+      nb: Dere svarte at kundene verdsetter at noen står inne for beslutningen, men diagnosen sier at den kan tas uten menneskelig skjønn. Ett av dem er feil.
+      en: You answered that customers value someone standing behind the decision, but the diagnosis says it can be made without human judgment. One of these is wrong.
     value_human:
-      nb: Dere svarte at kundene verdsetter at beslutningen er rask og billig, men diagnosen sier at den krever menneskelig skjønn. Undersøk om skjønnet faktisk er noe kundene betaler for.
-      en: You answered that customers value the decision being fast and cheap, but the diagnosis says it needs human judgment. Check whether the judgment is something customers actually pay for.
+      nb: Dere svarte at kundene verdsetter at beslutningen er rask og billig, men diagnosen sier at den krever menneskelig skjønn. Betaler kundene for skjønnet?
+      en: You answered that customers value the decision being fast and cheap, but the diagnosis says it needs human judgment. Do customers pay for the judgment?
     none:
-      nb: Svarene deres peker stort sett i samme retning. Det styrker diagnosen, men utelukker ikke at hele ledergruppen deler den samme blindsonen.
-      en: Your answers mostly point the same way. That strengthens the diagnosis, but does not rule out a blind spot shared by the whole leadership team.
+      nb: Svarene peker i samme retning. Det styrker diagnosen, men utelukker ikke en blindsone hele ledergruppen deler.
+      en: Your answers point the same way. That strengthens the diagnosis, but does not rule out a blind spot the whole leadership team shares.
     axis_goal: { nb: målklarheten, en: goal clarity }
     axis_sep: { nb: separabiliteten, en: separability }
     alt:
-      nb: "Det svakeste punktet i diagnosen er {axis}. Tar dere feil der, hører beslutningen hjemme i kvadrant {num}, {name}. Da er riktig rolle for KI en annen: {role}"
-      en: "The weakest point of the diagnosis is {axis}. If you are wrong there, the decision belongs in quadrant {num}, {name}. The right role for AI is then different: {role}"
+      nb: "Tar dere feil om {axis}, hører beslutningen hjemme i kvadrant {num}, {name}, og da er hovedfaren en annen: {danger}."
+      en: "If you are wrong about {axis}, the decision belongs in quadrant {num}, {name}, and the main danger is different: {danger}."
     uber:
-      nb: Det var nettopp denne feilen Uber gjorde. De behandlet prisingen som en automatisert beslutning, mens den hørte hjemme i strategisk autonomi.
-      en: This is exactly the mistake Uber made. It treated pricing as an automated decision, when it belonged in strategic autonomy.
+      nb: Det var denne feilen Uber gjorde med prisingen.
+      en: This is the mistake Uber made with pricing.
     question:
-      nb: Er dette rett diagnose? Gå gjennom svarene over i ledergruppen. Det er nettopp den samtalen en workshop er laget for.
-      en: Is this the right diagnosis? Go through the answers above with your leadership team. That is exactly the conversation a workshop is made for.
+      nb: Er dette rett diagnose? Det er nettopp den samtalen en workshop er laget for.
+      en: Is this the right diagnosis? That is exactly the conversation a workshop is made for.
