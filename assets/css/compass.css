@@ -65,7 +65,16 @@
   margin: 0 0 40px; font-weight: 300; font-size: clamp(26px, 4.2vw, 38px); line-height: 1.25;
   letter-spacing: -0.01em; text-wrap: balance;
 }
-.ask-hint { margin: -16px 0 36px; color: var(--muted); font-size: 18px; line-height: 1.55; max-width: 36em; }
+.ask-hint { margin: -20px 0 32px; max-width: 36em; }
+.ask-hint summary {
+  display: inline-flex; align-items: center; gap: 8px; cursor: pointer; list-style: none;
+  font-size: 16px; color: var(--muted); border: 1px solid var(--rule-strong); border-radius: 999px; padding: 5px 14px;
+}
+.ask-hint summary::-webkit-details-marker { display: none; }
+.ask-hint summary::after { content: "+"; font-size: 18px; line-height: 1; transition: transform .15s; }
+.ask-hint[open] summary::after { transform: rotate(45deg); }
+.ask-hint summary:hover { color: var(--ink); border-color: var(--ink); }
+.ask-hint p { margin: 14px 0 0; padding: 16px 20px; background: var(--hl-soft); border-radius: 14px; font-size: 18px; line-height: 1.55; }
 .options { display: grid; gap: 12px; }
 .option {
   display: block; width: 100%; text-align: left; cursor: pointer;

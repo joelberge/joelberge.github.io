@@ -120,7 +120,7 @@
       '<section class="ask">' +
         '<p class="ask-context"><span class="ask-step">' + esc(T.steps[question.step]) + '</span><span class="ask-decision">' + esc(quote(state.decision)) + "</span></p>" +
         '<h1 class="ask-q">' + esc(tr(question.text)) + "</h1>" +
-        (question.hint ? '<p class="ask-hint">' + esc(tr(question.hint)) + "</p>" : "") +
+        (question.hint ? '<details class="ask-hint"><summary>' + esc(question.hint_label ? tr(question.hint_label) : T.hint_label) + "</summary><p>" + esc(tr(question.hint)) + "</p></details>" : "") +
         '<div class="options">' + buttons + "</div>" +
         '<button type="button" class="back" id="back"><span aria-hidden="true">←</span> ' + esc(T.back) + "</button>" +
       "</section>",
