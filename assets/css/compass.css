@@ -50,7 +50,6 @@
   border: 1px solid var(--rule-strong); border-radius: 999px; padding: 5px 14px;
 }
 .chip:hover { background: var(--hl-soft); border-color: var(--ink); }
-.start-meta { margin: 40px 0 0; color: var(--muted); font-size: 15px; }
 
 .what { margin-top: 18px; max-width: 34em; color: var(--muted); font-size: 16px; }
 .what summary { cursor: pointer; list-style: none; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 0.2em; }

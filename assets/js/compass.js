@@ -70,7 +70,6 @@
           '<button type="button" class="btn btn-solid" id="broad-go">' + esc(T.continue_anyway) + "</button></div>" +
         "</div>" +
         '<div class="chips"><span class="chips-label">' + esc(T.examples_label) + "</span>" + chips + "</div>" +
-        '<p class="start-meta">' + esc(T.meta) + "</p>" +
         '<details class="what"><summary>' + esc(T.what_is) + "</summary><p>" + esc(T.what_is_body) + "</p></details>" +
       "</section>",
       ".start-title"
