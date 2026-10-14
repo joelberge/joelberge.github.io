@@ -165,6 +165,8 @@
     return max ? sum / max : 0;
   }
 
+  function quadOf(g, s) { return g >= 0 ? (s >= 0 ? "II" : "I") : (s >= 0 ? "IV" : "III"); }
+
   function diagnose() {
     var a = state.answers;
     var g = axisScore("goal");
@@ -172,39 +174,200 @@
     var l = axisScore("legit");
     var r = axisScore("law");
     var s = Math.min(t, l, r);
-    var quad = g >= 0 ? (s >= 0 ? "II" : "I") : (s >= 0 ? "IV" : "III");
+    var quad = quadOf(g, s);
     var nowOpt = opt(q("now"), a.now);
     var level = nowOpt ? nowOpt.level : 0;
     var rubber = a.now === "approve" && a.override === "rarely";
     var effective = rubber ? 3 : level;
     var borderline = Math.abs(g) < 0.2 || Math.abs(s) < 0.2;
+    // What keeps a person in the decision (only when separability is low), most robust first.
+    var low = [];
+    if (s < 0) {
+      if (l < 0) low.push("legit");
+      if (r < 0) low.push("law");
+      if (t < 0) low.push("tech");
+    }
 
     var f = [];
     function add(id, when) { if (when && f.indexOf(id) === -1) f.push(id); }
-
-    // 1. The gap between the role AI should have and the role it has.
+    // Dangers triggered by the answers (shown under "what to be careful about").
     add("efficiency_over_accountability", quad === "I" && effective >= 2);
     add("automating_judgment", quad === "III" && effective >= 2);
     add("human_bottleneck", quad === "II" && level <= 1);
     add("wrong_goal", quad === "IV" && effective >= 2 && a.goals !== "explicit");
-    add("define_goals_first", quad === "IV" && level <= 1);
     add("rubber_stamp", rubber && s < 0);
-    // 2. Answers that contradict each other: a sign of misdiagnosis.
-    add("judgment_not_valued", a.value === "judgment" && a.accountable === "no");
-    add("efficiency_trap", a.value === "cheap" && a.accountable === "yes");
-    add("accountability_claim", a.why === "legit" && a.accountable === "no");
-    add("ai_underrated", a.why === "tech" && t >= 0.25);
-    add("narrow_goal", g >= 0 && a.perfect !== "no");
-    // 3. Rules and regulation.
     add("check_gdpr", a.people === "yes" && a.law !== "yes" && (s >= 0 || effective >= 2));
-    add("clarify_law", (a.law === "unsure" || (a.why === "law" && a.law === "no")) && f.indexOf("check_gdpr") === -1);
-    // 4. Stability and strategic fit.
-    add("unstable_position", s < 0 && t < 0 && l >= 0 && r >= 0);
     add("core_automation", quad === "II" && a.core === "core" && a.compete === "judgment");
     add("judgment_cost", (quad === "I" || quad === "III") && a.core === "core" && a.compete === "cost");
     add("habit", a.why === "habit");
+    // Answers that contradict each other (shown under "risk of misdiagnosis").
+    var m = [];
+    function addM(id, when) { if (when && m.indexOf(id) === -1) m.push(id); }
+    addM("judgment_not_valued", a.value === "judgment" && a.accountable === "no");
+    addM("efficiency_trap", a.value === "cheap" && a.accountable === "yes");
+    addM("accountability_claim", a.why === "legit" && a.accountable === "no");
+    addM("ai_underrated", a.why === "tech" && t >= 0.25);
+    addM("narrow_goal", g >= 0 && a.perfect !== "no");
+    addM("clarify_law", a.law === "unsure" || (a.why === "law" && a.law === "no"));
 
-    return { g: g, s: s, quad: quad, borderline: borderline, findings: f.slice(0, 5) };
+    return { g: g, s: s, t: t, l: l, r: r, quad: quad, level: level, effective: effective, rubber: rubber,
+             borderline: borderline, low: low, careful: f, contradictions: m };
+  }
+
+  // ---------- the report ----------
+  var R = D.report;
+  // Fill {placeholders} in an escaped template with ready-made HTML.
+  function fill(tpl, map) {
+    return esc(tpl).replace(/\{(\w+)\}/g, function (all, k) { return map[k] !== undefined ? map[k] : all; });
+  }
+  function listJoin(items) {
+    if (items.length < 2) return items.join("");
+    return items.slice(0, -1).join(", ") + " " + tr(R.and) + " " + items[items.length - 1];
+  }
+  // «answer» to the question of …
+  function answered(qid) {
+    var question = q(qid), o = question && opt(question, state.answers[qid]);
+    if (!o) return null;
+    return fill(tr(R.answered), { a: "<mark>" + esc(quote(tr(o.text))) + "</mark>", q: esc(tr(R.short[qid])) });
+  }
+  // Answers on an axis that point up (dir > 0) or down (dir < 0).
+  function answersOn(axes, dir) {
+    return D.questions.filter(function (x) { return axes.indexOf(x.axis) !== -1; }).filter(function (x) {
+      var o = opt(x, state.answers[x.id]);
+      return o && (dir > 0 ? o.score > 0 : o.score < 0);
+    }).map(function (x) { return x.id; });
+  }
+  function para(html, cls) { return "<p" + (cls ? ' class="' + cls + '"' : "") + ">" + html + "</p>"; }
+  function section(key, intro, body) {
+    return '<section class="rep"><h2 class="rep-h">' + esc(tr(R.sections[key])) + "</h2>" +
+      (intro ? para(esc(intro), "rep-intro") : "") + body + "</section>";
+  }
+  function item(title, body, mine) {
+    return "<li><h3>" + (mine ? "<mark>" + esc(title) + "</mark>" : esc(title)) + "</h3><p>" + body + "</p></li>";
+  }
+
+  function mainSection(d) {
+    var Q = D.quadrants[d.quad], RQ = R.quadrants[d.quad];
+    var hi = tr(R.high_word), lo = tr(R.low_word);
+    var out = para(fill(tr(R.main.because), { num: d.quad, name: esc(tr(Q.name)), g: d.g >= 0 ? hi : lo, s: d.s >= 0 ? hi : lo }));
+    // Goal clarity, with the answers behind it.
+    var goalIds = answersOn(["goal"], d.g >= 0 ? 1 : -1).map(answered).filter(Boolean);
+    out += para(esc(tr(d.g >= 0 ? R.main.goal_high : R.main.goal_low)) +
+      (goalIds.length ? " " + fill(tr(R.main.basis), { answers: listJoin(goalIds) }) : ""));
+    // Separability, with the sources and answers behind it.
+    var sepText, sepIds;
+    if (d.s >= 0) {
+      sepText = esc(tr(R.main.sep_high));
+      sepIds = answersOn(["tech", "legit", "law"], 1);
+    } else {
+      sepText = fill(tr(R.main.sep_low), { sources: listJoin(d.low.map(function (k) { return esc(tr(R.main["source_" + k])); })) });
+      sepIds = answersOn(d.low, -1);
+    }
+    sepIds = sepIds.map(answered).filter(Boolean);
+    out += para(sepText + (sepIds.length ? " " + fill(tr(R.main.basis), { answers: listJoin(sepIds) }) : ""));
+    out += para(fill(tr(R.main.diagnostic), { q: "<em>" + esc(tr(RQ.diagnostic)) + "</em>" }));
+    out += para(esc(tr(RQ.example)));
+    return section("main", null, out);
+  }
+
+  function doSection(d) {
+    var a = state.answers, G = R.gap;
+    var rec = { I: 1, II: 3, III: 1, IV: 3 }[d.quad];
+    var mine = [];
+    if (a.now) {
+      var now = esc(tr(R.now_phrase[d.rubber ? "rubber" : a.now]));
+      var tpl = d.effective > rec ? G.too_much
+        : (d.level <= 1 && (d.quad === "II" || d.quad === "IV")) ? (d.quad === "IV" ? G.too_little_iv : G.too_little)
+        : G.match;
+      mine.push(fill(tr(tpl), { now: now }));
+    }
+    if (d.level >= 1 && a.goals && a.goals !== "explicit" && d.quad === "II") {
+      mine.push(fill(tr(G.write_goals), { goals: esc(tr(a.goals === "none" ? G.goals_none : G.goals_implicit)) }));
+    }
+    if (a.core === "support" && (d.quad === "II" || d.quad === "IV")) mine.push(esc(tr(G.support)));
+    if (a.core === "core" && a.compete === "judgment" && (d.quad === "I" || d.quad === "III")) mine.push(esc(tr(G.defend)));
+    var out = mine.map(function (h) { return para(h, "rep-mine"); }).join("");
+    out += '<ul class="rep-bullets">' + R.quadrants[d.quad].do.map(function (x) { return "<li>" + esc(tr(x)) + "</li>"; }).join("") + "</ul>";
+    return section("do", tr(R.given), out);
+  }
+
+  function carefulSection(d) {
+    var left = d.careful.slice();
+    var out = R.quadrants[d.quad].careful.map(function (x) {
+      var k = left.indexOf(x.same_as);
+      if (x.same_as && k !== -1) {
+        left.splice(k, 1);
+        var f = D.findings[x.same_as];
+        return item(tr(f.title), esc(tr(f.body)), true);
+      }
+      return item(tr(x.title), esc(tr(x.body)), false);
+    }).join("");
+    out += left.map(function (id) { var f = D.findings[id]; return item(tr(f.title), esc(tr(f.body)), true); }).join("");
+    return section("careful", tr(R.careful_intro), '<ul class="rep-list">' + out + "</ul>");
+  }
+
+  function stabilitySection(d) {
+    var S = R.stability, a = state.answers, out = "";
+    if (d.s >= 0) {
+      out += para(esc(tr(S.high_intro)));
+      var lawBody = esc(tr(S.high_law.body)) + (a.people === "yes" ? " " + esc(tr(S.high_law_people)) : "");
+      out += '<ul class="rep-list">' +
+        item(tr(S.high_law.title), lawBody, a.people === "yes") +
+        item(tr(S.high_legit.title), esc(tr(S.high_legit.body)), false) +
+        item(tr(S.high_tech.title), esc(tr(S.high_tech.body)), false);
+      var LT = D.long_term;
+      if (LT) {
+        out += item(tr(LT.title), esc(tr(LT.body)) + " " + esc(tr(LT.advice)) +
+          ' <a class="noprint" href="' + esc(LT.link) + '" target="_blank" rel="noopener">' + esc(tr(LT.link_label)) + "</a>", false);
+      }
+      out += "</ul>";
+    } else {
+      out += para(esc(tr(S.low_intro)));
+      out += '<ul class="rep-list">' + d.low.map(function (k) {
+        var body = esc(tr(S[k].body));
+        if (k === "legit" && a.value !== "judgment") body += " " + esc(tr(S.legit.weak));
+        if (d.low.length === 1 && k === "tech") body += " " + esc(tr(S.tech.only));
+        if (d.low.length === 1 && k === "law") {
+          var alt = quadOf(d.g, Math.min(d.t, d.l));
+          body += " " + fill(tr(S.law.only), { num: alt, name: esc(tr(D.quadrants[alt].name)) });
+        }
+        return item(tr(S[k].title), body, true);
+      }).join("") + "</ul>";
+      out += para(esc(tr(S.verdict[d.low[0]])), "rep-mine");
+    }
+    if (a.outcome === "composite") out += para(esc(tr(S.goal_changes)));
+    out += para(esc(tr(S.closing)));
+    return section("stability", null, out);
+  }
+
+  function misdiagnosisSection(d) {
+    var M = R.misdiagnosis, a = state.answers, out = "", lines = [];
+    if (d.borderline) out += para(esc(T.borderline), "borderline");
+    answersOn(["goal"], d.g >= 0 ? -1 : 1).forEach(function (id) {
+      lines.push(fill(tr(d.g >= 0 ? M.against_goal_high : M.against_goal_low), { answer: answered(id) }));
+    });
+    // High separability: any answer pointing low counts against it. Low: only answers on the sources that hold the person in.
+    answersOn(d.s >= 0 ? ["tech", "legit", "law"] : d.low, d.s >= 0 ? -1 : 1).forEach(function (id) {
+      lines.push(fill(tr(d.s >= 0 ? M.against_sep_high : M.against_sep_low), { answer: answered(id) }));
+    });
+    var auto = d.quad === "II" || d.quad === "IV";
+    if (auto && a.value === "judgment" && d.contradictions.indexOf("judgment_not_valued") === -1) lines.push(esc(tr(M.value_auto)));
+    if (!auto && a.value === "cheap" && d.contradictions.indexOf("efficiency_trap") === -1) lines.push(esc(tr(M.value_human)));
+    if (lines.length || d.contradictions.length) {
+      out += para(esc(tr(M.intro)));
+      out += '<ul class="rep-list">' + lines.map(function (h) { return "<li><p>" + h + "</p></li>"; }).join("") +
+        d.contradictions.map(function (id) { var f = D.findings[id]; return item(tr(f.title), esc(tr(f.body)), true); }).join("") + "</ul>";
+    } else {
+      out += para(esc(tr(M.none)));
+    }
+    // The nearest alternative: flip the axis closest to the line.
+    var flipGoal = Math.abs(d.g) <= Math.abs(d.s);
+    var alt = flipGoal ? quadOf(-d.g || -0.01, d.s) : quadOf(d.g, d.s >= 0 ? -1 : 1);
+    out += para(fill(tr(M.alt), { axis: esc(tr(flipGoal ? M.axis_goal : M.axis_sep)), num: alt,
+      name: esc(tr(D.quadrants[alt].name)), role: esc(tr(D.quadrants[alt].role)) }) +
+      (d.quad === "II" && alt === "IV" ? " " + esc(tr(M.uber)) : ""));
+    out += para(esc(tr(M.question)), "rep-question");
+    return section("misdiagnosis", null, out);
   }
 
   // ---------- result ----------
@@ -213,13 +376,6 @@
     var d = diagnose();
     var Q = D.quadrants[d.quad];
     var name = tr(Q.name);
-
-    var items = d.findings.length
-      ? d.findings.map(function (id) {
-          var x = D.findings[id];
-          return "<li><h2>" + esc(tr(x.title)) + "</h2><p>" + esc(tr(x.body)) + "</p></li>";
-        }).join("")
-      : "<li><h2>" + esc(T.no_findings_title) + "</h2><p>" + esc(T.no_findings_body) + "</p></li>";
 
     var body = T.book_body.replace("{decision}", state.decision).replace("{num}", d.quad).replace("{name}", name);
     var mailto = "mailto:" + EMAIL + "?subject=" + encodeURIComponent(T.book_subject) + "&body=" + encodeURIComponent(body);
@@ -239,12 +395,9 @@
           '<div class="result-role">' +
             '<p class="label">' + esc(T.role_label) + "</p>" +
             '<p class="role-text">' + esc(tr(Q.role)) + "</p>" +
-            (d.borderline ? '<p class="borderline">' + esc(T.borderline) + "</p>" : "") +
           "</div>" +
         "</div>" +
-        '<p class="label watch-label">' + esc(T.watch_label) + "</p>" +
-        '<ul class="findings">' + items + "</ul>" +
-        (d.s >= 0 && D.long_term ? longTerm() : "") +
+        mainSection(d) + doSection(d) + carefulSection(d) + stabilitySection(d) + misdiagnosisSection(d) +
         '<div class="actions noprint">' +
           '<a class="btn btn-solid" href="' + esc(mailto) + '">' + esc(T.book) + "</a>" +
           '<button type="button" class="btn" id="save-pdf">' + esc(T.save_pdf) + "</button>" +
@@ -268,18 +421,6 @@
       if (reduceMotion) { needle.style.transform = "rotate(" + angle + "deg)"; }
       else { requestAnimationFrame(function () { requestAnimationFrame(function () { needle.style.transform = "rotate(" + angle + "deg)"; }); }); }
     }
-  }
-
-  // Long-term challenge when separability is high: who builds the judgment needed to check the AI?
-  function longTerm() {
-    var x = D.long_term;
-    return '<section class="long-term">' +
-      '<p class="label watch-label">' + esc(tr(x.label)) + "</p>" +
-      "<h2>" + esc(tr(x.title)) + "</h2>" +
-      "<p>" + esc(tr(x.body)) + "</p>" +
-      "<p>" + esc(tr(x.advice)) + "</p>" +
-      '<a class="link-arrow noprint" href="' + esc(x.link) + '" target="_blank" rel="noopener">' + esc(tr(x.link_label)) + ' <span aria-hidden="true">→</span></a>' +
-    "</section>";
   }
 
   // ---------- the compass drawing ----------
