@@ -1,5 +1,5 @@
 # KI-kompasset / The AI Compass: the interactive tool at /ki-kompasset/ and /en/ai-compass/.
-# Based on Berge & Knudsen, "KI-kompasset", Magma (forthcoming).
+# Based on Berge & Knudsen (2026), "KI-kompasset", Magma 29(4), 57–64. https://doi.org/10.23865/magma.v29.1575
 #
 # How the scoring works (the logic itself is in assets/js/compass.js):
 #   g  goal clarity, from the questions marked axis: goal. Each option has a score from -2 to +2.
@@ -59,10 +59,10 @@ ui:
       Vi vil gjerne høre mer om en workshop.
     again: Analyser en ny beslutning
     answers_label: Svarene
-    source: "Basert på Berge & Knudsen, «KI-kompasset: Et strategisk verktøy for å navigere KI-implementering», Magma (kommer)."
+    source: "Basert på Berge & Knudsen (2026), «KI-kompasset: Et strategisk verktøy for å navigere KI-implementering», Magma, 29(4), 57–64."
     privacy: Svarene dine blir i nettleseren. Ingenting lagres eller sendes.
     axis_goal: Målklarhet
-    axis_sep: Separerbarhet
+    axis_sep: Separabilitet
     high: Høy
     low: Lav
   en:
@@ -111,7 +111,7 @@ ui:
       We would like to hear more about a workshop.
     again: Analyse another decision
     answers_label: Your answers
-    source: "Based on Berge & Knudsen, \"The AI Compass: A strategic tool for navigating AI implementation\", Magma (forthcoming)."
+    source: "Based on Berge & Knudsen (2026), \"KI-kompasset: Et strategisk verktøy for å navigere KI-implementering\" (in Norwegian), Magma, 29(4), 57–64."
     privacy: Your answers stay in your browser. Nothing is stored or sent.
     axis_goal: Goal clarity
     axis_sep: Separability
@@ -145,16 +145,23 @@ quadrants:
 
 questions:
   # ---------- Step 1: the decision (the two axes) ----------
-  - id: disagree
+  - id: outcome
     step: decision
     axis: goal
     text:
-      nb: To erfarne kolleger tar denne beslutningen hver for seg. Hvor ofte ville de vært uenige om hva som er et godt utfall?
-      en: Two experienced colleagues make this decision separately. How often would they disagree about what a good outcome is?
+      nb: Hvor lett er det å si hva som er et godt utfall av denne beslutningen?
+      en: How easy is it to say what a good outcome of this decision is?
+    hint:
+      nb: >-
+        Eksempel: En redaktør som vil selge flest mulig aviser, har et enkelt mål. En redaktør som vil bygge redaksjonen
+        som en seriøs og relevant samfunnsaktør, må veie relevans mot omdømme. Det målet er sammensatt.
+      en: >-
+        Example: an editor who wants to sell as many papers as possible has a simple goal. An editor who wants to build
+        the newsroom into a serious and relevant voice in society must weigh relevance against reputation. That goal is composite.
     options:
-      - { id: rarely, score: 2, text: { nb: Nesten aldri, en: Almost never } }
-      - { id: sometimes, score: 0, text: { nb: Av og til, en: Sometimes } }
-      - { id: often, score: -2, text: { nb: Ofte, en: Often } }
+      - { id: simple, score: 2, text: { nb: "Lett, det er ett mål, og det står fast", en: "Easy, there is one goal, and it stays the same" } }
+      - { id: settled, score: 0, text: { nb: "Det er noen få hensyn, men de er stort sett avklart", en: "There are a few considerations, but they are mostly settled" } }
+      - { id: composite, score: -2, text: { nb: "Vanskelig, målet er sammensatt, og det som teller, endrer seg over tid", en: "Hard, the goal is composite, and what counts changes over time" } }
 
   - id: number
     step: decision
