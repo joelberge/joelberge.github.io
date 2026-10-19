@@ -34,13 +34,33 @@
       the reform. How well transparency works depends not only on whether information is available, but on the
       cost of acquiring it.
 
+- title: "Ignorance as a Safe Harbor: Information Avoidance, Inaccurate Reporting, and SOX 302 Certification"
+  authors: Bentley, J. W., Berge, J. W., Berge, L. I. O., & Young, S.
+  status: working
+  featured: true
+  image: /assets/img/research/safe-harbor.svg
+  award:
+    nb: Outstanding Manuscript Award, AAA ABO-konferansen 2026
+    en: Outstanding Manuscript Award, AAA ABO Conference 2026
+  # Summary states the research question only; replace with findings from the abstract when available.
+  summary:
+    nb: >-
+      Når ledere personlig må bekrefte at rapporteringen er korrekt, slik SOX 302 krever, oppstår et spørsmål:
+      Er det tryggere å ikke vite? Artikkelen undersøker om informasjonsunngåelse kan fungere som en trygg havn
+      for unøyaktig rapportering.
+    en: >-
+      When managers must personally certify that their reporting is accurate, as SOX 302 requires, a question arises:
+      is it safer not to know? The paper examines whether information avoidance can serve as a safe harbor for
+      inaccurate reporting.
+
 - title: "KI-kompasset: Et strategisk verktøy for å navigere KI-implementering"
   authors: Berge, J. W., & Knudsen, D.-R.
   venue: Magma, 29(4), 57–64
   year: 2026
   status: article
   link: https://doi.org/10.23865/magma.v29.1575
-  featured: true
+  # Featured on the practitioner side (talk + interactive tool); listed under published articles here.
+  featured: false
   press:
     - title: AI-kappløpet – sprint eller orienteringsløp?
       outlet: Finansavisen
@@ -101,13 +121,6 @@
   year: 2024
   status: article
   link: https://doi.org/10.1016/j.jebo.2023.10.039
-
-- title: "Ignorance as a Safe Harbor: Information Avoidance, Inaccurate Reporting, and SOX 302 Certification"
-  authors: Bentley, J. W., Berge, J. W., Berge, L. I. O., & Young, S.
-  status: working
-  award:
-    nb: Outstanding Manuscript Award, AAA ABO-konferansen 2026
-    en: Outstanding Manuscript Award, AAA ABO Conference 2026
 
 - title: "Misleading with Facts: Effect of Paltering on Moral Perception of a Company"
   authors: Bashir, H., Berge, J. W., & Kshatriya, A.

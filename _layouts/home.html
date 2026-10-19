@@ -256,7 +256,7 @@
               {%- elsif pub.image -%}<img src="{{ pub.image | relative_url }}" width="{{ pub.image_width | default: 400 }}" height="{{ pub.image_height | default: 400 }}" alt="">{%- endif -%}
             </div>
             <div class="feature-body">
-              <p class="meta">{% if pub.status == "working" %}<mark>{% if pub.note[L] %}{{ pub.note[L] }}{% else %}{{ pub.note }}{% endif %}</mark>{% else %}{{ pub.venue }} · {% if pub.status == "forthcoming" %}<mark>{{ t.forthcoming }}</mark>{% else %}{{ pub.year }}{% endif %}{% endif %}</p>
+              <p class="meta">{% if pub.award %}<mark>{{ pub.award[L] }}</mark>{% elsif pub.status == "working" %}<mark>{% if pub.note[L] %}{{ pub.note[L] }}{% else %}{{ pub.note }}{% endif %}</mark>{% else %}{{ pub.venue }} · {% if pub.status == "forthcoming" %}<mark>{{ t.forthcoming }}</mark>{% else %}{{ pub.year }}{% endif %}{% endif %}</p>
               <h3>{{ pub.title }}</h3>
               <p class="authors">{{ pub.authors }}</p>
               <p>{{ pub.summary[L] }}</p>
