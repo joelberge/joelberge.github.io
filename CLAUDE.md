@@ -43,6 +43,7 @@ Only state findings that are in the paper's own abstract.
 
 **New CV.** Put the PDF at `assets/cv/joel-berge-cv.pdf` and set `cv_pdf: /assets/cv/joel-berge-cv.pdf` in `_data/profile.yml`.
 Update `_data/cv.yml` to match.
+Only ever publish the public version (no private address, mobile number, Gmail or office phone): check the PDF text before committing.
 
 ## YAML gotchas
 

@@ -318,7 +318,7 @@
           {%- endfor %}
         </div>
         {%- if p.cv_pdf %}
-        <p><a class="btn" href="{{ p.cv_pdf | relative_url }}">{{ t.cv_download }}</a></p>
+        <p><a class="btn" href="{{ p.cv_pdf | relative_url }}?v={{ site.time | date: '%s' }}">{{ t.cv_download }}</a></p>
         {%- endif %}
       </div>
     </section>
