@@ -21,4 +21,4 @@ links:
   linkedin: https://www.linkedin.com/in/joelwberge/
 
 # Set to the path of a PDF (e.g. /assets/cv/joel-berge-cv.pdf) to show a download button.
-cv_pdf:
+cv_pdf: /assets/cv/joel-berge-cv.pdf
