@@ -16,6 +16,15 @@
       where: { nb: Tilburg University, en: Tilburg University }
       what: { nb: "Gjesteforsker, Department of Accountancy", en: "Visiting Research Scholar, Department of Accountancy" }
 
+- heading: { nb: Priser og utmerkelser, en: Honors and awards }
+  items:
+    - when: 2026
+      where: { nb: American Accounting Association, en: American Accounting Association }
+      what: { nb: "Outstanding Manuscript Award, ABO-konferansen, for «Ignorance as a Safe Harbor»", en: "Outstanding Manuscript Award, ABO Conference, for \"Ignorance as a Safe Harbor\"" }
+    - when: 2026
+      where: { nb: NHH Norges Handelshøyskole, en: NHH Norwegian School of Economics }
+      what: { nb: Masterstudentenes pris for fremragende undervisning, en: Master Students' Prize for Excellent Teaching }
+
 - heading: { nb: Utdanning, en: Education }
   items:
     - when: 2021
@@ -33,8 +42,6 @@
 
 - heading: { nb: Undervisning, en: Teaching }
   items:
-    - when: 2026
-      what: { nb: "Masterstudentenes pris for fremragende undervisning, NHH", en: "Master students' award for excellent teaching, NHH" }
     - when: 2025–
       what: { nb: "Profilkoordinator, Økonomisk styring (BUS), NHH", en: "Profile coordinator, Business Analysis and Performance (BUS), NHH" }
     - when: 2022–

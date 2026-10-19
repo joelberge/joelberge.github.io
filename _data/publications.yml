@@ -7,6 +7,7 @@
 #   link:     DOI or paper URL (optional)
 #   summary:  short plain-language text in both languages (featured papers only)
 #   note:     optional short label, e.g. "Open access"
+#   award:    optional prize for the paper, in nb and en (shown with the grey highlighter)
 
 - title: "Observable Information Acquisition, Social Costs, and Pay Dispersion"
   authors: Berge, J. W., Traini, S., & Vattø, T.
@@ -101,6 +102,13 @@
   status: article
   link: https://doi.org/10.1016/j.jebo.2023.10.039
 
+- title: "Ignorance as a Safe Harbor: Information Avoidance, Inaccurate Reporting, and SOX 302 Certification"
+  authors: Bentley, J. W., Berge, J. W., Berge, L. I. O., & Young, S.
+  status: working
+  award:
+    nb: Outstanding Manuscript Award, AAA ABO-konferansen 2026
+    en: Outstanding Manuscript Award, AAA ABO Conference 2026
+
 - title: "Misleading with Facts: Effect of Paltering on Moral Perception of a Company"
   authors: Bashir, H., Berge, J. W., & Kshatriya, A.
   status: working
@@ -120,10 +128,6 @@
 
 - title: "The Cost of Control in Mission Driven Organizations"
   authors: Berge, J. W., Maske, M., Sohn, M., & van Pelt, V.
-  status: working
-
-- title: "Ignorance as a Safe Harbor: Information Avoidance, Inaccurate Reporting, and SOX 302 Certification"
-  authors: Bentley, J. W., Berge, J. W., Berge, L. I. O., & Young, S.
   status: working
 
 - title: "Auditors' Responses to Norway's New Auditing Act and Anti-Money Laundering Regulation"

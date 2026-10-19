@@ -287,6 +287,7 @@
                 <span class="pub-text">
                   {%- if pub.link -%}<a href="{{ pub.link }}">{{ pub.title }}</a>{%- else -%}<span class="pub-title">{{ pub.title }}</span>{%- endif -%}
                   <span class="authors">{{ pub.authors }}{% if pub.venue %} · <em>{{ pub.venue }}</em>{% endif %}{% if pub.note %} · {% if pub.note[L] %}{{ pub.note[L] }}{% else %}{{ pub.note }}{% endif %}{% endif %}</span>
+                  {%- if pub.award %}<span class="pub-award"><mark>{{ pub.award[L] }}</mark></span>{% endif %}
                 </span>
               </li>
               {%- endfor %}
