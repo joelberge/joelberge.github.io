@@ -42,14 +42,16 @@
   award:
     nb: Outstanding Manuscript Award, AAA ABO-konferansen 2026
     en: Outstanding Manuscript Award, AAA ABO Conference 2026
+  # Shown under the summary until the paper has a link.
+  availability: { nb: Working paper kommer snart., en: Working paper available soon. }
   # Summary states the research question only; replace with findings from the abstract when available.
   summary:
     nb: >-
-      Når ledere personlig må bekrefte at rapporteringen er korrekt, slik SOX 302 krever, oppstår et spørsmål:
+      Når ledere personlig må bekrefte at rapporteringen etter deres beste kunnskap er korrekt, slik SOX 302 krever, oppstår et spørsmål:
       Er det tryggere å ikke vite? Artikkelen undersøker om informasjonsunngåelse kan fungere som en trygg havn
       for unøyaktig rapportering.
     en: >-
-      When managers must personally certify that their reporting is accurate, as SOX 302 requires, a question arises:
+      When managers must personally certify that, based on their knowledge, their reporting is accurate, as SOX 302 requires, a question arises:
       is it safer not to know? The paper examines whether information avoidance can serve as a safe harbor for
       inaccurate reporting.
 
