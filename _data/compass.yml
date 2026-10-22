@@ -338,6 +338,70 @@ questions:
       - { id: implicit, text: { nb: Delvis eller underforstått, en: Partly or implicitly } }
       - { id: none, text: { nb: Nei, en: "No" } }
 
+  # The questions below only feed "Weaknesses in the implementation" in the report. They do not move the diagnosis.
+  - id: filter
+    step: implementation
+    show_if: { now: [advise, approve] }
+    text:
+      nb: Velger KI hvilke saker et menneske får se?
+      en: Does AI choose which cases a person gets to see?
+    hint:
+      nb: >-
+        Et rekrutteringsverktøy som sorterer bort søkere før noen leser søknadene, bestemmer hvem som blir vurdert.
+        Det samme gjør et system som bare viser de selskapene, transaksjonene eller sakene det har flagget.
+      en: >-
+        A recruiting tool that screens out applicants before anyone reads the applications decides who gets assessed.
+        So does a system that only shows the companies, transactions or cases it has flagged.
+    options:
+      - { id: all, text: { nb: "Nei, et menneske ser alle sakene", en: "No, a person sees all the cases" } }
+      - { id: ranked, text: { nb: "KI rangerer sakene, men alle er tilgjengelige", en: "AI ranks the cases, but all of them are available" } }
+      - { id: sampled, text: { nb: "Ja, men noen kontrollerer jevnlig et utvalg av resten", en: "Yes, but someone regularly checks a sample of the rest" } }
+      - { id: unchecked, text: { nb: "Ja, og ingen ser på resten", en: "Yes, and no one looks at the rest" } }
+
+  - id: first
+    step: implementation
+    show_if: { now: [advise] }
+    text:
+      nb: Ser den som bestemmer, KI-forslaget før de har gjort sin egen vurdering?
+      en: Does the decision maker see the AI's suggestion before making their own assessment?
+    options:
+      - { id: own, text: { nb: "Nei, de vurderer selv først", en: "No, they assess for themselves first" } }
+      - { id: ai, text: { nb: "Ja, forslaget er det første de ser", en: "Yes, the suggestion is the first thing they see" } }
+      - { id: varies, text: { nb: "Det varierer, det er ikke bestemt", en: "It varies, it has not been decided" } }
+
+  - id: deviate
+    step: implementation
+    show_if: { now: [advise, approve] }
+    text:
+      nb: Vet dere hvor ofte den som bestemmer, går mot det KI foreslår?
+      en: Do you know how often the decision maker goes against what the AI suggests?
+    options:
+      - { id: regularly, text: { nb: "Ja, og det skjer jevnlig", en: "Yes, and it happens regularly" } }
+      - { id: almost_never, text: { nb: "Ja, og det skjer nesten aldri", en: "Yes, and it almost never happens" } }
+      - { id: unknown, text: { nb: "Nei, det følger vi ikke med på", en: "No, we do not track it" } }
+
+  - id: monitor
+    step: implementation
+    show_if: { now: [alone] }
+    text:
+      nb: Hvordan oppdager dere at KI har tatt en feil beslutning?
+      en: How do you find out that the AI has made a wrong decision?
+    options:
+      - { id: sample, text: { nb: "Vi kontrollerer jevnlig et tilfeldig utvalg av beslutningene", en: "We regularly check a random sample of the decisions" } }
+      - { id: complaints, text: { nb: "Når noen klager eller noe går galt", en: "When someone complains or something goes wrong" } }
+      - { id: unknown, text: { nb: "Det vet vi ikke", en: "We do not know" } }
+
+  - id: learn
+    step: implementation
+    show_if: { now: [advise, approve, alone] }
+    text:
+      nb: Hvordan lærer nye medarbeidere å ta denne beslutningen i dag?
+      en: How do new employees learn to make this decision today?
+    options:
+      - { id: themselves, text: { nb: "Ved å gjøre vurderingene selv, med veiledning", en: "By making the assessments themselves, with guidance" } }
+      - { id: adjust, text: { nb: "Mest ved å se på og justere det KI foreslår", en: "Mostly by looking at and adjusting what the AI suggests" } }
+      - { id: nobody, text: { nb: "Ingen lærer det lenger, KI har tatt over", en: "Nobody learns it any more, the AI has taken over" } }
+
 # Long-term challenge, shown as its own section when separability is high (quadrant II or IV).
 # From Joel's op-ed "Vil jakten på AI-effektivitet tømme selskapene for dømmekraft?" (Finansavisen, 2026).
 long_term:
@@ -453,6 +517,98 @@ findings:
       nb: Beslutningen krever menneskelig skjønn, men dere konkurrerer på kostnad. Enten må skjønnet forsvares som en del av verdien, eller så må beslutningen utformes på nytt.
       en: The decision needs human judgment, but you compete on cost. Either defend the judgment as part of the value, or redesign the decision.
 
+# Weaknesses in how AI is implemented, shown in their own section of the report. They reveal; they do not advise.
+# Which ones appear is decided in assets/js/compass.js (function weaknesses). judgment_note is added in
+# quadrants I and III, where the person's own assessment is the value.
+weaknesses:
+  hidden_selection:
+    title: { nb: "Det KI ikke flagger, ser ingen", en: "What the AI does not flag, no one sees" }
+    body:
+      nb: >-
+        KI velger hvilke saker et menneske får se, og ingen ser på resten. Da er det KI som tar den første beslutningen,
+        og feilene den gjør der, er usynlige: en sak som burde vært flagget, etterlater ingen spor. Dere kan ikke vite hvor god utvelgelsen er.
+      en: >-
+        AI chooses which cases a person gets to see, and no one looks at the rest. The AI then makes the first decision,
+        and the mistakes it makes there are invisible: a case that should have been flagged leaves no trace. You cannot know how good the selection is.
+    judgment_note:
+      nb: I denne kvadranten er det mennesket som skal vurdere. Når KI bestemmer hva som blir vurdert, er en del av skjønnet automatisert.
+      en: In this quadrant, the person is meant to assess. When AI decides what gets assessed, part of the judgment is automated.
+  ranking:
+    title: { nb: Rangeringen virker som et filter, en: The ranking works as a filter }
+    body:
+      nb: >-
+        Alle sakene er tilgjengelige, men KI bestemmer rekkefølgen. Under tidspress blir sakene nederst på lista sjelden lest.
+        Da virker rangeringen som et filter, uten at noen har bestemt at den skal det.
+      en: >-
+        All the cases are available, but AI decides the order. Under time pressure, the cases at the bottom are rarely read.
+        The ranking then works as a filter, without anyone having decided that it should.
+  anchoring:
+    title: { nb: KI-forslaget blir ankeret, en: The AI's suggestion becomes the anchor }
+    body:
+      nb: >-
+        Når den som bestemmer, ser KI-forslaget før sin egen vurdering, trekkes vurderingen mot forslaget, ofte uten at de merker det.
+        Det dere kaller en menneskelig vurdering, kan i praksis være en justering av KI-ens.
+      en: >-
+        When the decision maker sees the AI's suggestion before their own assessment, the assessment is pulled towards it, often without their noticing.
+        What you call a human assessment may in practice be an adjustment of the AI's.
+    judgment_note:
+      nb: I denne kvadranten er det nettopp den selvstendige vurderingen som er verdien.
+      en: In this quadrant, it is precisely the independent assessment that is the value.
+  untracked:
+    title: { nb: Dere ser ikke om mennesket faktisk bestemmer, en: You cannot see whether the person actually decides }
+    body:
+      nb: >-
+        Dere vet ikke hvor ofte den som bestemmer, går mot KI. Da kan beslutningen gli fra støtte til automatisering
+        uten at noen har bestemt det, og ingen merker det før noe går galt.
+      en: >-
+        You do not know how often the decision maker goes against the AI. The decision can then drift from support to automation
+        without anyone having decided it, and no one notices until something goes wrong.
+  never_deviates:
+    title: { nb: Mennesket går nesten aldri mot KI, en: The person almost never goes against the AI }
+    body:
+      nb: >-
+        Det kan bety at KI er god. Det kan også bety at vurderingen i praksis er KI-ens, og at mennesket står ansvarlig
+        for noe de ikke reelt vurderer. Tallet alene skiller ikke de to.
+      en: >-
+        That may mean the AI is good. It may also mean the assessment is in practice the AI's, and that the person is accountable
+        for something they do not really assess. The number alone cannot tell the two apart.
+  complaints_only:
+    title: { nb: Dere ser bare feilene noen klager på, en: You only see the mistakes someone complains about }
+    body:
+      nb: >-
+        Feil oppdages når noen klager eller noe går galt. Men de som klager, er ikke et tilfeldig utvalg. Feil som rammer dem
+        som ikke klager, eller som ingen merker, blir aldri sett, så feilraten dere tror dere har, er for lav.
+      en: >-
+        Mistakes are found when someone complains or something goes wrong. But those who complain are not a random sample. Mistakes that hit
+        people who do not complain, or that no one notices, are never seen, so the error rate you think you have is too low.
+  blind:
+    title: { nb: Dere vet ikke hvor ofte KI tar feil, en: You do not know how often the AI is wrong }
+    body:
+      nb: >-
+        KI bestemmer alene, og dere har ingen måte å oppdage feil på. Det betyr ikke at det ikke skjer feil, bare at dere ikke ser dem.
+        Det er slik feil i stor skala begynner.
+      en: >-
+        AI decides on its own, and you have no way of finding mistakes. That does not mean no mistakes happen, only that you do not see them.
+        That is how mistakes at scale begin.
+  deskilling:
+    title: { nb: Dømmekraften fylles ikke på, en: Judgment is not being replenished }
+    body:
+      nb: >-
+        Nye medarbeidere lærer ved å justere det KI foreslår, ikke ved å vurdere selv. Dømmekraften som skal se når KI tar feil,
+        bygges gjennom friksjon og egne feil. Om noen år har de som skal kontrollere KI, lært faget av KI.
+      en: >-
+        New employees learn by adjusting what the AI suggests, not by assessing for themselves. The judgment needed to see when the AI is wrong
+        is built through friction and one's own mistakes. In a few years, the people meant to check the AI will have learned the craft from the AI.
+  no_successors:
+    title: { nb: Ingen lærer beslutningen lenger, en: Nobody learns the decision any more }
+    body:
+      nb: >-
+        Når de som kan ta beslutningen i dag, slutter, er det ingen igjen som kan se når KI tar feil, eller ta over når den svikter.
+        Den kompetansen er vanskelig å bygge opp igjen når den først er borte.
+      en: >-
+        When the people who can make the decision today leave, there is no one left who can see when the AI is wrong, or take over when it fails.
+        That expertise is hard to rebuild once it is gone.
+
 # ---------------------------------------------------------------------------
 # The full report on the result page. Five sections:
 # main assessment, what to do, what to be careful about, stability, risk of misdiagnosis.
@@ -462,6 +618,7 @@ report:
   sections:
     main: { nb: Hovedvurdering, en: Main assessment }
     do: { nb: Hva dere bør gjøre, en: What you should do }
+    weak: { nb: Svakheter i implementeringen, en: Weaknesses in the implementation }
     careful: { nb: Hva dere bør være varsomme med, en: What to be careful about }
     stability: { nb: Hvor stabil er posisjonen?, en: How stable is the position? }
     misdiagnosis: { nb: Risiko for feildiagnose, en: Risk of misdiagnosis }
@@ -469,6 +626,16 @@ report:
   careful_intro:
     nb: Grå markering betyr at punktet er utløst av svarene deres.
     en: Grey marking means the point is triggered by your answers.
+  weak_intro:
+    nb: Rollen sier hva KI skal gjøre. Svarene deres viser hvor måten det gjøres på, kan undergrave den.
+    en: The role says what AI should do. Your answers show where the way it is done can undermine it.
+  weak_none:
+    nb: >-
+      Svarene avslører ingen svakheter i implementeringen. Det bygger på hvordan dere beskriver praksis, ikke på hvordan den er.
+      Spør dem som tar beslutningen hver dag, om de ville svart det samme.
+    en: >-
+      Your answers reveal no weaknesses in the implementation. That rests on how you describe the practice, not on how it is.
+      Ask the people who make the decision every day whether they would answer the same.
   high_word: { nb: høy, en: high }
   low_word: { nb: lav, en: low }
   and: { nb: og, en: and }
@@ -491,6 +658,11 @@ report:
     override: { nb: den som godkjenner kan overprøve KI, en: whether the approver can overrule the AI }
     why: { nb: hvorfor et menneske er med, en: why a person is involved }
     goals: { nb: målene er skrevet ned, en: whether the goals are written down }
+    filter: { nb: KI velger hvilke saker et menneske ser, en: whether AI chooses which cases a person sees }
+    first: { nb: den som bestemmer ser KI-forslaget først, en: whether the decision maker sees the AI's suggestion first }
+    deviate: { nb: hvor ofte mennesket går mot KI, en: how often the person goes against the AI }
+    monitor: { nb: hvordan dere oppdager feil, en: how you find mistakes }
+    learn: { nb: hvordan nye lærer beslutningen, en: how new employees learn the decision }
 
   main:
     line:
@@ -625,6 +797,9 @@ report:
     match:
       nb: I dag, eller i planene deres, {now}. Det stemmer med diagnosen.
       en: Today, or in your plans, {now}. That matches the diagnosis.
+    match_weak:
+      nb: I dag, eller i planene deres, {now}. Det stemmer med diagnosen på papiret, men svarene avslører svakheter i hvordan det gjøres.
+      en: Today, or in your plans, {now}. That matches the diagnosis on paper, but your answers reveal weaknesses in how it is done.
     write_goals:
       nb: Skriv ned hva KI skal optimere mot, og hva den ikke skal ofre. I dag er målene {goals}.
       en: Write down what the AI should optimise for, and what it must not sacrifice. Today the goals are {goals}.
