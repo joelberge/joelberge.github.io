@@ -211,7 +211,23 @@
     addM("clarify_law", a.law === "unsure" || (a.why === "law" && a.law === "no"));
 
     return { g: g, s: s, t: t, l: l, r: r, quad: quad, level: level, effective: effective, rubber: rubber,
-             borderline: borderline, low: low, careful: f, contradictions: m };
+             borderline: borderline, low: low, careful: f, contradictions: m, weak: weaknesses(a) };
+  }
+
+  // Weaknesses in how AI is implemented (shown under "weaknesses in the implementation"). Texts in compass.yml.
+  function weaknesses(a) {
+    var w = [];
+    function add(id, when) { if (when && w.indexOf(id) === -1) w.push(id); }
+    add("hidden_selection", a.filter === "unchecked");
+    add("ranking", a.filter === "ranked");
+    add("anchoring", a.first === "ai" || a.first === "varies");
+    add("untracked", a.deviate === "unknown");
+    add("never_deviates", a.deviate === "almost_never");
+    add("complaints_only", a.monitor === "complaints");
+    add("blind", a.monitor === "unknown");
+    add("deskilling", a.learn === "adjust");
+    add("no_successors", a.learn === "nobody");
+    return w;
   }
 
   // ---------- the report ----------
@@ -262,7 +278,7 @@
       var now = esc(tr(R.now_phrase[d.rubber ? "rubber" : a.now]));
       var tpl = d.effective > rec ? G.too_much
         : (d.level <= 1 && (d.quad === "II" || d.quad === "IV")) ? (d.quad === "IV" ? G.too_little_iv : G.too_little)
-        : G.match;
+        : d.weak.length ? G.match_weak : G.match;
       mine.push(fill(tr(tpl), { now: now }));
     }
     if (d.level >= 1 && a.goals && a.goals !== "explicit" && d.quad === "II") {
@@ -273,6 +289,18 @@
     var out = mine.map(function (h) { return para(h, "rep-mine"); }).join("");
     out += '<ul class="rep-bullets">' + R.quadrants[d.quad].do.slice(0, 3).map(function (x) { return "<li>" + esc(tr(x)) + "</li>"; }).join("") + "</ul>";
     return section("do", tr(R.given), out);
+  }
+
+  // Only when AI has a role. In quadrants I and III some weaknesses add a note: there the person's own assessment is the value.
+  function weakSection(d) {
+    if (d.level < 1) return "";
+    if (!d.weak.length) return section("weak", null, para(esc(tr(R.weak_none))));
+    var judgment = d.quad === "I" || d.quad === "III";
+    var items = d.weak.map(function (id) {
+      var x = D.weaknesses[id];
+      return item(tr(x.title), esc(tr(x.body)) + (judgment && x.judgment_note ? " " + esc(tr(x.judgment_note)) : ""), true);
+    });
+    return section("weak", tr(R.weak_intro), '<ul class="rep-list">' + items.join("") + "</ul>");
   }
 
   // At most three points: the ones triggered by the answers first, then the quadrant's general dangers.
@@ -361,7 +389,7 @@
             '<p class="role-text">' + esc(tr(Q.role)) + "</p>" +
           "</div>" +
         "</div>" +
-        mainSection(d) + doSection(d) + carefulSection(d) + stabilitySection(d) + misdiagnosisSection(d) +
+        mainSection(d) + doSection(d) + weakSection(d) + carefulSection(d) + stabilitySection(d) + misdiagnosisSection(d) +
         '<div class="actions noprint">' +
           '<a class="btn btn-solid" href="' + esc(mailto) + '">' + esc(T.book) + "</a>" +
           '<button type="button" class="btn" id="save-pdf">' + esc(T.save_pdf) + "</button>" +
