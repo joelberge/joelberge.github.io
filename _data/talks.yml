@@ -53,6 +53,8 @@
     - "Høyere tittel – lavere lønn"
     - "La oss snakke ærlig om etikk og butikk"
     - "Handelshøyskoleeffekten"
+  podcasts:
+    - "Etikk og butikk"
 
 - id: tillitsfellen
   viz: trust-curve
