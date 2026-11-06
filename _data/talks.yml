@@ -78,4 +78,7 @@
     - "Norge kan tjene penger på å tredoble Økokrims budsjetter"
     - "Hva skal vi gjøre med for mye tillit?"
     - "Hva er en kvittering verdt i 2026?"
+  # Podcast episodes by exact title from podcast.yml (guest list).
+  podcasts:
+    - "Lønner det seg å være en snill leder?"
 
