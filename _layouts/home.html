@@ -129,12 +129,15 @@
                     </ul>
                   </div>
                   {%- endif %}
-                  {%- if talk.opeds or talk.also %}
+                  {%- if talk.opeds or talk.podcasts or talk.also %}
                   <div>
                     <p class="label">{{ t.basis_opeds }}</p>
                     <ul>
                       {%- for title in talk.opeds %}{% assign o = site.data.media.opeds | where: "title", title | first %}
                       <li><a href="{{ o.link }}">{{ o.title }}</a><span class="meta">{{ o.outlet }} · {{ o.year }}</span></li>
+                      {%- endfor %}
+                      {%- for title in talk.podcasts %}{% assign e = site.data.podcast.guest | where: "title", title | first %}
+                      <li><a href="{{ e.link }}">{{ e.title }}</a><span class="meta">{{ e.show }}{% if e.year %} · {{ e.year }}{% endif %}</span></li>
                       {%- endfor %}
                       {%- for a in talk.also %}
                       <li>{{ a[L] }}</li>
