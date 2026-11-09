@@ -13,11 +13,11 @@
     en: Where should AI make the decisions, and where should people?
   summary:
     nb: >-
-      Et verktøy for å skille prediksjon fra skjønn. To spørsmål, om målklarhet og separabilitet,
-      plasserer enhver prosess i én av fire kvadranter.
+      To spørsmål avgjør hvilken rolle KI bør ha: Må dømmekraft utøves i selve beslutningen?
+      Og må mennesker styre retningen underveis, eller kan målet skrives som en regel?
     en: >-
-      A tool for separating prediction from judgment. Two questions, about goal clarity and separability,
-      place any process in one of four quadrants.
+      Two questions decide the role AI should play: Does judgment have to be exercised in the decision itself?
+      And do people need to steer the direction along the way, or can the goal be written as a rule?
   # Interactive tool, shown as a button under the talk.
   tool:
     label: { nb: Prøv KI-kompasset, en: Try the AI Compass }

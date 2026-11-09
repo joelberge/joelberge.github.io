@@ -31,8 +31,9 @@ ui:
     continue_anyway: Fortsett likevel
     what_is: Hva er KI-kompasset?
     what_is_body: >-
-      To spørsmål avgjør hvilken rolle KI bør ha i en beslutning: Kan målet skrives som en regel?
-      Og kan prediksjonen skilles fra menneskelig skjønn?
+      To spørsmål avgjør hvilken rolle KI bør ha i en beslutning: Må dømmekraft utøves i selve beslutningen?
+      Og må mennesker styre retningen underveis, eller kan målet skrives som en regel? Begge handler om
+      dømmekraft: i den enkelte beslutningen, og i retningen KI optimerer mot.
     steps:
       decision: Beslutningen
       strategy: Strategien
@@ -83,8 +84,9 @@ ui:
     continue_anyway: Continue anyway
     what_is: What is the AI Compass?
     what_is_body: >-
-      Two questions decide the role AI should play in a decision: Can the goal be written as a rule?
-      And can the prediction be separated from human judgment?
+      Two questions decide the role AI should play in a decision: Does judgment have to be exercised in the
+      decision itself? And do people need to steer the direction along the way, or can the goal be written as
+      a rule? Both are about judgment: in the individual decision, and in the direction AI optimises towards.
     steps:
       decision: The decision
       strategy: The strategy
@@ -665,10 +667,18 @@ report:
     learn: { nb: hvordan nye lærer beslutningen, en: how new employees learn the decision }
 
   main:
+    # First line of the report: the two questions in plain language.
+    # {sep} + {because} + {conj} + {goal}, e.g. "Dømmekraft må utøves i selve beslutningen, fordi noen må stå ansvarlig, men målet kan skrives som en regel."
     line:
-      nb: Kvadrant {num}, {name}. Målklarheten er {g}, og separabiliteten er {s}{because}.
-      en: Quadrant {num}, {name}. Goal clarity is {g} and separability is {s}{because}.
-    because: { nb: " fordi {sources}", en: " because {sources}" }
+      nb: "Kvadrant {num}, {name}. {sep}{because}, {conj} {goal}."
+      en: "Quadrant {num}, {name}. {sep}{because}, {conj} {goal}."
+    sep_low: { nb: Dømmekraft må utøves i selve beslutningen, en: Judgment has to be exercised in the decision itself }
+    sep_high: { nb: Prediksjonen kan brukes direkte i beslutningen, en: The prediction can be used directly in the decision }
+    goal_high: { nb: målet kan skrives som en regel, en: the goal can be written as a rule }
+    goal_low: { nb: mennesker må styre retningen underveis, en: people need to steer the direction along the way }
+    conj_but: { nb: men, en: but }
+    conj_and: { nb: og, en: and }
+    because: { nb: ", fordi {sources}", en: ", because {sources}" }
     source_tech: { nb: KI ikke er god nok ennå, en: AI is not good enough yet }
     source_legit: { nb: noen må stå ansvarlig, en: someone has to be accountable }
     source_law: { nb: regelverket krever et menneske, en: the rules require a person }
