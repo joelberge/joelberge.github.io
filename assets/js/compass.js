@@ -263,9 +263,12 @@
   }
 
   function mainSection(d) {
-    var M = R.main, hi = tr(R.high_word), lo = tr(R.low_word);
+    var M = R.main;
     var because = d.s < 0 ? fill(tr(M.because), { sources: listJoin(d.low.map(function (k) { return esc(tr(M["source_" + k])); })) }) : "";
-    var out = para(fill(tr(M.line), { num: d.quad, name: esc(tr(D.quadrants[d.quad].name)), g: d.g >= 0 ? hi : lo, s: d.s >= 0 ? hi : lo, because: because }));
+    // "but" when one answer points to people and the other to AI (quadrants I and IV), "and" otherwise.
+    var conj = (d.s < 0) !== (d.g < 0) ? M.conj_but : M.conj_and;
+    var out = para(fill(tr(M.line), { num: d.quad, name: esc(tr(D.quadrants[d.quad].name)),
+      sep: esc(tr(d.s < 0 ? M.sep_low : M.sep_high)), because: because, conj: esc(tr(conj)), goal: esc(tr(d.g >= 0 ? M.goal_high : M.goal_low)) }));
     out += para(esc(tr(M.implication[d.quad])), "rep-mine");
     return section("main", null, out);
   }
